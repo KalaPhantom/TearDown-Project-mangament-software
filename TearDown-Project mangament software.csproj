@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>TearDown_Project_mangament_software</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+	 <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+	 <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
+	  
+	  
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Custom Controls\Controls\" />
+  </ItemGroup>
+
+</Project>

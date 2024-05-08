@@ -1,0 +1,16 @@
+﻿
+
+
+> TODO
+
+Implemet the Kaanbasn Style listing 
+
+
+> Create a class that contains all methods that highlights the creation of cards
+> Implement drag and drop event - pass attributes
+
+
+
+
+
+
