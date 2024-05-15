@@ -21,6 +21,12 @@ Font_sizes  - Header: ||  Footer || Body
 
 Color aRGB
 
+Brown_ rgb(252,187,109)
+Blue_main_bg rgb(71,92,122)
+Another Brown rgb(171,108,130)
+Yet another brown (216,115,127)
+Red ata (104,93,121)
+
 
 
 

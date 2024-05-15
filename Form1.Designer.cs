@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             main_panel = new Panel();
-            panel1 = new Panel();
             Main_panel2 = new Panel();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             panel2 = new Panel();
+            notes_btn = new Button();
+            whiteboard_btn = new Button();
+            dashboard_btn = new Button();
             Kanban_list_btn = new Button();
             statusStrip1.SuspendLayout();
             panel2.SuspendLayout();
@@ -49,27 +51,18 @@
             main_panel.Size = new Size(1369, 0);
             main_panel.TabIndex = 0;
             // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(44, 225, 198);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1369, 25);
-            panel1.TabIndex = 1;
-            // 
             // Main_panel2
             // 
             Main_panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            Main_panel2.BackColor = Color.FromArgb(4, 34, 34);
-            Main_panel2.Location = new Point(99, 22);
+            Main_panel2.BackColor = Color.FromArgb(71, 92, 122);
+            Main_panel2.Location = new Point(94, 0);
             Main_panel2.Name = "Main_panel2";
-            Main_panel2.Size = new Size(1270, 601);
+            Main_panel2.Size = new Size(1275, 623);
             Main_panel2.TabIndex = 2;
             // 
             // statusStrip1
             // 
-            statusStrip1.BackColor = Color.FromArgb(0, 99, 100);
+            statusStrip1.BackColor = Color.FromArgb(104, 93, 121);
             statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
             statusStrip1.Location = new Point(0, 613);
             statusStrip1.Name = "statusStrip1";
@@ -85,23 +78,75 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(2, 208, 211);
+            panel2.BackColor = Color.FromArgb(252, 187, 109);
+            panel2.Controls.Add(notes_btn);
+            panel2.Controls.Add(whiteboard_btn);
+            panel2.Controls.Add(dashboard_btn);
             panel2.Controls.Add(Kanban_list_btn);
             panel2.Dock = DockStyle.Left;
-            panel2.Location = new Point(0, 25);
+            panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(105, 588);
+            panel2.Size = new Size(102, 613);
             panel2.TabIndex = 0;
+            // 
+            // notes_btn
+            // 
+            notes_btn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            notes_btn.BackgroundImage = Properties.Resources.icons8_notes_50;
+            notes_btn.BackgroundImageLayout = ImageLayout.Center;
+            notes_btn.FlatStyle = FlatStyle.Flat;
+            notes_btn.Font = new Font("Cascadia Code", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            notes_btn.ForeColor = SystemColors.ControlLightLight;
+            notes_btn.Location = new Point(3, 503);
+            notes_btn.Name = "notes_btn";
+            notes_btn.Size = new Size(96, 91);
+            notes_btn.TabIndex = 3;
+            notes_btn.TextAlign = ContentAlignment.BottomCenter;
+            notes_btn.UseVisualStyleBackColor = true;
+            // 
+            // whiteboard_btn
+            // 
+            whiteboard_btn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            whiteboard_btn.BackgroundImage = Properties.Resources.icons8_whiteboard_50__2_;
+            whiteboard_btn.BackgroundImageLayout = ImageLayout.Center;
+            whiteboard_btn.FlatStyle = FlatStyle.Flat;
+            whiteboard_btn.Font = new Font("Cascadia Code", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            whiteboard_btn.ForeColor = SystemColors.ControlLightLight;
+            whiteboard_btn.Location = new Point(3, 413);
+            whiteboard_btn.Name = "whiteboard_btn";
+            whiteboard_btn.Size = new Size(96, 84);
+            whiteboard_btn.TabIndex = 2;
+            whiteboard_btn.TextAlign = ContentAlignment.BottomCenter;
+            whiteboard_btn.UseVisualStyleBackColor = true;
+            // 
+            // dashboard_btn
+            // 
+            dashboard_btn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            dashboard_btn.BackgroundImage = Properties.Resources.icons8_dashboard_50;
+            dashboard_btn.BackgroundImageLayout = ImageLayout.Center;
+            dashboard_btn.FlatStyle = FlatStyle.Flat;
+            dashboard_btn.Font = new Font("Cascadia Code", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dashboard_btn.ForeColor = SystemColors.ControlLightLight;
+            dashboard_btn.Location = new Point(3, 233);
+            dashboard_btn.Name = "dashboard_btn";
+            dashboard_btn.Size = new Size(96, 84);
+            dashboard_btn.TabIndex = 1;
+            dashboard_btn.TextAlign = ContentAlignment.BottomCenter;
+            dashboard_btn.UseVisualStyleBackColor = true;
             // 
             // Kanban_list_btn
             // 
-            Kanban_list_btn.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            Kanban_list_btn.AutoSize = true;
-            Kanban_list_btn.Location = new Point(12, 119);
+            Kanban_list_btn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            Kanban_list_btn.BackgroundImage = Properties.Resources.icons8_kanban_48;
+            Kanban_list_btn.BackgroundImageLayout = ImageLayout.Center;
+            Kanban_list_btn.FlatStyle = FlatStyle.Flat;
+            Kanban_list_btn.Font = new Font("Cascadia Code", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Kanban_list_btn.ForeColor = SystemColors.ControlLightLight;
+            Kanban_list_btn.Location = new Point(3, 323);
             Kanban_list_btn.Name = "Kanban_list_btn";
-            Kanban_list_btn.Size = new Size(75, 65);
+            Kanban_list_btn.Size = new Size(96, 84);
             Kanban_list_btn.TabIndex = 0;
-            Kanban_list_btn.Text = "kanban list";
+            Kanban_list_btn.TextAlign = ContentAlignment.BottomCenter;
             Kanban_list_btn.UseVisualStyleBackColor = true;
             Kanban_list_btn.Click += Kanban_list_btn_Click;
             // 
@@ -112,7 +157,6 @@
             ClientSize = new Size(1369, 635);
             Controls.Add(panel2);
             Controls.Add(statusStrip1);
-            Controls.Add(panel1);
             Controls.Add(main_panel);
             Controls.Add(Main_panel2);
             Margin = new Padding(3, 2, 3, 2);
@@ -121,7 +165,6 @@
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
             panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -129,11 +172,13 @@
         #endregion
 
         private Panel main_panel;
-        private Panel panel1;
         private Panel Main_panel2;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel toolStripStatusLabel1;
         private Panel panel2;
         private Button Kanban_list_btn;
+        private Button notes_btn;
+        private Button whiteboard_btn;
+        private Button dashboard_btn;
     }
 }
