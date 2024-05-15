@@ -36,6 +36,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.BackColor = SystemColors.ActiveCaption;
             pictureBox1.Location = new Point(73, 58);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(100, 100);
@@ -53,7 +54,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(3, 3);
+            button1.Location = new Point(21, 14);
             button1.Name = "button1";
             button1.Size = new Size(40, 38);
             button1.TabIndex = 2;

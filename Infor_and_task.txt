@@ -13,4 +13,18 @@ Implemet the Kaanbasn Style listing
 
 
 
+//  Theme information
+
+Font
+Font_sizes  - Header: ||  Footer || Body
+
+
+Color aRGB
+
+
+
+
+
+
+
 

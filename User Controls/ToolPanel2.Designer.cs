@@ -1,6 +1,6 @@
 ﻿namespace TearDown_Project_mangament_software.User_Controls
 {
-    partial class Canban_Card
+    partial class ToolPanel2
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,32 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Task_name_label = new Label();
             SuspendLayout();
             // 
-            // Task_name_label
-            // 
-            Task_name_label.AutoSize = true;
-            Task_name_label.Location = new Point(15, 13);
-            Task_name_label.Name = "Task_name_label";
-            Task_name_label.Size = new Size(29, 15);
-            Task_name_label.TabIndex = 0;
-            Task_name_label.Text = "Task";
-            // 
-            // Canban_Card
+            // ToolPanel2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.IndianRed;
-            Controls.Add(Task_name_label);
-            Name = "Canban_Card";
-            Size = new Size(344, 766);
+            BackColor = Color.FromArgb(2, 208, 211);
+            Name = "ToolPanel2";
+            Size = new Size(75, 375);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label Task_name_label;
     }
 }
