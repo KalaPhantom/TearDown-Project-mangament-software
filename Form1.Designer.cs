@@ -37,6 +37,7 @@
             whiteboard_btn = new Button();
             dashboard_btn = new Button();
             Kanban_list_btn = new Button();
+            logo_button = new Button();
             statusStrip1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -79,6 +80,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(252, 187, 109);
+            panel2.Controls.Add(logo_button);
             panel2.Controls.Add(notes_btn);
             panel2.Controls.Add(whiteboard_btn);
             panel2.Controls.Add(dashboard_btn);
@@ -133,6 +135,7 @@
             dashboard_btn.TabIndex = 1;
             dashboard_btn.TextAlign = ContentAlignment.BottomCenter;
             dashboard_btn.UseVisualStyleBackColor = true;
+            dashboard_btn.Click += dashboard_btn_Click;
             // 
             // Kanban_list_btn
             // 
@@ -149,6 +152,21 @@
             Kanban_list_btn.TextAlign = ContentAlignment.BottomCenter;
             Kanban_list_btn.UseVisualStyleBackColor = true;
             Kanban_list_btn.Click += Kanban_list_btn_Click;
+            // 
+            // logo_button
+            // 
+            logo_button.BackgroundImage = Properties.Resources.icons8_bullseye_50___W;
+            logo_button.BackgroundImageLayout = ImageLayout.Center;
+            logo_button.FlatAppearance.BorderSize = 0;
+            logo_button.FlatStyle = FlatStyle.Flat;
+            logo_button.Font = new Font("Cascadia Code", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            logo_button.ForeColor = SystemColors.ControlLightLight;
+            logo_button.Location = new Point(0, 12);
+            logo_button.Name = "logo_button";
+            logo_button.Size = new Size(96, 84);
+            logo_button.TabIndex = 4;
+            logo_button.TextAlign = ContentAlignment.BottomCenter;
+            logo_button.UseVisualStyleBackColor = true;
             // 
             // Main_form
             // 
@@ -180,5 +198,6 @@
         private Button notes_btn;
         private Button whiteboard_btn;
         private Button dashboard_btn;
+        private Button logo_button;
     }
 }

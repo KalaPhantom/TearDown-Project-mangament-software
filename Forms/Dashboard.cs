@@ -16,5 +16,10 @@ namespace TearDown_Project_mangament_software.Forms
         {
             InitializeComponent();
         }
+
+        private void upcomingTask_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
