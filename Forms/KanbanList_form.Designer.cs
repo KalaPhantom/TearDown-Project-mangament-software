@@ -28,19 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            taskColumn_flowlayoutpanel = new FlowLayoutPanel();
             Add_table_btn = new Button();
             SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // taskColumn_flowlayoutpanel
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.BackColor = Color.FromArgb(71, 92, 122);
-            flowLayoutPanel1.Location = new Point(-1, 84);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1370, 547);
-            flowLayoutPanel1.TabIndex = 0;
+            taskColumn_flowlayoutpanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            taskColumn_flowlayoutpanel.AutoScroll = true;
+            taskColumn_flowlayoutpanel.AutoSize = true;
+            taskColumn_flowlayoutpanel.BackColor = Color.FromArgb(71, 92, 122);
+            taskColumn_flowlayoutpanel.Location = new Point(-1, 55);
+            taskColumn_flowlayoutpanel.Name = "taskColumn_flowlayoutpanel";
+            taskColumn_flowlayoutpanel.Size = new Size(1370, 576);
+            taskColumn_flowlayoutpanel.TabIndex = 0;
+            taskColumn_flowlayoutpanel.WrapContents = false;
             // 
             // Add_table_btn
             // 
@@ -51,13 +53,14 @@
             Add_table_btn.ForeColor = SystemColors.ButtonHighlight;
             Add_table_btn.Image = Properties.Resources.icons8_add_50;
             Add_table_btn.ImageAlign = ContentAlignment.MiddleLeft;
-            Add_table_btn.Location = new Point(12, 22);
+            Add_table_btn.Location = new Point(39, 1);
             Add_table_btn.Name = "Add_table_btn";
             Add_table_btn.Size = new Size(138, 56);
             Add_table_btn.TabIndex = 1;
             Add_table_btn.Text = "Add Board";
             Add_table_btn.TextAlign = ContentAlignment.MiddleRight;
             Add_table_btn.UseVisualStyleBackColor = true;
+            Add_table_btn.Click += Add_table_btn_Click;
             // 
             // KanbanList_form
             // 
@@ -68,7 +71,7 @@
             BackColor = Color.FromArgb(104, 93, 121);
             ClientSize = new Size(1369, 635);
             Controls.Add(Add_table_btn);
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(taskColumn_flowlayoutpanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "KanbanList_form";
             Text = "KanbanList_form";
@@ -79,7 +82,7 @@
 
         #endregion
 
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel taskColumn_flowlayoutpanel;
         private Button Add_table_btn;
     }
 }

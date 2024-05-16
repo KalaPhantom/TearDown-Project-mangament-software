@@ -28,5 +28,14 @@ namespace TearDown_Project_mangament_software.User_Controls
         #endregion
 
 
+
+        #region Change Name of the task
+        private void taskcard_name_lbl_Click(object sender, EventArgs e)
+        {
+            change_task_name_txbx.Visible = true;
+            taskcard_name_lbl.Text = change_task_name_txbx.Text;
+            change_task_name_txbx.Visible = false;
+        }
+        #endregion
     }
 }

@@ -32,7 +32,7 @@
             panel1 = new Panel();
             add_task_btn = new Button();
             modify_column_btn = new Button();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            taskCards_flowlayoutPanel = new FlowLayoutPanel();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,7 +57,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(344, 121);
+            panel1.Size = new Size(399, 87);
             panel1.TabIndex = 1;
             // 
             // add_task_btn
@@ -66,7 +66,7 @@
             add_task_btn.FlatStyle = FlatStyle.Flat;
             add_task_btn.ForeColor = SystemColors.ButtonFace;
             add_task_btn.Image = Properties.Resources.icons8_add_24;
-            add_task_btn.Location = new Point(16, 73);
+            add_task_btn.Location = new Point(16, 41);
             add_task_btn.Name = "add_task_btn";
             add_task_btn.Size = new Size(88, 45);
             add_task_btn.TabIndex = 2;
@@ -83,7 +83,7 @@
             modify_column_btn.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             modify_column_btn.ForeColor = SystemColors.ButtonHighlight;
             modify_column_btn.Image = Properties.Resources.icons8_modify_24;
-            modify_column_btn.Location = new Point(218, 73);
+            modify_column_btn.Location = new Point(264, 41);
             modify_column_btn.Name = "modify_column_btn";
             modify_column_btn.Size = new Size(123, 45);
             modify_column_btn.TabIndex = 1;
@@ -92,25 +92,25 @@
             modify_column_btn.UseVisualStyleBackColor = true;
             modify_column_btn.Click += modify_column_btn_Click;
             // 
-            // flowLayoutPanel1
+            // taskCards_flowlayoutPanel
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(3, 124);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(338, 685);
-            flowLayoutPanel1.TabIndex = 2;
+            taskCards_flowlayoutPanel.AutoScroll = true;
+            taskCards_flowlayoutPanel.FlowDirection = FlowDirection.TopDown;
+            taskCards_flowlayoutPanel.Location = new Point(3, 92);
+            taskCards_flowlayoutPanel.Name = "taskCards_flowlayoutPanel";
+            taskCards_flowlayoutPanel.Size = new Size(393, 571);
+            taskCards_flowlayoutPanel.TabIndex = 2;
+            taskCards_flowlayoutPanel.WrapContents = false;
             // 
             // Canban_Column
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(70, 252, 187, 109);
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(taskCards_flowlayoutPanel);
             Controls.Add(panel1);
             Name = "Canban_Column";
-            Size = new Size(344, 812);
+            Size = new Size(399, 666);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -122,6 +122,6 @@
         private Panel panel1;
         private Button add_task_btn;
         private Button modify_column_btn;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel taskCards_flowlayoutPanel;
     }
 }

@@ -21,7 +21,8 @@ namespace TearDown_Project_mangament_software.User_Controls
         #region Add task button event
         private void add_task_btn_Click(object sender, EventArgs e)
         {
-
+            TaskCards taskCards = new TaskCards();
+            taskCards_flowlayoutPanel.Controls.Add(taskCards);
         }
         #endregion
 
