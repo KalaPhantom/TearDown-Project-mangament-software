@@ -28,6 +28,11 @@ Yet another brown (216,115,127)
 Red ata (104,93,121)
 
 
+elements size
+50,50 on tools
+24,24 on card
+
+
 
 
 

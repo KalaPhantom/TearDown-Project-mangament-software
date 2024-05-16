@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace TearDown_Project_mangament_software.User_Controls
 {
-    public partial class Canban_Card : UserControl
+    public partial class TaskCards : UserControl
     {
-        public Canban_Card()
+        public TaskCards()
         {
             InitializeComponent();
         }
+
+
+
+        #region modify
+        // TODO: Aadd functionalities such as customization, due for task, task description
+        private void modify_taskcard_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+
     }
 }

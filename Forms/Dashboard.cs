@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace TearDown_Project_mangament_software.Forms
 {
-    public partial class KanbanList_form : Form
+    public partial class Dashboard : Form
     {
-        public KanbanList_form()
+        public Dashboard()
         {
             InitializeComponent();
-        }
-
-        private void KanbanList_form_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
