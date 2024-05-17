@@ -111,6 +111,7 @@
             Controls.Add(panel1);
             Name = "Canban_Column";
             Size = new Size(399, 666);
+            Load += Canban_Column_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

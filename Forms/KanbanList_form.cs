@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TearDown_Project_mangament_software.User_Controls;
+using System.Collections;
 
 namespace TearDown_Project_mangament_software.Forms
 {
@@ -18,6 +19,15 @@ namespace TearDown_Project_mangament_software.Forms
             InitializeComponent();
         }
 
+        /// <summary>
+        /// data Containers temporary
+        /// </summary>
+        /// 
+        SortedList temporayContainer = new SortedList();
+
+        
+       
+
         private void KanbanList_form_Load(object sender, EventArgs e)
         {
 
@@ -26,7 +36,9 @@ namespace TearDown_Project_mangament_software.Forms
         private void Add_table_btn_Click(object sender, EventArgs e)
         {
             Canban_Column canbanColumn = new Canban_Column();
-            taskColumn_flowlayoutpanel.Controls.Add(canbanColumn);  
+            taskColumn_flowlayoutpanel.Controls.Add(canbanColumn); 
+            
+           
         }
     }
 }

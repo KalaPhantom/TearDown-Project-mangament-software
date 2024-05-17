@@ -21,7 +21,6 @@ namespace TearDown_Project_mangament_software
         KanbanList_form kanbanlist_form;
         Dashboard dashboard;
 
-
         /// <summary>
         /// 
         /// </summary>>
@@ -66,12 +65,6 @@ namespace TearDown_Project_mangament_software
 
         private void dashboard_btn_Click(object sender, EventArgs e)
         {
-            //Main_panel2.Controls.Clear();
-            //Dashboard frm = new Dashboard();
-            //frm.TopLevel = false;
-            //frm.Dock = DockStyle.Fill;
-            //Main_panel2.Controls.Add(frm);
-            //frm.Show();
 
             if (dashboard == null)
             {
