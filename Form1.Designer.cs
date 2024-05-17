@@ -29,15 +29,14 @@
         private void InitializeComponent()
         {
             main_panel = new Panel();
-            Main_panel2 = new Panel();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             panel2 = new Panel();
+            logo_button = new Button();
             notes_btn = new Button();
             whiteboard_btn = new Button();
             dashboard_btn = new Button();
             Kanban_list_btn = new Button();
-            logo_button = new Button();
             statusStrip1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -51,15 +50,6 @@
             main_panel.Name = "main_panel";
             main_panel.Size = new Size(1369, 0);
             main_panel.TabIndex = 0;
-            // 
-            // Main_panel2
-            // 
-            Main_panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            Main_panel2.BackColor = Color.FromArgb(71, 92, 122);
-            Main_panel2.Location = new Point(94, 0);
-            Main_panel2.Name = "Main_panel2";
-            Main_panel2.Size = new Size(1275, 623);
-            Main_panel2.TabIndex = 2;
             // 
             // statusStrip1
             // 
@@ -90,6 +80,21 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(102, 613);
             panel2.TabIndex = 0;
+            // 
+            // logo_button
+            // 
+            logo_button.BackgroundImage = Properties.Resources.icons8_bullseye_50___W;
+            logo_button.BackgroundImageLayout = ImageLayout.Center;
+            logo_button.FlatAppearance.BorderSize = 0;
+            logo_button.FlatStyle = FlatStyle.Flat;
+            logo_button.Font = new Font("Cascadia Code", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            logo_button.ForeColor = SystemColors.ControlLightLight;
+            logo_button.Location = new Point(0, 12);
+            logo_button.Name = "logo_button";
+            logo_button.Size = new Size(96, 84);
+            logo_button.TabIndex = 4;
+            logo_button.TextAlign = ContentAlignment.BottomCenter;
+            logo_button.UseVisualStyleBackColor = true;
             // 
             // notes_btn
             // 
@@ -153,21 +158,6 @@
             Kanban_list_btn.UseVisualStyleBackColor = true;
             Kanban_list_btn.Click += Kanban_list_btn_Click;
             // 
-            // logo_button
-            // 
-            logo_button.BackgroundImage = Properties.Resources.icons8_bullseye_50___W;
-            logo_button.BackgroundImageLayout = ImageLayout.Center;
-            logo_button.FlatAppearance.BorderSize = 0;
-            logo_button.FlatStyle = FlatStyle.Flat;
-            logo_button.Font = new Font("Cascadia Code", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            logo_button.ForeColor = SystemColors.ControlLightLight;
-            logo_button.Location = new Point(0, 12);
-            logo_button.Name = "logo_button";
-            logo_button.Size = new Size(96, 84);
-            logo_button.TabIndex = 4;
-            logo_button.TextAlign = ContentAlignment.BottomCenter;
-            logo_button.UseVisualStyleBackColor = true;
-            // 
             // Main_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -176,7 +166,7 @@
             Controls.Add(panel2);
             Controls.Add(statusStrip1);
             Controls.Add(main_panel);
-            Controls.Add(Main_panel2);
+            IsMdiContainer = true;
             Margin = new Padding(3, 2, 3, 2);
             Name = "Main_form";
             Text = "Tear Down";
@@ -190,7 +180,6 @@
         #endregion
 
         private Panel main_panel;
-        private Panel Main_panel2;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel toolStripStatusLabel1;
         private Panel panel2;

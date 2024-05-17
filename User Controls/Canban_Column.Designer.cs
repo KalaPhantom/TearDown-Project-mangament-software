@@ -57,7 +57,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(399, 87);
+            panel1.Size = new Size(399, 86);
             panel1.TabIndex = 1;
             // 
             // add_task_btn
@@ -66,7 +66,7 @@
             add_task_btn.FlatStyle = FlatStyle.Flat;
             add_task_btn.ForeColor = SystemColors.ButtonFace;
             add_task_btn.Image = Properties.Resources.icons8_add_24;
-            add_task_btn.Location = new Point(16, 41);
+            add_task_btn.Location = new Point(16, 38);
             add_task_btn.Name = "add_task_btn";
             add_task_btn.Size = new Size(88, 45);
             add_task_btn.TabIndex = 2;
@@ -83,9 +83,9 @@
             modify_column_btn.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             modify_column_btn.ForeColor = SystemColors.ButtonHighlight;
             modify_column_btn.Image = Properties.Resources.icons8_modify_24;
-            modify_column_btn.Location = new Point(264, 41);
+            modify_column_btn.Location = new Point(262, 41);
             modify_column_btn.Name = "modify_column_btn";
-            modify_column_btn.Size = new Size(123, 45);
+            modify_column_btn.Size = new Size(134, 45);
             modify_column_btn.TabIndex = 1;
             modify_column_btn.Text = "Modify Column";
             modify_column_btn.TextImageRelation = TextImageRelation.ImageBeforeText;
