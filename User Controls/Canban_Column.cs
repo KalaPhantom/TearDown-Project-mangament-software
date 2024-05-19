@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TearDown_Project_mangament_software.floating_dialogues;
 
+
 namespace TearDown_Project_mangament_software.User_Controls
 {
     public partial class Canban_Column : UserControl
@@ -33,7 +34,6 @@ namespace TearDown_Project_mangament_software.User_Controls
             modify.Show();
         }
         #endregion
-
 
         #region temporary data containers;
 
