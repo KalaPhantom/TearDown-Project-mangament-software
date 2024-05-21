@@ -8,5 +8,9 @@ namespace TearDown_Project_mangament_software.Classes_dex
 {
     internal class Storeage
     {
+        public void StoreData()
+        {
+
+        }
     }
 }

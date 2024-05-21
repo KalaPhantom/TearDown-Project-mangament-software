@@ -39,6 +39,7 @@
             panel4 = new Panel();
             upcoming_task_lbl = new Label();
             splitContainer1 = new SplitContainer();
+            dashc_board_panel = new Panel();
             sp_panel_1 = new Panel();
             sp_panel_1.SuspendLayout();
             db_panel.SuspendLayout();
@@ -113,6 +114,7 @@
             // 
             upcomingTask_panel.AutoSize = true;
             upcomingTask_panel.BackColor = Color.FromArgb(71, 92, 122);
+            upcomingTask_panel.Controls.Add(dashc_board_panel);
             upcomingTask_panel.Controls.Add(properties_label);
             upcomingTask_panel.Controls.Add(upcoming_task_db_fLp);
             upcomingTask_panel.Controls.Add(panel4);
@@ -129,7 +131,7 @@
             properties_label.AutoSize = true;
             properties_label.Font = new Font("Cascadia Code", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             properties_label.ForeColor = SystemColors.ButtonHighlight;
-            properties_label.Location = new Point(526, 13);
+            properties_label.Location = new Point(570, 13);
             properties_label.Name = "properties_label";
             properties_label.Size = new Size(99, 20);
             properties_label.TabIndex = 2;
@@ -142,7 +144,7 @@
             upcoming_task_db_fLp.BackColor = Color.FromArgb(200, 252, 187, 109);
             upcoming_task_db_fLp.Location = new Point(3, 54);
             upcoming_task_db_fLp.Name = "upcoming_task_db_fLp";
-            upcoming_task_db_fLp.Size = new Size(339, 562);
+            upcoming_task_db_fLp.Size = new Size(373, 562);
             upcoming_task_db_fLp.TabIndex = 1;
             // 
             // panel4
@@ -152,7 +154,7 @@
             panel4.Controls.Add(upcoming_task_lbl);
             panel4.Location = new Point(0, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(342, 48);
+            panel4.Size = new Size(376, 48);
             panel4.TabIndex = 0;
             // 
             // upcoming_task_lbl
@@ -182,6 +184,14 @@
             splitContainer1.Size = new Size(1275, 623);
             splitContainer1.SplitterDistance = 425;
             splitContainer1.TabIndex = 2;
+            // 
+            // dashc_board_panel
+            // 
+            dashc_board_panel.BackColor = Color.FromArgb(71, 92, 130);
+            dashc_board_panel.Location = new Point(398, 57);
+            dashc_board_panel.Name = "dashc_board_panel";
+            dashc_board_panel.Size = new Size(436, 530);
+            dashc_board_panel.TabIndex = 3;
             // 
             // Dashboard
             // 
@@ -225,5 +235,6 @@
         private FlowLayoutPanel upcoming_task_db_fLp;
         private Label properties_label;
         private SplitContainer splitContainer1;
+        private Panel dashc_board_panel;
     }
 }

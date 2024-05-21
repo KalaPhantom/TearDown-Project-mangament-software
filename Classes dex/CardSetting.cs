@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TearDown_Project_mangament_software.Classes_dex
 {
-    internal class Class1
+    internal class CardSetting
     {
+
     }
 }
