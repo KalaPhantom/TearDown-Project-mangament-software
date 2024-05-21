@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,10 @@ using System.Windows.Forms;
 
 namespace TearDown_Project_mangament_software.floating_dialogues
 {
+
+
+    
+
     public partial class TaskCard_modify_form : Form
     {
         public TaskCard_modify_form()
@@ -35,7 +40,8 @@ namespace TearDown_Project_mangament_software.floating_dialogues
         #region Set Date and time
         private void pick_due_btn_Click(object sender, EventArgs e)
         {
-
+            Fld_DateandTimePicker timePicker = new Fld_DateandTimePicker();
+            timePicker.ShowDialog();
         }
         #endregion
     }

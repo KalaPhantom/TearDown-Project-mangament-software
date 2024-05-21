@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace TearDown_Project_mangament_software.floating_dialogues
+{
+    public partial class Fld_DateandTimePicker : Form
+    {
+
+        public DateTime dateTime;
+        public Fld_DateandTimePicker()
+        {
+            InitializeComponent();
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            date_display.Text = monthCalendar1.SelectionRange.ToString();
+            dateTime = monthCalendar1.SelectionRange.Start;
+        }
+
+        private void date_display_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

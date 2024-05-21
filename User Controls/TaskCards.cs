@@ -34,7 +34,8 @@ namespace TearDown_Project_mangament_software.User_Controls
         #region Change Name of the task
         private void taskcard_name_lbl_Click(object sender, EventArgs e)
         {
-           
+            Add_name add_Name = new Add_name();
+            add_Name.ShowDialog();
         }
         #endregion
     }
