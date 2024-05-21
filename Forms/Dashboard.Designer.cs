@@ -29,22 +29,25 @@
         private void InitializeComponent()
         {
             Panel sp_panel_1;
-            db_panel = new Panel();
-            Greeting_lbl = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
             Title_lbl = new Label();
+            Greeting_lbl = new Label();
             pictureBox1 = new PictureBox();
             upcomingTask_panel = new Panel();
+            dashc_board_panel = new Panel();
             properties_label = new Label();
             upcoming_task_db_fLp = new FlowLayoutPanel();
+            dashboard_flp = new FlowLayoutPanel();
             panel4 = new Panel();
             upcoming_task_lbl = new Label();
             splitContainer1 = new SplitContainer();
-            dashc_board_panel = new Panel();
             sp_panel_1 = new Panel();
             sp_panel_1.SuspendLayout();
-            db_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             upcomingTask_panel.SuspendLayout();
+            upcoming_task_db_fLp.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -54,38 +57,60 @@
             // 
             // sp_panel_1
             // 
-            sp_panel_1.BackColor = Color.FromArgb(90, 30, 92, 122);
+            sp_panel_1.BackColor = Color.FromArgb(104, 93, 121);
             sp_panel_1.BorderStyle = BorderStyle.FixedSingle;
-            sp_panel_1.Controls.Add(db_panel);
+            sp_panel_1.Controls.Add(label2);
+            sp_panel_1.Controls.Add(label3);
+            sp_panel_1.Controls.Add(label1);
             sp_panel_1.Controls.Add(Title_lbl);
+            sp_panel_1.Controls.Add(Greeting_lbl);
             sp_panel_1.Controls.Add(pictureBox1);
             sp_panel_1.Dock = DockStyle.Fill;
             sp_panel_1.Location = new Point(0, 0);
+            sp_panel_1.Margin = new Padding(3, 4, 3, 4);
             sp_panel_1.Name = "sp_panel_1";
-            sp_panel_1.Size = new Size(425, 623);
+            sp_panel_1.Size = new Size(485, 831);
             sp_panel_1.TabIndex = 0;
             // 
-            // db_panel
+            // label3
             // 
-            db_panel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            db_panel.AutoSize = true;
-            db_panel.BackColor = Color.FromArgb(90, 30, 92, 122);
-            db_panel.Controls.Add(Greeting_lbl);
-            db_panel.Font = new Font("Cascadia Code SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            db_panel.ForeColor = Color.FromArgb(252, 187, 109);
-            db_panel.Location = new Point(-1, 129);
-            db_panel.Name = "db_panel";
-            db_panel.Size = new Size(423, 756);
-            db_panel.TabIndex = 2;
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Cascadia Code", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.FromArgb(252, 187, 109);
+            label3.Location = new Point(157, 92);
+            label3.Name = "label3";
+            label3.Size = new Size(153, 20);
+            label3.TabIndex = 0;
+            label3.Text = "Version 0.1 Beta";
             // 
-            // Greeting_lbl
+            // label2
             // 
-            Greeting_lbl.AutoSize = true;
-            Greeting_lbl.Location = new Point(16, 20);
-            Greeting_lbl.Name = "Greeting_lbl";
-            Greeting_lbl.Size = new Size(307, 21);
-            Greeting_lbl.TabIndex = 0;
-            Greeting_lbl.Text = "Good Morning/ Afternoon/ Evening'";
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.FlatStyle = FlatStyle.Flat;
+            label2.Font = new Font("Cascadia Code", 72F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(252, 187, 109);
+            label2.Location = new Point(173, 315);
+            label2.Name = "label2";
+            label2.Size = new Size(137, 158);
+            label2.TabIndex = 2;
+            label2.Text = "1";
+            label2.Click += label2_Click;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.Font = new Font("Cascadia Code", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(252, 187, 109);
+            label1.Location = new Point(85, 224);
+            label1.Name = "label1";
+            label1.Size = new Size(325, 60);
+            label1.TabIndex = 1;
+            label1.Text = "Your Total Accomplished \r\nTask This Month";
+            label1.TextAlign = ContentAlignment.TopCenter;
             // 
             // Title_lbl
             // 
@@ -93,20 +118,34 @@
             Title_lbl.BackColor = Color.Transparent;
             Title_lbl.Font = new Font("Cascadia Code", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Title_lbl.ForeColor = Color.FromArgb(252, 187, 109);
-            Title_lbl.Location = new Point(127, 30);
+            Title_lbl.Location = new Point(145, 40);
             Title_lbl.Name = "Title_lbl";
-            Title_lbl.Size = new Size(171, 43);
+            Title_lbl.Size = new Size(206, 52);
             Title_lbl.TabIndex = 1;
             Title_lbl.Text = "Teardown";
+            // 
+            // Greeting_lbl
+            // 
+            Greeting_lbl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            Greeting_lbl.AutoSize = true;
+            Greeting_lbl.BackColor = Color.Transparent;
+            Greeting_lbl.Font = new Font("Cascadia Code SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Greeting_lbl.ForeColor = Color.FromArgb(252, 187, 109);
+            Greeting_lbl.Location = new Point(45, 197);
+            Greeting_lbl.Name = "Greeting_lbl";
+            Greeting_lbl.Size = new Size(408, 27);
+            Greeting_lbl.TabIndex = 0;
+            Greeting_lbl.Text = "Good Morning/ Afternoon/ Evening'";
             // 
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImage = Properties.Resources.icons8_bullseye_100_2;
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Location = new Point(14, 16);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(120, 111);
+            pictureBox1.Size = new Size(137, 148);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -120,10 +159,21 @@
             upcomingTask_panel.Controls.Add(panel4);
             upcomingTask_panel.Dock = DockStyle.Fill;
             upcomingTask_panel.Location = new Point(0, 0);
+            upcomingTask_panel.Margin = new Padding(3, 4, 3, 4);
             upcomingTask_panel.Name = "upcomingTask_panel";
-            upcomingTask_panel.Size = new Size(846, 623);
+            upcomingTask_panel.Size = new Size(967, 831);
             upcomingTask_panel.TabIndex = 0;
             upcomingTask_panel.Paint += upcomingTask_panel_Paint;
+            // 
+            // dashc_board_panel
+            // 
+            dashc_board_panel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dashc_board_panel.BackColor = Color.FromArgb(71, 92, 130);
+            dashc_board_panel.Location = new Point(455, 76);
+            dashc_board_panel.Margin = new Padding(3, 4, 3, 4);
+            dashc_board_panel.Name = "dashc_board_panel";
+            dashc_board_panel.Size = new Size(498, 742);
+            dashc_board_panel.TabIndex = 3;
             // 
             // properties_label
             // 
@@ -131,9 +181,9 @@
             properties_label.AutoSize = true;
             properties_label.Font = new Font("Cascadia Code", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             properties_label.ForeColor = SystemColors.ButtonHighlight;
-            properties_label.Location = new Point(570, 13);
+            properties_label.Location = new Point(651, 17);
             properties_label.Name = "properties_label";
-            properties_label.Size = new Size(99, 20);
+            properties_label.Size = new Size(120, 24);
             properties_label.TabIndex = 2;
             properties_label.Text = "Properties";
             // 
@@ -142,10 +192,22 @@
             upcoming_task_db_fLp.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             upcoming_task_db_fLp.AutoSize = true;
             upcoming_task_db_fLp.BackColor = Color.FromArgb(200, 252, 187, 109);
-            upcoming_task_db_fLp.Location = new Point(3, 54);
+            upcoming_task_db_fLp.Controls.Add(dashboard_flp);
+            upcoming_task_db_fLp.Location = new Point(0, 64);
+            upcoming_task_db_fLp.Margin = new Padding(3, 4, 3, 4);
             upcoming_task_db_fLp.Name = "upcoming_task_db_fLp";
-            upcoming_task_db_fLp.Size = new Size(373, 562);
+            upcoming_task_db_fLp.Size = new Size(448, 757);
             upcoming_task_db_fLp.TabIndex = 1;
+            // 
+            // dashboard_flp
+            // 
+            dashboard_flp.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dashboard_flp.AutoSize = true;
+            dashboard_flp.FlowDirection = FlowDirection.TopDown;
+            dashboard_flp.Location = new Point(3, 3);
+            dashboard_flp.Name = "dashboard_flp";
+            dashboard_flp.Size = new Size(0, 0);
+            dashboard_flp.TabIndex = 0;
             // 
             // panel4
             // 
@@ -153,8 +215,9 @@
             panel4.BackColor = Color.FromArgb(252, 187, 109);
             panel4.Controls.Add(upcoming_task_lbl);
             panel4.Location = new Point(0, 0);
+            panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(376, 48);
+            panel4.Size = new Size(448, 64);
             panel4.TabIndex = 0;
             // 
             // upcoming_task_lbl
@@ -162,9 +225,9 @@
             upcoming_task_lbl.AutoSize = true;
             upcoming_task_lbl.Font = new Font("Cascadia Code", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             upcoming_task_lbl.ForeColor = SystemColors.ButtonHighlight;
-            upcoming_task_lbl.Location = new Point(16, 16);
+            upcoming_task_lbl.Location = new Point(18, 21);
             upcoming_task_lbl.Name = "upcoming_task_lbl";
-            upcoming_task_lbl.Size = new Size(126, 20);
+            upcoming_task_lbl.Size = new Size(153, 24);
             upcoming_task_lbl.TabIndex = 1;
             upcoming_task_lbl.Text = "Upcoming Task";
             // 
@@ -172,6 +235,7 @@
             // 
             splitContainer1.Dock = DockStyle.Fill;
             splitContainer1.Location = new Point(0, 0);
+            splitContainer1.Margin = new Padding(3, 4, 3, 4);
             splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -181,37 +245,31 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(upcomingTask_panel);
-            splitContainer1.Size = new Size(1275, 623);
-            splitContainer1.SplitterDistance = 425;
+            splitContainer1.Size = new Size(1457, 831);
+            splitContainer1.SplitterDistance = 485;
+            splitContainer1.SplitterWidth = 5;
             splitContainer1.TabIndex = 2;
-            // 
-            // dashc_board_panel
-            // 
-            dashc_board_panel.BackColor = Color.FromArgb(71, 92, 130);
-            dashc_board_panel.Location = new Point(398, 57);
-            dashc_board_panel.Name = "dashc_board_panel";
-            dashc_board_panel.Size = new Size(436, 530);
-            dashc_board_panel.TabIndex = 3;
             // 
             // Dashboard
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(104, 93, 122);
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1275, 623);
+            ClientSize = new Size(1457, 831);
             Controls.Add(splitContainer1);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Dashboard";
             Text = "Dashboard";
             sp_panel_1.ResumeLayout(false);
             sp_panel_1.PerformLayout();
-            db_panel.ResumeLayout(false);
-            db_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             upcomingTask_panel.ResumeLayout(false);
             upcomingTask_panel.PerformLayout();
+            upcoming_task_db_fLp.ResumeLayout(false);
+            upcoming_task_db_fLp.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             splitContainer1.Panel1.ResumeLayout(false);
@@ -227,7 +285,6 @@
         private Panel sp_panel_1;
         private Label Title_lbl;
         private PictureBox pictureBox1;
-        private Panel db_panel;
         private Panel upcomingTask_panel;
         private Panel panel4;
         private Label upcoming_task_lbl;
@@ -236,5 +293,9 @@
         private Label properties_label;
         private SplitContainer splitContainer1;
         private Panel dashc_board_panel;
+        private Label label2;
+        private Label label1;
+        private FlowLayoutPanel dashboard_flp;
+        private Label label3;
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TearDown_Project_mangament_software.floating_dialogues;
 
 namespace TearDown_Project_mangament_software.User_Controls
 {
@@ -23,7 +24,8 @@ namespace TearDown_Project_mangament_software.User_Controls
         // TODO: Aadd functionalities such as customization, due for task, task description
         private void modify_taskcard_btn_Click(object sender, EventArgs e)
         {
-
+            TaskCard_modify_form modify_frm = new TaskCard_modify_form();
+            modify_frm.ShowDialog();
         }
         #endregion
 
@@ -32,9 +34,7 @@ namespace TearDown_Project_mangament_software.User_Controls
         #region Change Name of the task
         private void taskcard_name_lbl_Click(object sender, EventArgs e)
         {
-            change_task_name_txbx.Visible = true;
-            taskcard_name_lbl.Text = change_task_name_txbx.Text;
-            change_task_name_txbx.Visible = false;
+           
         }
         #endregion
     }
