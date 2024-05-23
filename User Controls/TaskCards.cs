@@ -16,26 +16,33 @@ namespace TearDown_Project_mangament_software.User_Controls
     {
 
         //Default fields
-        
+
         public DateTime due;
         public Color color = Color.FromArgb(252, 187, 109);
+
+
 
 
         #region Properties
         public string TaskName
         {
             get { return taskcard_name_lbl.Text; }
-            set {taskcard_name_lbl.Text = value;} 
+            set { taskcard_name_lbl.Text = value; }
         }
 
         public Color taskColor
         {
             get { return Task_color.BackColor; }
-            set { Task_color.BackColor = value;}
+            set { Task_color.BackColor = value; }
         }
 
         public DateTime dateTime { get; set; }
         public string taskDescription { get; set; }
+
+        public bool DeleteCard
+        {
+            get; set;
+        }
 
         #endregion
 
@@ -43,8 +50,6 @@ namespace TearDown_Project_mangament_software.User_Controls
         public TaskCards()
         {
             InitializeComponent();
-
-
         }
         #region modify
 
@@ -59,7 +64,7 @@ namespace TearDown_Project_mangament_software.User_Controls
                 modify_form.Task_Color = this.taskColor;
                 modify_form.Date_Time = this.dateTime;
                 modify_form.Task_Description = this.taskDescription;
-              
+
 
                 if (modify_form.ShowDialog() == DialogResult.OK)
                 {
@@ -100,5 +105,45 @@ namespace TearDown_Project_mangament_software.User_Controls
                 Task_color.BackColor = color;
             }
         }
+
+        private void set_as_btn_Click(object sender, EventArgs e)
+        {
+            using (Set_as_ set_as_form = new Set_as_())
+            {
+                set_as_form.Delete_card = this.DeleteCard;
+
+                if (set_as_form.ShowDialog() == DialogResult.OK)
+                {
+                    this.DeleteCard = set_as_form.Delete_card;
+                    if (set_as_form.Delete_card == true)
+                    {
+                        this.Parent.Controls.Remove(this);
+                    }
+                }
+            }
+        }
+
+
+        #region redundant
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TaskCards_Validated(object sender, EventArgs e)
+        {
+      
+        }
+
+        private void TaskCards_Leave(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void TaskCards_Enter(object sender, EventArgs e)
+        {
+       
+        }
+        #endregion
     }
 }
