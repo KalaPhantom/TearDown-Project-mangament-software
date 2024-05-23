@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
+            nameBox = new TextBox();
             label1 = new Label();
             button1 = new Button();
             pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // textBox1
+            // nameBox
             // 
-            textBox1.Location = new Point(96, 78);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(525, 27);
-            textBox1.TabIndex = 0;
-            textBox1.TextChanged += textBox1_TextChanged;
+            nameBox.Location = new Point(96, 78);
+            nameBox.Name = "nameBox";
+            nameBox.Size = new Size(525, 27);
+            nameBox.TabIndex = 0;
+            nameBox.TextChanged += textBox1_TextChanged;
             // 
             // label1
             // 
@@ -65,6 +65,7 @@
             button1.TabIndex = 2;
             button1.Text = "Save";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // pictureBox1
             // 
@@ -85,7 +86,7 @@
             Controls.Add(pictureBox1);
             Controls.Add(button1);
             Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(nameBox);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Add_name";
             Text = "Add_name";
@@ -96,7 +97,7 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox nameBox;
         private Label label1;
         private Button button1;
         private PictureBox pictureBox1;

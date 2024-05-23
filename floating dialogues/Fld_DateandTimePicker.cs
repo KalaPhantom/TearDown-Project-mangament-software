@@ -13,7 +13,11 @@ namespace TearDown_Project_mangament_software.floating_dialogues
     public partial class Fld_DateandTimePicker : Form
     {
 
-        public DateTime dateTime;
+
+        public DateTime dateTime { get; set; }
+
+
+
         public Fld_DateandTimePicker()
         {
             InitializeComponent();
@@ -28,6 +32,11 @@ namespace TearDown_Project_mangament_software.floating_dialogues
         private void date_display_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
         }
     }
 }

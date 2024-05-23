@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             task_condition_panel = new Panel();
-            pictureBox1 = new PictureBox();
+            Task_color = new PictureBox();
             modify_taskcard_btn = new Button();
             due_lbl = new Label();
             taskcard_name_lbl = new Label();
             task_condition_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Task_color).BeginInit();
             SuspendLayout();
             // 
             // task_condition_panel
             // 
             task_condition_panel.BackColor = Color.FromArgb(104, 93, 121);
-            task_condition_panel.Controls.Add(pictureBox1);
+            task_condition_panel.Controls.Add(Task_color);
             task_condition_panel.Controls.Add(modify_taskcard_btn);
             task_condition_panel.Controls.Add(due_lbl);
             task_condition_panel.Controls.Add(taskcard_name_lbl);
@@ -50,16 +50,16 @@
             task_condition_panel.Size = new Size(386, 123);
             task_condition_panel.TabIndex = 0;
             // 
-            // pictureBox1
+            // Task_color
             // 
-            pictureBox1.BackColor = Color.FromArgb(252, 187, 109);
-            pictureBox1.Dock = DockStyle.Top;
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(386, 33);
-            pictureBox1.TabIndex = 4;
-            pictureBox1.TabStop = false;
+            Task_color.BackColor = Color.FromArgb(252, 187, 109);
+            Task_color.Dock = DockStyle.Top;
+            Task_color.Location = new Point(0, 0);
+            Task_color.Margin = new Padding(3, 4, 3, 4);
+            Task_color.Name = "Task_color";
+            Task_color.Size = new Size(386, 33);
+            Task_color.TabIndex = 4;
+            Task_color.TabStop = false;
             // 
             // modify_taskcard_btn
             // 
@@ -106,9 +106,10 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "TaskCards";
             Size = new Size(386, 150);
+            Load += TaskCards_Load;
             task_condition_panel.ResumeLayout(false);
             task_condition_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Task_color).EndInit();
             ResumeLayout(false);
         }
 
@@ -118,6 +119,6 @@
         private Button modify_taskcard_btn;
         private Label taskcard_name_lbl;
         private Label due_lbl;
-        private PictureBox pictureBox1;
+        private PictureBox Task_color;
     }
 }
