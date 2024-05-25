@@ -104,10 +104,12 @@
             // 
             // dateTimePicker1
             // 
+            dateTimePicker1.Format = DateTimePickerFormat.Time;
             dateTimePicker1.Location = new Point(22, 379);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(262, 27);
             dateTimePicker1.TabIndex = 4;
+            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // Fld_DateandTimePicker
             // 

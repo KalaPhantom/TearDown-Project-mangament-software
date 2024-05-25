@@ -30,16 +30,16 @@
         {
             label1 = new Label();
             groupBox1 = new GroupBox();
-            radioButton3 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton1 = new RadioButton();
-            groupBox2 = new GroupBox();
-            radioButton5 = new RadioButton();
+            none_rdb = new RadioButton();
+            mid_rdb = new RadioButton();
+            top_rdb = new RadioButton();
+            ignoreDeadline_tr_rdb = new GroupBox();
+            ignoreDealine_false_rdb = new RadioButton();
             radioButton6 = new RadioButton();
             del_btn = new Button();
             Save_btn = new Button();
             groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
+            ignoreDeadline_tr_rdb.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -55,9 +55,9 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(radioButton3);
-            groupBox1.Controls.Add(radioButton2);
-            groupBox1.Controls.Add(radioButton1);
+            groupBox1.Controls.Add(none_rdb);
+            groupBox1.Controls.Add(mid_rdb);
+            groupBox1.Controls.Add(top_rdb);
             groupBox1.Font = new Font("Cascadia Code SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox1.ForeColor = Color.FromArgb(252, 187, 109);
             groupBox1.Location = new Point(12, 66);
@@ -67,62 +67,66 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Priority Level";
             // 
-            // radioButton3
+            // none_rdb
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(292, 26);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(66, 24);
-            radioButton3.TabIndex = 2;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "None";
-            radioButton3.UseVisualStyleBackColor = true;
+            none_rdb.AutoSize = true;
+            none_rdb.Location = new Point(292, 26);
+            none_rdb.Name = "none_rdb";
+            none_rdb.Size = new Size(66, 24);
+            none_rdb.TabIndex = 2;
+            none_rdb.TabStop = true;
+            none_rdb.Text = "None";
+            none_rdb.UseVisualStyleBackColor = true;
+            none_rdb.CheckedChanged += none_rdb_CheckedChanged;
             // 
-            // radioButton2
+            // mid_rdb
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(150, 26);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(57, 24);
-            radioButton2.TabIndex = 1;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Mid";
-            radioButton2.UseVisualStyleBackColor = true;
+            mid_rdb.AutoSize = true;
+            mid_rdb.Location = new Point(150, 26);
+            mid_rdb.Name = "mid_rdb";
+            mid_rdb.Size = new Size(57, 24);
+            mid_rdb.TabIndex = 1;
+            mid_rdb.TabStop = true;
+            mid_rdb.Text = "Mid";
+            mid_rdb.UseVisualStyleBackColor = true;
+            mid_rdb.CheckedChanged += mid_rdb_CheckedChanged;
             // 
-            // radioButton1
+            // top_rdb
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(24, 26);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(57, 24);
-            radioButton1.TabIndex = 0;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Top";
-            radioButton1.UseVisualStyleBackColor = true;
+            top_rdb.AutoSize = true;
+            top_rdb.Location = new Point(24, 26);
+            top_rdb.Name = "top_rdb";
+            top_rdb.Size = new Size(57, 24);
+            top_rdb.TabIndex = 0;
+            top_rdb.TabStop = true;
+            top_rdb.Text = "Top";
+            top_rdb.UseVisualStyleBackColor = true;
+            top_rdb.CheckedChanged += top_rdb_CheckedChanged;
             // 
-            // groupBox2
+            // ignoreDeadline_tr_rdb
             // 
-            groupBox2.Controls.Add(radioButton5);
-            groupBox2.Controls.Add(radioButton6);
-            groupBox2.Font = new Font("Cascadia Code SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox2.ForeColor = Color.FromArgb(252, 187, 109);
-            groupBox2.Location = new Point(12, 137);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(475, 65);
-            groupBox2.TabIndex = 3;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Ignore Deadline ?";
+            ignoreDeadline_tr_rdb.Controls.Add(ignoreDealine_false_rdb);
+            ignoreDeadline_tr_rdb.Controls.Add(radioButton6);
+            ignoreDeadline_tr_rdb.Font = new Font("Cascadia Code SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ignoreDeadline_tr_rdb.ForeColor = Color.FromArgb(252, 187, 109);
+            ignoreDeadline_tr_rdb.Location = new Point(12, 137);
+            ignoreDeadline_tr_rdb.Name = "ignoreDeadline_tr_rdb";
+            ignoreDeadline_tr_rdb.Size = new Size(475, 65);
+            ignoreDeadline_tr_rdb.TabIndex = 3;
+            ignoreDeadline_tr_rdb.TabStop = false;
+            ignoreDeadline_tr_rdb.Text = "Ignore Deadline ?";
             // 
-            // radioButton5
+            // ignoreDealine_false_rdb
             // 
-            radioButton5.AutoSize = true;
-            radioButton5.Location = new Point(150, 26);
-            radioButton5.Name = "radioButton5";
-            radioButton5.Size = new Size(48, 24);
-            radioButton5.TabIndex = 1;
-            radioButton5.TabStop = true;
-            radioButton5.Text = "No";
-            radioButton5.UseVisualStyleBackColor = true;
+            ignoreDealine_false_rdb.AutoSize = true;
+            ignoreDealine_false_rdb.Location = new Point(150, 26);
+            ignoreDealine_false_rdb.Name = "ignoreDealine_false_rdb";
+            ignoreDealine_false_rdb.Size = new Size(48, 24);
+            ignoreDealine_false_rdb.TabIndex = 1;
+            ignoreDealine_false_rdb.TabStop = true;
+            ignoreDealine_false_rdb.Text = "No";
+            ignoreDealine_false_rdb.UseVisualStyleBackColor = true;
+            ignoreDealine_false_rdb.CheckedChanged += ignoreDealine_false_rdb_CheckedChanged;
             // 
             // radioButton6
             // 
@@ -134,6 +138,7 @@
             radioButton6.TabStop = true;
             radioButton6.Text = "Yes";
             radioButton6.UseVisualStyleBackColor = true;
+            radioButton6.CheckedChanged += radioButton6_CheckedChanged;
             // 
             // del_btn
             // 
@@ -169,15 +174,15 @@
             ClientSize = new Size(499, 366);
             Controls.Add(Save_btn);
             Controls.Add(del_btn);
-            Controls.Add(groupBox2);
+            Controls.Add(ignoreDeadline_tr_rdb);
             Controls.Add(groupBox1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Set_as_";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
+            ignoreDeadline_tr_rdb.ResumeLayout(false);
+            ignoreDeadline_tr_rdb.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -186,11 +191,11 @@
 
         private Label label1;
         private GroupBox groupBox1;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
-        private RadioButton radioButton3;
-        private GroupBox groupBox2;
-        private RadioButton radioButton5;
+        private RadioButton mid_rdb;
+        private RadioButton top_rdb;
+        private RadioButton none_rdb;
+        private GroupBox ignoreDeadline_tr_rdb;
+        private RadioButton ignoreDealine_false_rdb;
         private RadioButton radioButton6;
         private Button del_btn;
         private Button Save_btn;

@@ -7,9 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using TearDown_Project_mangament_software.User_Controls;
 using System.Collections;
 using TearDown_Project_mangament_software.Classes_dex;
+using System.Text.Json;
+using TearDown_Project_mangament_software.Systems;
 
 namespace TearDown_Project_mangament_software.Forms
 {
@@ -34,6 +37,22 @@ namespace TearDown_Project_mangament_software.Forms
 
         }
 
+        #region GetCards from the panel
+        
+        #endregion
+
+        #region Save the panel data from a Json File
+        
+
+        private List<KanbanCardData> GetCardsFromPanel(FlowLayoutPanel flp)
+        {
+            return flp.Controls.OfType<TaskCards>().Select(card => new KanbanCardData
+            {
+                taskName = card.TaskName,
+                taskDescription = card.taskDescription
+            }).ToList();
+        }
+        #endregion
 
         #region Add
         private void Add_table_btn_Click(object sender, EventArgs e)
@@ -73,8 +92,6 @@ namespace TearDown_Project_mangament_software.Forms
             
         }
         #endregion
-
-       
 
 
     }

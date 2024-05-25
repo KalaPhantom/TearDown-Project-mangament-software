@@ -25,6 +25,11 @@ namespace TearDown_Project_mangament_software.User_Controls
         //public static Color kanbanColorBottom = Color.FromArgb(252, 187, 109);
 
         #region properties
+
+        public FlowLayoutPanel myFlP
+        {
+            get { return taskCards_flowlayoutPanel; }
+        }
         public string kanban_column_name
         {
             get { return Task_name_label.Text; }

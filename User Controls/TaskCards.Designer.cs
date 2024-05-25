@@ -41,11 +41,11 @@
             // task_condition_panel
             // 
             task_condition_panel.BackColor = Color.FromArgb(104, 93, 121);
-            task_condition_panel.Controls.Add(set_as_btn);
             task_condition_panel.Controls.Add(Task_color);
             task_condition_panel.Controls.Add(modify_taskcard_btn);
             task_condition_panel.Controls.Add(due_lbl);
             task_condition_panel.Controls.Add(taskcard_name_lbl);
+            task_condition_panel.Controls.Add(set_as_btn);
             task_condition_panel.Location = new Point(0, 0);
             task_condition_panel.Margin = new Padding(3, 4, 3, 4);
             task_condition_panel.Name = "task_condition_panel";

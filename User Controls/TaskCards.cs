@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TearDown_Project_mangament_software.floating_dialogues;
+using TearDown_Project_mangament_software.Systems;
 
 namespace TearDown_Project_mangament_software.User_Controls
 {
@@ -20,10 +21,9 @@ namespace TearDown_Project_mangament_software.User_Controls
         public DateTime due;
         public Color color = Color.FromArgb(252, 187, 109);
 
-
-
-
         #region Properties
+
+        public int ColumnNumber { get ; set; }
         public string TaskName
         {
             get { return taskcard_name_lbl.Text; }
@@ -35,6 +35,18 @@ namespace TearDown_Project_mangament_software.User_Controls
             get { return Task_color.BackColor; }
             set { Task_color.BackColor = value; }
         }
+
+        // Bool property for ignoring the deadline
+        public bool ignoreDeadline
+        {
+            get; set;
+        }
+
+
+        // The priority level property uses a string to assign the priority level (top,mid,none)
+
+        public string prioritylevel { get;set; }
+     
 
         public DateTime dateTime { get; set; }
         public string taskDescription { get; set; }
@@ -51,6 +63,8 @@ namespace TearDown_Project_mangament_software.User_Controls
         {
             InitializeComponent();
         }
+
+
         #region modify
 
         // TODO: Aadd functionalities such as customization, due for task, task description
@@ -72,8 +86,9 @@ namespace TearDown_Project_mangament_software.User_Controls
                     dateTime = modify_form.Date_Time;
                     taskDescription = modify_form.Task_Description;
                     due_lbl.Text = String.Concat("Due: ", modify_form.Date_Time.ToString());
+                    //Temp.DataValidator_Remove_and_Replace(TaskName, modify_form.Date_Time);
+                    Temp.UpdateDate(TaskName,dateTime);
                 }
-
             }
         }
         #endregion
@@ -90,10 +105,11 @@ namespace TearDown_Project_mangament_software.User_Controls
 
                 if (addName.ShowDialog() == DialogResult.OK)
                 {
+                    Temp.NameValidator(addName.TaskName,TaskName,dateTime );
                     TaskName = addName.TaskName;
                 }
             }
-
+            
         }
         #endregion
 
@@ -111,18 +127,23 @@ namespace TearDown_Project_mangament_software.User_Controls
             using (Set_as_ set_as_form = new Set_as_())
             {
                 set_as_form.Delete_card = this.DeleteCard;
+                set_as_form.Priority_level = this.prioritylevel;
+                set_as_form.Ignore_Deadline = this.ignoreDeadline;
 
                 if (set_as_form.ShowDialog() == DialogResult.OK)
                 {
                     this.DeleteCard = set_as_form.Delete_card;
+                    this.prioritylevel = set_as_form.Priority_level;
+                    this.ignoreDeadline = set_as_form.Ignore_Deadline;
                     if (set_as_form.Delete_card == true)
                     {
                         this.Parent.Controls.Remove(this);
+
+                
                     }
                 }
             }
         }
-
 
         #region redundant
         /// <summary>
@@ -145,5 +166,7 @@ namespace TearDown_Project_mangament_software.User_Controls
        
         }
         #endregion
+
+        
     }
 }
