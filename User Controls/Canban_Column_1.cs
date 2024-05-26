@@ -16,6 +16,9 @@ using System.Collections;
 using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using TearDown_Project_mangament_software.Systems;
+using System.Threading;
+using System.Security.Policy;
+using TearDown_Project_mangament_software.Forms;
 
 
 namespace TearDown_Project_mangament_software.User_Controls
@@ -30,6 +33,7 @@ namespace TearDown_Project_mangament_software.User_Controls
         //public static Color kanbanColorBottom = Color.FromArgb(252, 187, 109);
 
         #region properties
+
 
 
         public const int Columnn_number = 1;
@@ -52,23 +56,32 @@ namespace TearDown_Project_mangament_software.User_Controls
 
         private int cardCount = 0;
 
+        public bool Del { get; set; }
+
         #endregion
 
 
+        public static Thread savePer1;
 
         public Canban_Column_1()
         {
             InitializeComponent();
+            LoadCards();
+            savePer1 = new Thread(PassDatafromColumn1);
+            savePer1.Start();
+
         }
 
         #region Add task button event
         private void add_task_btn_Click(object sender, EventArgs e)
-        { 
+        {
             TaskCards taskCards = new TaskCards();
             taskCards.ColumnNumber = Columnn_number;
-            taskCards.TaskName = $"Click here to add name {cardCount++}";
+            taskCards.TaskName = $"Task {cardCount++}";
+            taskCards.ignoreDeadline = true;
             taskCards_flowlayoutPanel.Controls.Add(taskCards);
             Temp.taskCardColumn_1.Add(taskCards.TaskName, taskCards.dateTime);
+
         }
         #endregion
 
@@ -104,11 +117,11 @@ namespace TearDown_Project_mangament_software.User_Controls
         }
         #endregion
 
-      
+
 
         private void Canban_Column_Enter(object sender, EventArgs e)
         {
-           
+
         }
 
 
@@ -116,25 +129,31 @@ namespace TearDown_Project_mangament_software.User_Controls
         #region Json Methods
 
         // This methods includes all interconnections between the JsonSerializer.cs Class to ensure modularity
-        
+
         public void PassDatafromColumn1()
         {
             // Passes all components extracted from all cards in the flowlayout panel from the form 
 
-            // Converts all data from a list to an object
-            var columnData = new KanbanColumndata
-            {
-                column1 = saveCardData_fromColumn1()
-            };
 
-            // The object is then passed here to serialized all files
-            string jsonString = JsonConvert.SerializeObject(columnData, Formatting.Indented);
-            File.WriteAllText("kanbanBoardData.json", jsonString);
-          
+
+            while (Main_form.ThreadRun)
+            {
+
+                Thread.Sleep(500);
+                // Converts all data from a list to an object
+                var columnData = new KanbanColumndata
+                {
+                    column1 = saveCardData_fromColumn1()
+                };
+
+                // The object is then passed here to serialized all files
+                string jsonString = JsonConvert.SerializeObject(columnData, Formatting.Indented);
+                File.WriteAllText(@"KanbanColumn1_data.json", jsonString);
+            }
 
         }
 
-        public  List<KanbanCardData> saveCardData_fromColumn1()
+        public List<KanbanCardData> saveCardData_fromColumn1()
         {
             List<KanbanCardData> temp = new List<KanbanCardData>();
 
@@ -145,17 +164,121 @@ namespace TearDown_Project_mangament_software.User_Controls
                     taskName = cards.TaskName,
                     taskCardColor = cards.taskColor,
                     taskDescription = cards.taskDescription,
-                    dueDate = cards.due,
+                    dueDate = cards.dateTime,
                     taskPriorityLevel = cards.prioritylevel,
-                    ignoreDeadline = cards.ignoreDeadline
+                    ignoreDeadline = cards.ignoreDeadline,
+                    missedDeadLine = cards.missedDeadline
                 };
+
                 temp.Add(cardsToStore);
             }
 
             return temp;
         }
-
-   
         #endregion
+
+        #region leave column event
+        private void Canban_Column_1_Leave(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region Thread trigger function
+
+
+        public static void Stop_Recording_thread()
+        {
+            Main_form.ThreadRun = false;
+            Thread.Sleep(2000);
+
+        }
+
+        #endregion
+
+        #region drag and drop event
+        private void taskCards_flowlayoutPanel_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(TaskCards)))
+            {
+                e.Effect = DragDropEffects.Move;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void taskCards_flowlayoutPanel_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(TaskCards)))
+            {
+                TaskCards taskCards = (TaskCards)e.Data.GetData(typeof(TaskCards));
+                FlowLayoutPanel targetPanel = (FlowLayoutPanel)sender;
+                targetPanel.Controls.Add(taskCards);
+                taskCards.Location = targetPanel.PointToClient(new Point(e.X, e.Y));
+            }
+        }
+
+        private void taskCards_flowlayoutPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            TaskCards a = sender as TaskCards;
+        }
+        #endregion
+
+
+        #region Json Deserializer
+
+        public void PassPrevData_Column1()
+        {
+
+        }
+
+        private void LoadCards()
+        {
+            if (File.Exists("KanbanColumn1_data.json"))
+            {
+                string jsonString = File.ReadAllText("KanbanColumn1_data.json");
+                var boardData = JsonConvert.DeserializeObject<KanbanColumndata>(jsonString);
+
+                LoadCards_to_flp(taskCards_flowlayoutPanel, boardData.column1);
+            }
+            
+        }
+
+        private void LoadCards_to_flp(FlowLayoutPanel flp, List<KanbanCardData> taskCards)
+        {
+            foreach (var obj in taskCards)
+            {
+                AddCardToPanel(flp, obj.taskName, obj.taskDescription, obj.taskPriorityLevel, obj.dueDate, obj.taskCardColor, obj.ignoreDeadline,obj.missedDeadLine);
+            }
+        }
+
+        private void AddCardToPanel(FlowLayoutPanel panelHolder, string taskName, string taskDescription, string priorityLevel, DateTime timeAndDate, Color task_Color, bool ignoreDeadline, bool missedDeadline)
+        {
+
+            if (taskName == "")
+            {
+                taskName = "Unamedtask";
+            }
+
+            TaskCards card = new TaskCards
+            {
+
+                TaskName = taskName,
+                taskDescription = taskDescription,
+                prioritylevel = priorityLevel,
+                ignoreDeadline = ignoreDeadline,
+                dateTime = timeAndDate,
+                taskColor = task_Color,
+                missedDeadline = missedDeadline
+
+            };
+            panelHolder.Controls.Add(card);
+        }
+
+
+        #endregion
+
     }
 }

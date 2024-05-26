@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             Panel sp_panel_1;
-            label3 = new Label();
             label2 = new Label();
+            label3 = new Label();
             label1 = new Label();
             Title_lbl = new Label();
             Greeting_lbl = new Label();
             pictureBox1 = new PictureBox();
             upcomingTask_panel = new Panel();
             dashc_board_panel = new Panel();
+            Description_box = new TextBox();
             properties_label = new Label();
             upcoming_task_db_fLp = new FlowLayoutPanel();
             dashboard_flp = new FlowLayoutPanel();
@@ -47,6 +48,7 @@
             sp_panel_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             upcomingTask_panel.SuspendLayout();
+            dashc_board_panel.SuspendLayout();
             upcoming_task_db_fLp.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -72,18 +74,6 @@
             sp_panel_1.Size = new Size(485, 831);
             sp_panel_1.TabIndex = 0;
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Cascadia Code", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.FromArgb(252, 187, 109);
-            label3.Location = new Point(157, 92);
-            label3.Name = "label3";
-            label3.Size = new Size(153, 20);
-            label3.TabIndex = 0;
-            label3.Text = "Version 0.1 Beta";
-            // 
             // label2
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -99,17 +89,29 @@
             label2.Text = "1";
             label2.Click += label2_Click;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Cascadia Code", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.FromArgb(252, 187, 109);
+            label3.Location = new Point(157, 92);
+            label3.Name = "label3";
+            label3.Size = new Size(153, 20);
+            label3.TabIndex = 0;
+            label3.Text = "Version 0.1 Beta";
+            // 
             // label1
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Cascadia Code", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(252, 187, 109);
-            label1.Location = new Point(85, 224);
+            label1.Location = new Point(134, 255);
             label1.Name = "label1";
-            label1.Size = new Size(325, 60);
+            label1.Size = new Size(208, 60);
             label1.TabIndex = 1;
-            label1.Text = "Your Total Accomplished \r\nTask This Month";
+            label1.Text = "Your Total Task\r\nToday";
             label1.TextAlign = ContentAlignment.TopCenter;
             // 
             // Title_lbl
@@ -169,11 +171,22 @@
             // 
             dashc_board_panel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dashc_board_panel.BackColor = Color.FromArgb(71, 92, 130);
-            dashc_board_panel.Location = new Point(455, 76);
+            dashc_board_panel.Controls.Add(Description_box);
+            dashc_board_panel.Location = new Point(524, 76);
             dashc_board_panel.Margin = new Padding(3, 4, 3, 4);
             dashc_board_panel.Name = "dashc_board_panel";
-            dashc_board_panel.Size = new Size(498, 742);
+            dashc_board_panel.Size = new Size(429, 742);
             dashc_board_panel.TabIndex = 3;
+            // 
+            // Description_box
+            // 
+            Description_box.BackColor = Color.MidnightBlue;
+            Description_box.Dock = DockStyle.Fill;
+            Description_box.Location = new Point(0, 0);
+            Description_box.Multiline = true;
+            Description_box.Name = "Description_box";
+            Description_box.Size = new Size(429, 742);
+            Description_box.TabIndex = 1;
             // 
             // properties_label
             // 
@@ -181,11 +194,11 @@
             properties_label.AutoSize = true;
             properties_label.Font = new Font("Cascadia Code", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             properties_label.ForeColor = SystemColors.ButtonHighlight;
-            properties_label.Location = new Point(651, 17);
+            properties_label.Location = new Point(675, 21);
             properties_label.Name = "properties_label";
-            properties_label.Size = new Size(120, 24);
+            properties_label.Size = new Size(131, 24);
             properties_label.TabIndex = 2;
-            properties_label.Text = "Properties";
+            properties_label.Text = "Description";
             // 
             // upcoming_task_db_fLp
             // 
@@ -196,7 +209,7 @@
             upcoming_task_db_fLp.Location = new Point(0, 64);
             upcoming_task_db_fLp.Margin = new Padding(3, 4, 3, 4);
             upcoming_task_db_fLp.Name = "upcoming_task_db_fLp";
-            upcoming_task_db_fLp.Size = new Size(448, 757);
+            upcoming_task_db_fLp.Size = new Size(518, 757);
             upcoming_task_db_fLp.TabIndex = 1;
             // 
             // dashboard_flp
@@ -217,7 +230,7 @@
             panel4.Location = new Point(0, 0);
             panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(448, 64);
+            panel4.Size = new Size(518, 64);
             panel4.TabIndex = 0;
             // 
             // upcoming_task_lbl
@@ -227,9 +240,9 @@
             upcoming_task_lbl.ForeColor = SystemColors.ButtonHighlight;
             upcoming_task_lbl.Location = new Point(18, 21);
             upcoming_task_lbl.Name = "upcoming_task_lbl";
-            upcoming_task_lbl.Size = new Size(153, 24);
+            upcoming_task_lbl.Size = new Size(219, 24);
             upcoming_task_lbl.TabIndex = 1;
-            upcoming_task_lbl.Text = "Upcoming Task";
+            upcoming_task_lbl.Text = "Upcoming Task Today";
             // 
             // splitContainer1
             // 
@@ -268,6 +281,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             upcomingTask_panel.ResumeLayout(false);
             upcomingTask_panel.PerformLayout();
+            dashc_board_panel.ResumeLayout(false);
+            dashc_board_panel.PerformLayout();
             upcoming_task_db_fLp.ResumeLayout(false);
             upcoming_task_db_fLp.PerformLayout();
             panel4.ResumeLayout(false);
@@ -289,7 +304,6 @@
         private Panel panel4;
         private Label upcoming_task_lbl;
         private Label Greeting_lbl;
-        private FlowLayoutPanel upcoming_task_db_fLp;
         private Label properties_label;
         private SplitContainer splitContainer1;
         private Panel dashc_board_panel;
@@ -297,5 +311,7 @@
         private Label label1;
         private FlowLayoutPanel dashboard_flp;
         private Label label3;
+        private TextBox Description_box;
+        public FlowLayoutPanel upcoming_task_db_fLp;
     }
 }

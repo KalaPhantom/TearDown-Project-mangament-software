@@ -113,6 +113,16 @@ namespace TearDown_Project_mangament_software.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_bullseye_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-bullseye-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_bullseye_50___W {
             get {
                 object obj = ResourceManager.GetObject("icons8-bullseye-50 - W", resourceCulture);
@@ -166,6 +176,26 @@ namespace TearDown_Project_mangament_software.Properties {
         internal static System.Drawing.Bitmap icons8_kanban_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-kanban-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_kanban_481 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-kanban-481", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_kanban_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-kanban-96", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

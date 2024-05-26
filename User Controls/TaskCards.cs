@@ -23,11 +23,12 @@ namespace TearDown_Project_mangament_software.User_Controls
 
         #region Properties
 
-        public int ColumnNumber { get ; set; }
+        public int ColumnNumber { get; set; }
         public string TaskName
         {
             get { return taskcard_name_lbl.Text; }
             set { taskcard_name_lbl.Text = value; }
+
         }
 
         public Color taskColor
@@ -42,11 +43,12 @@ namespace TearDown_Project_mangament_software.User_Controls
             get; set;
         }
 
+        public bool missedDeadline { get; set; }
+
 
         // The priority level property uses a string to assign the priority level (top,mid,none)
 
-        public string prioritylevel { get;set; }
-     
+        public string prioritylevel { get; set; }
 
         public DateTime dateTime { get; set; }
         public string taskDescription { get; set; }
@@ -62,6 +64,8 @@ namespace TearDown_Project_mangament_software.User_Controls
         public TaskCards()
         {
             InitializeComponent();
+            task_atr_timer.Start();
+
         }
 
 
@@ -78,6 +82,9 @@ namespace TearDown_Project_mangament_software.User_Controls
                 modify_form.Task_Color = this.taskColor;
                 modify_form.Date_Time = this.dateTime;
                 modify_form.Task_Description = this.taskDescription;
+                modify_form.cardIndex = ColumnNumber;
+                modify_form.taskName = this.TaskName;
+                modify_form.IgnoreDeadline = this.ignoreDeadline;
 
 
                 if (modify_form.ShowDialog() == DialogResult.OK)
@@ -86,8 +93,9 @@ namespace TearDown_Project_mangament_software.User_Controls
                     dateTime = modify_form.Date_Time;
                     taskDescription = modify_form.Task_Description;
                     due_lbl.Text = String.Concat("Due: ", modify_form.Date_Time.ToString());
+                    ignoreDeadline = modify_form.IgnoreDeadline;
                     //Temp.DataValidator_Remove_and_Replace(TaskName, modify_form.Date_Time);
-                    Temp.UpdateDate(TaskName,dateTime);
+                    //Temp.UpdateDate(TaskName,dateTime, ColumnNumber);
                 }
             }
         }
@@ -98,28 +106,38 @@ namespace TearDown_Project_mangament_software.User_Controls
         {
             //Add_name add_Name = new Add_name();
             //add_Name.ShowDialog();
+            //Add_name.Current_selected_column = ColumnNumber;
+            //using (Add_name addName = new Add_name())
+            //{
+            //    addName.TaskName = TaskName;
+            //    addName.dateTime = dateTime;
 
-            using (Add_name addName = new Add_name())
-            {
-                addName.TaskName = TaskName;
 
-                if (addName.ShowDialog() == DialogResult.OK)
-                {
-                    Temp.NameValidator(addName.TaskName,TaskName,dateTime );
-                    TaskName = addName.TaskName;
-                }
-            }
-            
+            //    if (addName.ShowDialog() == DialogResult.OK)
+            //    {
+
+            //        //Temp.NameValidator(addName.TaskName,TaskName,dateTime );
+            //        TaskName = addName.NewName;
+
+            //    }
+            //}
+
         }
         #endregion
 
         private void TaskCards_Load(object sender, EventArgs e)
         {
-            if (due == null)
+            if (dateTime == new DateTime())
             {
                 due_lbl.Text = "Due: None";
                 Task_color.BackColor = color;
             }
+            else
+            {
+                due_lbl.Text = String.Concat("Due: ", dateTime);
+            }
+
+
         }
 
         private void set_as_btn_Click(object sender, EventArgs e)
@@ -139,7 +157,7 @@ namespace TearDown_Project_mangament_software.User_Controls
                     {
                         this.Parent.Controls.Remove(this);
 
-                
+
                     }
                 }
             }
@@ -153,20 +171,83 @@ namespace TearDown_Project_mangament_software.User_Controls
         /// <param name="e"></param>
         private void TaskCards_Validated(object sender, EventArgs e)
         {
-      
+
         }
 
         private void TaskCards_Leave(object sender, EventArgs e)
         {
-        
+
         }
 
         private void TaskCards_Enter(object sender, EventArgs e)
         {
-       
+
         }
         #endregion
 
-        
+
+        private void taskcard_name_lbl_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                DoDragDrop(this, DragDropEffects.Move);
+            }
+        }
+
+        #region change name
+        private void changeName_btn_Click(object sender, EventArgs e)
+        {
+            Add_name.Current_selected_column = ColumnNumber;
+            using (Add_name addName = new Add_name())
+            {
+                addName.TaskName = TaskName;
+                addName.dateTime = dateTime;
+
+
+                if (addName.ShowDialog() == DialogResult.OK)
+                {
+
+                    //Temp.NameValidator(addName.TaskName,TaskName,dateTime );
+                    TaskName = addName.NewName;
+
+                }
+            }
+        }
+        #endregion
+
+        #region Color Atribute update
+        private void task_atr_timer_Tick(object sender, EventArgs e)
+        {
+            TimeSpan timeSpan = this.dateTime - DateTime.Now;
+
+            if (ignoreDeadline == true)
+            {
+                color_atb_pb.BackColor = Color.YellowGreen;
+            }
+            else
+            {
+                if (timeSpan.TotalSeconds <= 0)
+                {
+                    color_atb_pb.BackColor = Color.Red;
+                    missedDeadline = true; 
+                }
+                else if (timeSpan.TotalDays >= 1)
+                {
+                    color_atb_pb.BackColor = Color.Orange;
+                }
+                else
+                {
+                    color_atb_pb.BackColor = Color.Green;
+                }
+            }
+        }
+        #endregion 
+
+        #region Notif Icon
+        private void Notify_system()
+        {
+
+        }
+        #endregion
     }
 }

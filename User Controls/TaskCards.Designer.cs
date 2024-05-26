@@ -28,42 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             task_condition_panel = new Panel();
-            set_as_btn = new Button();
             Task_color = new PictureBox();
-            modify_taskcard_btn = new Button();
             due_lbl = new Label();
             taskcard_name_lbl = new Label();
+            changeName_btn = new Button();
+            modify_taskcard_btn = new Button();
+            set_as_btn = new Button();
+            color_atb_pb = new PictureBox();
+            task_atr_timer = new System.Windows.Forms.Timer(components);
+            Alert_icon = new NotifyIcon(components);
             task_condition_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Task_color).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)color_atb_pb).BeginInit();
             SuspendLayout();
             // 
             // task_condition_panel
             // 
             task_condition_panel.BackColor = Color.FromArgb(104, 93, 121);
             task_condition_panel.Controls.Add(Task_color);
-            task_condition_panel.Controls.Add(modify_taskcard_btn);
             task_condition_panel.Controls.Add(due_lbl);
             task_condition_panel.Controls.Add(taskcard_name_lbl);
-            task_condition_panel.Controls.Add(set_as_btn);
             task_condition_panel.Location = new Point(0, 0);
             task_condition_panel.Margin = new Padding(3, 4, 3, 4);
             task_condition_panel.Name = "task_condition_panel";
             task_condition_panel.Size = new Size(386, 123);
             task_condition_panel.TabIndex = 0;
-            // 
-            // set_as_btn
-            // 
-            set_as_btn.FlatAppearance.BorderSize = 0;
-            set_as_btn.FlatStyle = FlatStyle.Flat;
-            set_as_btn.Image = Properties.Resources.icons8_compass_eye_24;
-            set_as_btn.Location = new Point(268, 30);
-            set_as_btn.Margin = new Padding(3, 4, 3, 4);
-            set_as_btn.Name = "set_as_btn";
-            set_as_btn.Size = new Size(64, 60);
-            set_as_btn.TabIndex = 5;
-            set_as_btn.UseVisualStyleBackColor = true;
-            set_as_btn.Click += set_as_btn_Click;
             // 
             // Task_color
             // 
@@ -75,19 +66,6 @@
             Task_color.Size = new Size(386, 33);
             Task_color.TabIndex = 4;
             Task_color.TabStop = false;
-            // 
-            // modify_taskcard_btn
-            // 
-            modify_taskcard_btn.FlatAppearance.BorderSize = 0;
-            modify_taskcard_btn.FlatStyle = FlatStyle.Flat;
-            modify_taskcard_btn.Image = Properties.Resources.icons8_modify_24;
-            modify_taskcard_btn.Location = new Point(322, 30);
-            modify_taskcard_btn.Margin = new Padding(3, 4, 3, 4);
-            modify_taskcard_btn.Name = "modify_taskcard_btn";
-            modify_taskcard_btn.Size = new Size(64, 60);
-            modify_taskcard_btn.TabIndex = 1;
-            modify_taskcard_btn.UseVisualStyleBackColor = true;
-            modify_taskcard_btn.Click += modify_taskcard_btn_Click;
             // 
             // due_lbl
             // 
@@ -111,16 +89,78 @@
             taskcard_name_lbl.TabIndex = 0;
             taskcard_name_lbl.Text = "click to add name";
             taskcard_name_lbl.Click += taskcard_name_lbl_Click;
+            taskcard_name_lbl.MouseDown += taskcard_name_lbl_MouseDown;
+            // 
+            // changeName_btn
+            // 
+            changeName_btn.FlatAppearance.BorderSize = 0;
+            changeName_btn.FlatStyle = FlatStyle.Flat;
+            changeName_btn.Image = Properties.Resources.icons8_compass_eye_24;
+            changeName_btn.Location = new Point(144, 122);
+            changeName_btn.Margin = new Padding(3, 4, 3, 4);
+            changeName_btn.Name = "changeName_btn";
+            changeName_btn.Size = new Size(64, 37);
+            changeName_btn.TabIndex = 6;
+            changeName_btn.UseVisualStyleBackColor = true;
+            changeName_btn.Click += changeName_btn_Click;
+            // 
+            // modify_taskcard_btn
+            // 
+            modify_taskcard_btn.FlatAppearance.BorderSize = 0;
+            modify_taskcard_btn.FlatStyle = FlatStyle.Flat;
+            modify_taskcard_btn.Image = Properties.Resources.icons8_modify_24;
+            modify_taskcard_btn.Location = new Point(74, 121);
+            modify_taskcard_btn.Margin = new Padding(3, 4, 3, 4);
+            modify_taskcard_btn.Name = "modify_taskcard_btn";
+            modify_taskcard_btn.Size = new Size(64, 37);
+            modify_taskcard_btn.TabIndex = 1;
+            modify_taskcard_btn.UseVisualStyleBackColor = true;
+            modify_taskcard_btn.Click += modify_taskcard_btn_Click;
+            // 
+            // set_as_btn
+            // 
+            set_as_btn.FlatAppearance.BorderSize = 0;
+            set_as_btn.FlatStyle = FlatStyle.Flat;
+            set_as_btn.Image = Properties.Resources.icons8_compass_eye_24;
+            set_as_btn.Location = new Point(4, 121);
+            set_as_btn.Margin = new Padding(3, 4, 3, 4);
+            set_as_btn.Name = "set_as_btn";
+            set_as_btn.Size = new Size(64, 38);
+            set_as_btn.TabIndex = 5;
+            set_as_btn.UseVisualStyleBackColor = true;
+            set_as_btn.Click += set_as_btn_Click;
+            // 
+            // color_atb_pb
+            // 
+            color_atb_pb.Location = new Point(239, 146);
+            color_atb_pb.Name = "color_atb_pb";
+            color_atb_pb.Size = new Size(144, 13);
+            color_atb_pb.TabIndex = 7;
+            color_atb_pb.TabStop = false;
+            // 
+            // task_atr_timer
+            // 
+            task_atr_timer.Interval = 1000;
+            task_atr_timer.Tick += task_atr_timer_Tick;
+            // 
+            // Alert_icon
+            // 
+            Alert_icon.Text = "notifyIcon1";
+            Alert_icon.Visible = true;
             // 
             // TaskCards
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(71, 92, 122);
+            Controls.Add(color_atb_pb);
             Controls.Add(task_condition_panel);
+            Controls.Add(set_as_btn);
+            Controls.Add(modify_taskcard_btn);
+            Controls.Add(changeName_btn);
             Margin = new Padding(3, 4, 3, 4);
             Name = "TaskCards";
-            Size = new Size(386, 150);
+            Size = new Size(386, 157);
             Load += TaskCards_Load;
             Enter += TaskCards_Enter;
             Leave += TaskCards_Leave;
@@ -128,6 +168,7 @@
             task_condition_panel.ResumeLayout(false);
             task_condition_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Task_color).EndInit();
+            ((System.ComponentModel.ISupportInitialize)color_atb_pb).EndInit();
             ResumeLayout(false);
         }
 
@@ -139,5 +180,9 @@
         private Label due_lbl;
         private PictureBox Task_color;
         private Button set_as_btn;
+        private Button changeName_btn;
+        private PictureBox color_atb_pb;
+        private System.Windows.Forms.Timer task_atr_timer;
+        private NotifyIcon Alert_icon;
     }
 }

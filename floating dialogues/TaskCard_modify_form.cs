@@ -19,6 +19,9 @@ namespace TearDown_Project_mangament_software.floating_dialogues
     public partial class TaskCard_modify_form : Form
     {
         #region Properties
+
+        public string taskName { get; set; }
+        public int cardIndex { get; set; }
         public Color Task_Color
         {
             get { return taskcard_color.BackColor; }
@@ -32,6 +35,8 @@ namespace TearDown_Project_mangament_software.floating_dialogues
             get { return task_description_tbx.Text; }
             set { task_description_tbx.Text = value; }
         }
+
+        public bool IgnoreDeadline { get; set; }    
 
         #endregion
 
@@ -66,11 +71,15 @@ namespace TearDown_Project_mangament_software.floating_dialogues
             using (Fld_DateandTimePicker timePicker = new Fld_DateandTimePicker())
             {
                 timePicker.dateTime = this.Date_Time;
+                timePicker.taskIndex = this.cardIndex;
+                timePicker.taskName = this.taskName;
+                timePicker.ignoreDeadline = this.IgnoreDeadline;
 
                 if(timePicker.ShowDialog() == DialogResult.OK)
                 {
                     this.Date_Time = timePicker.dateTime;
                     this.Duedate_display_txt.Text = timePicker.dateTime.ToString();
+                    this.IgnoreDeadline = timePicker.ignoreDeadline;
                 }
             }
 

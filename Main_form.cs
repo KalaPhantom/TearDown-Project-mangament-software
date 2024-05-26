@@ -1,9 +1,12 @@
 using TearDown_Project_mangament_software.Forms;
+using TearDown_Project_mangament_software.User_Controls;
 
 namespace TearDown_Project_mangament_software
 {
     public partial class Main_form : Form
     {
+
+
         public Main_form()
         {
             InitializeComponent();
@@ -14,7 +17,14 @@ namespace TearDown_Project_mangament_software
             dashboard.MdiParent = this;
             dashboard.Show();
             dashboard.Dock = DockStyle.Fill;
+            current_status_onb.Text = "Welcome User";
+
+            deadline_checker.Start();
         }
+
+        #region Application Properties
+        public static bool ThreadRun = true;
+        #endregion
 
 
         /// Initialization of all forms
@@ -42,7 +52,7 @@ namespace TearDown_Project_mangament_software
 
         private void Kanban_list_btn_Click(object sender, EventArgs e)
         {
-           
+
 
             if (kanbanlist_form == null)
             {
@@ -52,7 +62,8 @@ namespace TearDown_Project_mangament_software
                 kanbanlist_form.Show();
                 kanbanlist_form.Dock = DockStyle.Fill;
             }
-            else{
+            else
+            {
                 kanbanlist_form.Activate();
             }
         }
@@ -101,5 +112,24 @@ namespace TearDown_Project_mangament_software
 
         }
         #endregion
+
+
+        #region Closing
+        /// <summary>
+        /// triggers when the user prompts the form for closing
+        /// this is integral when saving all data across all components
+        /// </summary>
+
+        private void Main_form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            current_status_onb.Text = "Saving Changes . . . . . ";
+            Canban_Column_1.Stop_Recording_thread();
+        }
+        #endregion
+
+        private void deadline_checker_Tick(object sender, EventArgs e)
+        {
+
+        }
     }
 }

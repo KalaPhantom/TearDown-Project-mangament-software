@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,15 +9,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TearDown_Project_mangament_software.floating_dialogues;
+using TearDown_Project_mangament_software.Systems;
+using System.Threading;
 
 namespace TearDown_Project_mangament_software.User_Controls
 {
     public partial class Canban_Column_4 : UserControl
     {
+        public const int Column_number = 4;
+
         public Canban_Column_4()
         {
             InitializeComponent();
+            LoadCards();
+            column4_trd = new Thread(PassDatafromColumn4);
+            column4_trd.Start();
         }
+        Thread column4_trd;
 
         // Default data models
         //public static int Kanban_index = 0;
@@ -48,9 +57,6 @@ namespace TearDown_Project_mangament_software.User_Controls
         }
         #endregion
 
-
-
-
         private void modify_column_btn_Click_1(object sender, EventArgs e)
         {
             //KanbanColumn_modify_form modify = new KanbanColumn_modify_form();
@@ -63,7 +69,7 @@ namespace TearDown_Project_mangament_software.User_Controls
                 kanban_modify.color_center = this.Column_color_bottom;
 
 
-                if(kanban_modify.ShowDialog() == DialogResult.OK)
+                if (kanban_modify.ShowDialog() == DialogResult.OK)
                 {
                     this.kanban_column_name = kanban_modify.Column_name;
                     this.Column_color_top = kanban_modify.color_up;
@@ -75,10 +81,142 @@ namespace TearDown_Project_mangament_software.User_Controls
             }
         }
 
+        public int cardCount = 0;
         private void add_task_btn_Click_1(object sender, EventArgs e)
         {
             TaskCards taskCards = new TaskCards();
+            taskCards.ColumnNumber = Column_number;
+            taskCards.TaskName = $"Task {cardCount++}";
+            taskCards.ignoreDeadline = true;
             taskCards_flowlayoutPanel.Controls.Add(taskCards);
+            Temp.taskCardColumn_4.Add(taskCards.TaskName, taskCards.dateTime);
         }
+
+        #region Json Methods
+
+        public void PassDatafromColumn4()
+        {
+            // Passes all components extracted from all cards in the flowlayout panel from the form 
+
+            while (Main_form.ThreadRun)
+            {
+
+                Thread.Sleep(1000);
+                // Converts all data from a list to an object
+                var columnData = new KanbanColumndata
+                {
+                    column4 = saveCardData_fromColumn3()
+                };
+
+                // The object is then passed here to serialized all files
+                string jsonString = JsonConvert.SerializeObject(columnData, Formatting.Indented);
+                File.WriteAllText(@"KanbanColumn4_data.json", jsonString);
+            }
+
+        }
+
+        public List<KanbanCardData> saveCardData_fromColumn3()
+        {
+            List<KanbanCardData> temp = new List<KanbanCardData>();
+
+            foreach (TaskCards cards in taskCards_flowlayoutPanel.Controls)
+            {
+                var cardsToStore = new KanbanCardData()
+                {
+                    taskName = cards.TaskName,
+                    taskCardColor = cards.taskColor,
+                    taskDescription = cards.taskDescription,
+                    dueDate = cards.dateTime, 
+                    taskPriorityLevel = cards.prioritylevel,
+                    ignoreDeadline = cards.ignoreDeadline,
+                    missedDeadLine = cards.missedDeadline
+                };
+
+                temp.Add(cardsToStore);
+            }
+
+            return temp;
+        }
+
+        #endregion
+
+        #region drag and drop
+        private void taskCards_flowlayoutPanel_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(TaskCards)))
+            {
+                e.Effect = DragDropEffects.Move;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void taskCards_flowlayoutPanel_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(TaskCards)))
+            {
+                TaskCards taskCards = (TaskCards)e.Data.GetData(typeof(TaskCards));
+                FlowLayoutPanel targetPanel = (FlowLayoutPanel)sender;
+                targetPanel.Controls.Add(taskCards);
+                taskCards.Location = targetPanel.PointToClient(new Point(e.X, e.Y));
+            }
+        }
+
+        private void taskCards_flowlayoutPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            TaskCards a = sender as TaskCards;
+        }
+        #endregion
+
+
+        #region Json Deserializer
+        private void LoadCards()
+        {
+            if (File.Exists("KanbanColumn4_data.json"))
+            {
+                string jsonString = File.ReadAllText("KanbanColumn4_data.json");
+                var boardData = JsonConvert.DeserializeObject<KanbanColumndata>(jsonString);
+
+                LoadCards_to_flp(taskCards_flowlayoutPanel, boardData.column4);
+            }
+
+        }
+
+        private void LoadCards_to_flp(FlowLayoutPanel flp, List<KanbanCardData> taskCards)
+        {
+            foreach (var obj in taskCards)
+            {
+                AddCardToPanel(flp, obj.taskName, obj.taskDescription, obj.taskPriorityLevel, obj.dueDate, obj.taskCardColor, obj.ignoreDeadline, obj.missedDeadLine);
+            }
+        }
+
+        private void AddCardToPanel(FlowLayoutPanel panelHolder, string taskName, string taskDescription, string priorityLevel, DateTime timeAndDate, Color task_Color, bool ignoreDeadline, bool missed_DeadLine)
+        {
+
+            if (taskName == "")
+            {
+                taskName = "Unamedtask";
+            }
+
+            TaskCards card = new TaskCards
+            {
+
+                TaskName = taskName,
+                taskDescription = taskDescription,
+                prioritylevel = priorityLevel,
+                ignoreDeadline = ignoreDeadline,
+                dateTime = timeAndDate,
+                taskColor = task_Color,
+                missedDeadline = missed_DeadLine
+
+            };
+            panelHolder.Controls.Add(card);
+        }
+
+
+
+        #endregion
     }
 }

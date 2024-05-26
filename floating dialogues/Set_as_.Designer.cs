@@ -38,8 +38,14 @@
             radioButton6 = new RadioButton();
             del_btn = new Button();
             Save_btn = new Button();
+            groupBox2 = new GroupBox();
+            done_and_move_to_arch_rdv = new RadioButton();
+            done_del_btn = new RadioButton();
+            Done_del_rdb = new RadioButton();
+            selected_ignoreDeadline_txt = new Label();
             groupBox1.SuspendLayout();
             ignoreDeadline_tr_rdb.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -62,7 +68,7 @@
             groupBox1.ForeColor = Color.FromArgb(252, 187, 109);
             groupBox1.Location = new Point(12, 66);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(475, 65);
+            groupBox1.Size = new Size(640, 65);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Priority Level";
@@ -105,13 +111,14 @@
             // 
             // ignoreDeadline_tr_rdb
             // 
+            ignoreDeadline_tr_rdb.Controls.Add(selected_ignoreDeadline_txt);
             ignoreDeadline_tr_rdb.Controls.Add(ignoreDealine_false_rdb);
             ignoreDeadline_tr_rdb.Controls.Add(radioButton6);
             ignoreDeadline_tr_rdb.Font = new Font("Cascadia Code SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ignoreDeadline_tr_rdb.ForeColor = Color.FromArgb(252, 187, 109);
             ignoreDeadline_tr_rdb.Location = new Point(12, 137);
             ignoreDeadline_tr_rdb.Name = "ignoreDeadline_tr_rdb";
-            ignoreDeadline_tr_rdb.Size = new Size(475, 65);
+            ignoreDeadline_tr_rdb.Size = new Size(640, 65);
             ignoreDeadline_tr_rdb.TabIndex = 3;
             ignoreDeadline_tr_rdb.TabStop = false;
             ignoreDeadline_tr_rdb.Text = "Ignore Deadline ?";
@@ -145,9 +152,9 @@
             del_btn.FlatStyle = FlatStyle.Flat;
             del_btn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             del_btn.ForeColor = Color.Red;
-            del_btn.Location = new Point(12, 219);
+            del_btn.Location = new Point(12, 293);
             del_btn.Name = "del_btn";
-            del_btn.Size = new Size(475, 55);
+            del_btn.Size = new Size(640, 55);
             del_btn.TabIndex = 4;
             del_btn.Text = "Delete Card";
             del_btn.UseVisualStyleBackColor = true;
@@ -158,20 +165,80 @@
             Save_btn.FlatStyle = FlatStyle.Flat;
             Save_btn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Save_btn.ForeColor = Color.FromArgb(252, 187, 109);
-            Save_btn.Location = new Point(12, 280);
+            Save_btn.Location = new Point(12, 354);
             Save_btn.Name = "Save_btn";
-            Save_btn.Size = new Size(475, 74);
+            Save_btn.Size = new Size(640, 74);
             Save_btn.TabIndex = 5;
             Save_btn.Text = "Save";
             Save_btn.UseVisualStyleBackColor = true;
             Save_btn.Click += Save_btn_Click;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(done_and_move_to_arch_rdv);
+            groupBox2.Controls.Add(done_del_btn);
+            groupBox2.Controls.Add(Done_del_rdb);
+            groupBox2.Font = new Font("Cascadia Code SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox2.ForeColor = Color.FromArgb(252, 187, 109);
+            groupBox2.Location = new Point(12, 208);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(640, 65);
+            groupBox2.TabIndex = 4;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Mark As";
+            // 
+            // done_and_move_to_arch_rdv
+            // 
+            done_and_move_to_arch_rdv.AutoSize = true;
+            done_and_move_to_arch_rdv.Location = new Point(370, 26);
+            done_and_move_to_arch_rdv.Name = "done_and_move_to_arch_rdv";
+            done_and_move_to_arch_rdv.Size = new Size(264, 24);
+            done_and_move_to_arch_rdv.TabIndex = 2;
+            done_and_move_to_arch_rdv.TabStop = true;
+            done_and_move_to_arch_rdv.Text = "Done and Move to Archieves";
+            done_and_move_to_arch_rdv.UseVisualStyleBackColor = true;
+            done_and_move_to_arch_rdv.CheckedChanged += done_and_move_to_arch_rdv_CheckedChanged;
+            // 
+            // done_del_btn
+            // 
+            done_del_btn.AutoSize = true;
+            done_del_btn.Location = new Point(150, 26);
+            done_del_btn.Name = "done_del_btn";
+            done_del_btn.Size = new Size(174, 24);
+            done_del_btn.TabIndex = 1;
+            done_del_btn.TabStop = true;
+            done_del_btn.Text = "Done and Delete ";
+            done_del_btn.UseVisualStyleBackColor = true;
+            done_del_btn.CheckedChanged += done_del_btn_CheckedChanged;
+            // 
+            // Done_del_rdb
+            // 
+            Done_del_rdb.AutoSize = true;
+            Done_del_rdb.Location = new Point(24, 26);
+            Done_del_rdb.Name = "Done_del_rdb";
+            Done_del_rdb.Size = new Size(66, 24);
+            Done_del_rdb.TabIndex = 0;
+            Done_del_rdb.TabStop = true;
+            Done_del_rdb.Text = "Done";
+            Done_del_rdb.UseVisualStyleBackColor = true;
+            Done_del_rdb.CheckedChanged += Done_del_rdb_CheckedChanged;
+            // 
+            // selected_ignoreDeadline_txt
+            // 
+            selected_ignoreDeadline_txt.AutoSize = true;
+            selected_ignoreDeadline_txt.Location = new Point(403, 26);
+            selected_ignoreDeadline_txt.Name = "selected_ignoreDeadline_txt";
+            selected_ignoreDeadline_txt.Size = new Size(90, 20);
+            selected_ignoreDeadline_txt.TabIndex = 2;
+            selected_ignoreDeadline_txt.Text = "Selected:";
             // 
             // Set_as_
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(104, 93, 121);
-            ClientSize = new Size(499, 366);
+            ClientSize = new Size(664, 440);
+            Controls.Add(groupBox2);
             Controls.Add(Save_btn);
             Controls.Add(del_btn);
             Controls.Add(ignoreDeadline_tr_rdb);
@@ -183,6 +250,8 @@
             groupBox1.PerformLayout();
             ignoreDeadline_tr_rdb.ResumeLayout(false);
             ignoreDeadline_tr_rdb.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -199,5 +268,10 @@
         private RadioButton radioButton6;
         private Button del_btn;
         private Button Save_btn;
+        private GroupBox groupBox2;
+        private RadioButton done_and_move_to_arch_rdv;
+        private RadioButton done_del_btn;
+        private RadioButton Done_del_rdb;
+        private Label selected_ignoreDeadline_txt;
     }
 }

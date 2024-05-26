@@ -18,11 +18,11 @@ namespace TearDown_Project_mangament_software.Systems
     public class KanbanColumndata
     {
         public  List<KanbanCardData> column1 { get ; set; } = new List<KanbanCardData> ();
-        public static List<KanbanCardData> column2 { get; set; } = new List<KanbanCardData>();
+        public  List<KanbanCardData> column2 { get; set; } = new List<KanbanCardData>();
 
-        public static List<KanbanCardData> column3 { get; set; } = new List<KanbanCardData>();
-        public static List<KanbanCardData> column4 { get; set; } = new List<KanbanCardData>();
-    }
+        public  List<KanbanCardData> column3 { get; set; } = new List<KanbanCardData>();
+        public  List<KanbanCardData> column4 { get; set; } = new List<KanbanCardData>();
+    } 
 
     public class KanbanCardData
     {
@@ -33,7 +33,8 @@ namespace TearDown_Project_mangament_software.Systems
         public bool ignoreDeadline { get; set; }
         public DateTime dueDate { get; set; }
         public Color taskCardColor { get; set; }
-    }
 
+        public bool missedDeadLine { get; set; }
+    }
     
 }

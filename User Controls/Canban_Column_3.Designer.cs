@@ -38,6 +38,7 @@
             // 
             // taskCards_flowlayoutPanel
             // 
+            taskCards_flowlayoutPanel.AllowDrop = true;
             taskCards_flowlayoutPanel.AutoScroll = true;
             taskCards_flowlayoutPanel.FlowDirection = FlowDirection.TopDown;
             taskCards_flowlayoutPanel.Location = new Point(3, 125);
@@ -46,6 +47,9 @@
             taskCards_flowlayoutPanel.Size = new Size(416, 761);
             taskCards_flowlayoutPanel.TabIndex = 4;
             taskCards_flowlayoutPanel.WrapContents = false;
+            taskCards_flowlayoutPanel.DragDrop += taskCards_flowlayoutPanel_DragDrop;
+            taskCards_flowlayoutPanel.DragEnter += taskCards_flowlayoutPanel_DragEnter;
+            taskCards_flowlayoutPanel.MouseDown += taskCards_flowlayoutPanel_MouseDown;
             // 
             // panel1
             // 
@@ -108,6 +112,7 @@
             // 
             // Canban_Column_3
             // 
+            AllowDrop = true;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(70, 252, 187, 109);

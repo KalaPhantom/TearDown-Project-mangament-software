@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             taskColumn_flowlayoutpanel = new FlowLayoutPanel();
-            Add_table_btn = new Button();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // taskColumn_flowlayoutpanel
@@ -38,44 +40,51 @@
             taskColumn_flowlayoutpanel.AutoScroll = true;
             taskColumn_flowlayoutpanel.AutoSize = true;
             taskColumn_flowlayoutpanel.BackColor = Color.FromArgb(71, 92, 122);
-            taskColumn_flowlayoutpanel.Location = new Point(-1, 55);
+            taskColumn_flowlayoutpanel.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            taskColumn_flowlayoutpanel.Location = new Point(-1, 73);
+            taskColumn_flowlayoutpanel.Margin = new Padding(3, 4, 3, 4);
             taskColumn_flowlayoutpanel.Name = "taskColumn_flowlayoutpanel";
-            taskColumn_flowlayoutpanel.Size = new Size(1370, 576);
+            taskColumn_flowlayoutpanel.Size = new Size(1566, 768);
             taskColumn_flowlayoutpanel.TabIndex = 0;
             taskColumn_flowlayoutpanel.WrapContents = false;
             // 
-            // Add_table_btn
+            // label1
             // 
-            Add_table_btn.BackgroundImageLayout = ImageLayout.Center;
-            Add_table_btn.FlatAppearance.BorderSize = 0;
-            Add_table_btn.FlatStyle = FlatStyle.Flat;
-            Add_table_btn.Font = new Font("Cascadia Code", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Add_table_btn.ForeColor = SystemColors.ButtonHighlight;
-            Add_table_btn.Image = Properties.Resources.icons8_add_50;
-            Add_table_btn.ImageAlign = ContentAlignment.MiddleLeft;
-            Add_table_btn.Location = new Point(39, 1);
-            Add_table_btn.Name = "Add_table_btn";
-            Add_table_btn.Size = new Size(138, 56);
-            Add_table_btn.TabIndex = 1;
-            Add_table_btn.Text = "Add Board";
-            Add_table_btn.TextAlign = ContentAlignment.MiddleRight;
-            Add_table_btn.UseVisualStyleBackColor = true;
-            Add_table_btn.Click += Add_table_btn_Click;
+            label1.AutoSize = true;
+            label1.Font = new Font("Cascadia Code", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(252, 187, 109);
+            label1.Location = new Point(79, 20);
+            label1.Name = "label1";
+            label1.Size = new Size(233, 40);
+            label1.TabIndex = 1;
+            label1.Text = "Kanban Board";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.icons8_bullseye_50;
+            pictureBox1.Location = new Point(21, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(52, 48);
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
             // 
             // KanbanList_form
             // 
             AllowDrop = true;
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.Disable;
             BackColor = Color.FromArgb(104, 93, 121);
-            ClientSize = new Size(1369, 635);
-            Controls.Add(Add_table_btn);
+            ClientSize = new Size(1565, 847);
+            Controls.Add(pictureBox1);
+            Controls.Add(label1);
             Controls.Add(taskColumn_flowlayoutpanel);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "KanbanList_form";
             Text = "KanbanList_form";
             Load += KanbanList_form_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -83,6 +92,7 @@
         #endregion
 
         private FlowLayoutPanel taskColumn_flowlayoutpanel;
-        private Button Add_table_btn;
+        private Label label1;
+        private PictureBox pictureBox1;
     }
 }

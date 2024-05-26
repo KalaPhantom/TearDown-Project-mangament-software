@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TearDown_Project_mangament_software.Systems;
 
 namespace TearDown_Project_mangament_software.floating_dialogues
 {
@@ -15,9 +16,12 @@ namespace TearDown_Project_mangament_software.floating_dialogues
 
 
         public DateTime dateTime { get; set; }
-        public DateOnly dateOnly { get; set; }
-        public TimeOnly timeOnly { get; set; }
+     
+        public string taskName { get; set; }
 
+        public int taskIndex { get; set; }
+
+        public bool ignoreDeadline { get; set; }
 
 
         public Fld_DateandTimePicker()
@@ -29,12 +33,11 @@ namespace TearDown_Project_mangament_software.floating_dialogues
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
+            dateTime = DateTime.Now;
             date_display.Text = monthCalendar1.SelectionRange.ToString();
             dateTimePicker1.Value = e.Start;
-            dateTime = monthCalendar1.SelectionRange.Start;
-            
-
-         
+            dateTime = dateTimePicker1.Value;
+            //dateTime = monthCalendar1.SelectionRange.Start;
         }
 
         private void date_display_Click(object sender, EventArgs e)
@@ -44,7 +47,10 @@ namespace TearDown_Project_mangament_software.floating_dialogues
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Temp.UpdateDate(taskName, dateTime, taskIndex);
+            ignoreDeadline = false; 
             DialogResult = DialogResult.OK;
+
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)

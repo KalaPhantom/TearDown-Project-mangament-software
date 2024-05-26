@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using System.Threading;
 
 namespace TearDown_Project_mangament_software.Forms
 {
@@ -26,5 +28,16 @@ namespace TearDown_Project_mangament_software.Forms
         {
 
         }
+
+
+
+
+
+        #region Json Deserializer Funtions 
+
+
+        #endregion
+
+
     }
 }

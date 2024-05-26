@@ -13,6 +13,7 @@ using System.Collections;
 using TearDown_Project_mangament_software.Classes_dex;
 using System.Text.Json;
 using TearDown_Project_mangament_software.Systems;
+using Newtonsoft.Json;
 
 namespace TearDown_Project_mangament_software.Forms
 {
@@ -21,13 +22,35 @@ namespace TearDown_Project_mangament_software.Forms
         public KanbanList_form()
         {
             InitializeComponent();
+
+            // Add all boards in the flow layout panel
+
+            Canban_Column_1 canban_Column_1 = new Canban_Column_1();
+            taskColumn_flowlayoutpanel.Controls.Add(canban_Column_1);
+            
+
+            Canban_Column_2 canban_Column_2 = new Canban_Column_2();
+            taskColumn_flowlayoutpanel.Controls.Add(canban_Column_2);
+            
+
+            Canban_Column_3 canban_Column_3 = new Canban_Column_3();
+            taskColumn_flowlayoutpanel.Controls.Add(canban_Column_3);
+      
+
+            Canban_Column_4 canban_Column_4 = new Canban_Column_4();
+            taskColumn_flowlayoutpanel.Controls.Add(canban_Column_4);
+
+
+
         }
+
+
 
         /// <summary>
         /// data Containers temporary
         /// </summary>
         /// 
-        private int Kanban_board_count = 0;
+        public static int Kanban_board_count = 0;
 
         private int IndexOfColumn = 0;
 
@@ -54,45 +77,13 @@ namespace TearDown_Project_mangament_software.Forms
         }
         #endregion
 
-        #region Add
-        private void Add_table_btn_Click(object sender, EventArgs e)
-        {
 
-            //Canban_Column_1 canbanColumn = new Canban_Column_1();
-            //taskColumn_flowlayoutpanel.Controls.Add(canbanColumn);
-            Kanban_board_count++;
-            switch (Kanban_board_count)
-            {
-                case 1:
-                    Canban_Column_1 canban_Column_1 = new Canban_Column_1();  
-                    taskColumn_flowlayoutpanel.Controls.Add(canban_Column_1);
-                    break;
+        #region Json Deserializer
 
-                case 2:
-                    Canban_Column_2 canban_Column_2 = new Canban_Column_2();
-                    taskColumn_flowlayoutpanel.Controls.Add(canban_Column_2);
-                    break;
-
-                case 3: 
-                    Canban_Column_3 canban_Column_3 = new Canban_Column_3();
-                    taskColumn_flowlayoutpanel.Controls.Add(canban_Column_3);
-                    break;
-
-                case 4: 
-                    Canban_Column_4 canban_Column_4 = new Canban_Column_4();
-                    taskColumn_flowlayoutpanel.Controls.Add(canban_Column_4);
-                    break;
+        
 
 
-                default:
-                    // Temporary message
-                    MessageBox.Show("You exceed the board limit");
-                    break;
-            }
-            
-        }
         #endregion
-
 
     }
 }

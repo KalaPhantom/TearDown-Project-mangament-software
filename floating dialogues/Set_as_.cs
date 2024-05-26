@@ -15,6 +15,8 @@ namespace TearDown_Project_mangament_software.floating_dialogues
         public Set_as_()
         {
             InitializeComponent();
+            selected_ignoreDeadline_txt.Text = "Selected: No";
+            Ignore_Deadline = false;
         }
 
         #region property
@@ -30,6 +32,7 @@ namespace TearDown_Project_mangament_software.floating_dialogues
 
         public string Priority_level { get; set; }
 
+        public string Mark_as { get; set; }
         #endregion
 
         private void Save_btn_Click(object sender, EventArgs e)
@@ -72,12 +75,31 @@ namespace TearDown_Project_mangament_software.floating_dialogues
         private void radioButton6_CheckedChanged(object sender, EventArgs e)
         {
             Ignore_Deadline = true;
+            selected_ignoreDeadline_txt.Text = "Selected: Yes";
         }
 
         private void ignoreDealine_false_rdb_CheckedChanged(object sender, EventArgs e)
         {
             Ignore_Deadline = false;
+            selected_ignoreDeadline_txt.Text = "Selected: No";
         }
         #endregion
+
+
+        // Mark as done
+        private void Done_del_rdb_CheckedChanged(object sender, EventArgs e)
+        {
+            Mark_as = "done";
+        }
+
+        private void done_del_btn_CheckedChanged(object sender, EventArgs e)
+        {
+            Mark_as = "done_del";
+        }
+
+        private void done_and_move_to_arch_rdv_CheckedChanged(object sender, EventArgs e)
+        {
+            Mark_as = "done_move_arcv";
+        }
     }
 }
