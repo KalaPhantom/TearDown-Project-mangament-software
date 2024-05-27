@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             taskCards_flowlayoutPanel = new FlowLayoutPanel();
             panel1 = new Panel();
             add_task_btn = new Button();
             modify_column_btn = new Button();
             Task_name_label = new Label();
+            Time_tick_4 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -110,6 +112,10 @@
             Task_name_label.Text = "Tap to Modify the Name \r\n";
             Task_name_label.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // Time_tick_4
+            // 
+            Time_tick_4.Tick += Time_tick_4_Tick;
+            // 
             // Canban_Column_4
             // 
             AllowDrop = true;
@@ -126,11 +132,11 @@
         }
 
         #endregion
-
-        private FlowLayoutPanel taskCards_flowlayoutPanel;
         private Panel panel1;
         private Button add_task_btn;
         private Button modify_column_btn;
         private Label Task_name_label;
+        private System.Windows.Forms.Timer Time_tick_4;
+        public static FlowLayoutPanel taskCards_flowlayoutPanel;
     }
 }

@@ -28,13 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Panel sp_panel_1;
-            label2 = new Label();
+            missed_Counter_lbl = new Label();
+            upcoming_Counter_lbl = new Label();
+            label5 = new Label();
+            label4 = new Label();
             label3 = new Label();
             label1 = new Label();
             Title_lbl = new Label();
             Greeting_lbl = new Label();
             pictureBox1 = new PictureBox();
+            label2 = new Label();
             upcomingTask_panel = new Panel();
             dashc_board_panel = new Panel();
             Description_box = new TextBox();
@@ -42,8 +47,12 @@
             upcoming_task_db_fLp = new FlowLayoutPanel();
             dashboard_flp = new FlowLayoutPanel();
             panel4 = new Panel();
+            button1 = new Button();
             upcoming_task_lbl = new Label();
             splitContainer1 = new SplitContainer();
+            Timer_update_1 = new System.Windows.Forms.Timer(components);
+            timer_populate_flp = new System.Windows.Forms.Timer(components);
+            UpdateElelements_in_bg = new System.ComponentModel.BackgroundWorker();
             sp_panel_1 = new Panel();
             sp_panel_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -61,12 +70,16 @@
             // 
             sp_panel_1.BackColor = Color.FromArgb(104, 93, 121);
             sp_panel_1.BorderStyle = BorderStyle.FixedSingle;
-            sp_panel_1.Controls.Add(label2);
+            sp_panel_1.Controls.Add(missed_Counter_lbl);
+            sp_panel_1.Controls.Add(upcoming_Counter_lbl);
+            sp_panel_1.Controls.Add(label5);
+            sp_panel_1.Controls.Add(label4);
             sp_panel_1.Controls.Add(label3);
             sp_panel_1.Controls.Add(label1);
             sp_panel_1.Controls.Add(Title_lbl);
             sp_panel_1.Controls.Add(Greeting_lbl);
             sp_panel_1.Controls.Add(pictureBox1);
+            sp_panel_1.Controls.Add(label2);
             sp_panel_1.Dock = DockStyle.Fill;
             sp_panel_1.Location = new Point(0, 0);
             sp_panel_1.Margin = new Padding(3, 4, 3, 4);
@@ -74,20 +87,51 @@
             sp_panel_1.Size = new Size(485, 831);
             sp_panel_1.TabIndex = 0;
             // 
-            // label2
+            // missed_Counter_lbl
             // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.FlatStyle = FlatStyle.Flat;
-            label2.Font = new Font("Cascadia Code", 72F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.FromArgb(252, 187, 109);
-            label2.Location = new Point(173, 315);
-            label2.Name = "label2";
-            label2.Size = new Size(137, 158);
-            label2.TabIndex = 2;
-            label2.Text = "1";
-            label2.Click += label2_Click;
+            missed_Counter_lbl.AutoSize = true;
+            missed_Counter_lbl.Font = new Font("Cascadia Code", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            missed_Counter_lbl.ForeColor = Color.FromArgb(252, 187, 109);
+            missed_Counter_lbl.Location = new Point(318, 562);
+            missed_Counter_lbl.Name = "missed_Counter_lbl";
+            missed_Counter_lbl.Size = new Size(44, 49);
+            missed_Counter_lbl.TabIndex = 6;
+            missed_Counter_lbl.Text = "0";
+            missed_Counter_lbl.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // upcoming_Counter_lbl
+            // 
+            upcoming_Counter_lbl.AutoSize = true;
+            upcoming_Counter_lbl.Font = new Font("Cascadia Code", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            upcoming_Counter_lbl.ForeColor = Color.FromArgb(252, 187, 109);
+            upcoming_Counter_lbl.Location = new Point(87, 562);
+            upcoming_Counter_lbl.Name = "upcoming_Counter_lbl";
+            upcoming_Counter_lbl.Size = new Size(44, 49);
+            upcoming_Counter_lbl.TabIndex = 5;
+            upcoming_Counter_lbl.Text = "0";
+            upcoming_Counter_lbl.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Cascadia Code SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.FromArgb(252, 187, 109);
+            label5.Location = new Point(297, 624);
+            label5.Name = "label5";
+            label5.Size = new Size(84, 27);
+            label5.TabIndex = 4;
+            label5.Text = "Missed";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Cascadia Code SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.FromArgb(252, 187, 109);
+            label4.Location = new Point(55, 624);
+            label4.Name = "label4";
+            label4.Size = new Size(108, 27);
+            label4.TabIndex = 3;
+            label4.Text = "Upcoming";
             // 
             // label3
             // 
@@ -151,6 +195,22 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.FlatStyle = FlatStyle.Flat;
+            label2.Font = new Font("Cascadia Code", 72F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(252, 187, 109);
+            label2.Location = new Point(173, 292);
+            label2.Name = "label2";
+            label2.Size = new Size(137, 158);
+            label2.TabIndex = 2;
+            label2.Text = "1";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            label2.Click += label2_Click;
+            // 
             // upcomingTask_panel
             // 
             upcomingTask_panel.AutoSize = true;
@@ -182,11 +242,15 @@
             // 
             Description_box.BackColor = Color.MidnightBlue;
             Description_box.Dock = DockStyle.Fill;
+            Description_box.Font = new Font("Cascadia Code", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Description_box.ForeColor = Color.FromArgb(200, 252, 187, 109);
             Description_box.Location = new Point(0, 0);
             Description_box.Multiline = true;
             Description_box.Name = "Description_box";
+            Description_box.ReadOnly = true;
             Description_box.Size = new Size(429, 742);
             Description_box.TabIndex = 1;
+            Description_box.TextAlign = HorizontalAlignment.Center;
             // 
             // properties_label
             // 
@@ -203,14 +267,17 @@
             // upcoming_task_db_fLp
             // 
             upcoming_task_db_fLp.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            upcoming_task_db_fLp.AutoScroll = true;
             upcoming_task_db_fLp.AutoSize = true;
             upcoming_task_db_fLp.BackColor = Color.FromArgb(200, 252, 187, 109);
             upcoming_task_db_fLp.Controls.Add(dashboard_flp);
+            upcoming_task_db_fLp.FlowDirection = FlowDirection.TopDown;
             upcoming_task_db_fLp.Location = new Point(0, 64);
             upcoming_task_db_fLp.Margin = new Padding(3, 4, 3, 4);
             upcoming_task_db_fLp.Name = "upcoming_task_db_fLp";
             upcoming_task_db_fLp.Size = new Size(518, 757);
             upcoming_task_db_fLp.TabIndex = 1;
+            upcoming_task_db_fLp.WrapContents = false;
             // 
             // dashboard_flp
             // 
@@ -226,12 +293,23 @@
             // 
             panel4.AutoSize = true;
             panel4.BackColor = Color.FromArgb(252, 187, 109);
+            panel4.Controls.Add(button1);
             panel4.Controls.Add(upcoming_task_lbl);
             panel4.Location = new Point(0, 0);
             panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
             panel4.Size = new Size(518, 64);
             panel4.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(409, 21);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 2;
+            button1.Text = "Refresh";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // upcoming_task_lbl
             // 
@@ -262,6 +340,20 @@
             splitContainer1.SplitterDistance = 485;
             splitContainer1.SplitterWidth = 5;
             splitContainer1.TabIndex = 2;
+            // 
+            // Timer_update_1
+            // 
+            Timer_update_1.Interval = 1000;
+            Timer_update_1.Tick += Timer_update_1_Tick;
+            // 
+            // timer_populate_flp
+            // 
+            timer_populate_flp.Interval = 10000;
+            // 
+            // UpdateElelements_in_bg
+            // 
+            UpdateElelements_in_bg.DoWork += UpdateElelements_in_bg_DoWork;
+            UpdateElelements_in_bg.RunWorkerCompleted += UpdateElelements_in_bg_RunWorkerCompleted;
             // 
             // Dashboard
             // 
@@ -311,7 +403,15 @@
         private Label label1;
         private FlowLayoutPanel dashboard_flp;
         private Label label3;
-        private TextBox Description_box;
-        public FlowLayoutPanel upcoming_task_db_fLp;
+        private System.Windows.Forms.Timer Timer_update_1;
+        private Label upcoming_Counter_lbl;
+        private Label label5;
+        private Label label4;
+        private Label missed_Counter_lbl;
+        private System.Windows.Forms.Timer timer_populate_flp;
+        public  System.ComponentModel.BackgroundWorker UpdateElelements_in_bg;
+        private  FlowLayoutPanel upcoming_task_db_fLp;
+        private Button button1;
+        public static TextBox Description_box;
     }
 }

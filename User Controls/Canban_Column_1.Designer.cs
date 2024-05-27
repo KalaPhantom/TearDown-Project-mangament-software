@@ -132,7 +132,7 @@
         private Panel panel1;
         private Button add_task_btn;
         private Button modify_column_btn;
-        private FlowLayoutPanel taskCards_flowlayoutPanel;
+        public static FlowLayoutPanel taskCards_flowlayoutPanel;
         private Label Task_name_label;
     }
 }

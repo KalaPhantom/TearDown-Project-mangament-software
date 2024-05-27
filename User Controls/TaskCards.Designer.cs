@@ -132,7 +132,7 @@
             // 
             // color_atb_pb
             // 
-            color_atb_pb.Location = new Point(239, 146);
+            color_atb_pb.Location = new Point(239, 144);
             color_atb_pb.Name = "color_atb_pb";
             color_atb_pb.Size = new Size(144, 13);
             color_atb_pb.TabIndex = 7;
@@ -181,8 +181,8 @@
         private PictureBox Task_color;
         private Button set_as_btn;
         private Button changeName_btn;
-        private PictureBox color_atb_pb;
         private System.Windows.Forms.Timer task_atr_timer;
         private NotifyIcon Alert_icon;
+        public PictureBox color_atb_pb;
     }
 }

@@ -22,8 +22,10 @@ namespace TearDown_Project_mangament_software.User_Controls
         {
             InitializeComponent();
             LoadCards();
-            column4_trd = new Thread(PassDatafromColumn4);
-            column4_trd.Start();
+        
+            //column4_trd = new Thread(PassDatafromColumn4);
+            //column4_trd.Start();
+            //Time_tick_4.Start();
         }
         Thread column4_trd;
 
@@ -94,28 +96,29 @@ namespace TearDown_Project_mangament_software.User_Controls
 
         #region Json Methods
 
-        public void PassDatafromColumn4()
+        public static void PassDatafromColumn4()
         {
             // Passes all components extracted from all cards in the flowlayout panel from the form 
 
-            while (Main_form.ThreadRun)
-            {
-
-                Thread.Sleep(1000);
+            //do
+            //{
                 // Converts all data from a list to an object
                 var columnData = new KanbanColumndata
                 {
-                    column4 = saveCardData_fromColumn3()
+                    column4 = saveCardData_fromColumn4()
                 };
 
                 // The object is then passed here to serialized all files
                 string jsonString = JsonConvert.SerializeObject(columnData, Formatting.Indented);
                 File.WriteAllText(@"KanbanColumn4_data.json", jsonString);
-            }
+            //}
+            //while (Main_form.ThreadRun);
+
+            
 
         }
 
-        public List<KanbanCardData> saveCardData_fromColumn3()
+        private static List<KanbanCardData> saveCardData_fromColumn4()
         {
             List<KanbanCardData> temp = new List<KanbanCardData>();
 
@@ -126,7 +129,7 @@ namespace TearDown_Project_mangament_software.User_Controls
                     taskName = cards.TaskName,
                     taskCardColor = cards.taskColor,
                     taskDescription = cards.taskDescription,
-                    dueDate = cards.dateTime, 
+                    dueDate = cards.dateTime,
                     taskPriorityLevel = cards.prioritylevel,
                     ignoreDeadline = cards.ignoreDeadline,
                     missedDeadLine = cards.missedDeadline
@@ -172,7 +175,7 @@ namespace TearDown_Project_mangament_software.User_Controls
 
 
         #region Json Deserializer
-        private void LoadCards()
+        public static void LoadCards()
         {
             if (File.Exists("KanbanColumn4_data.json"))
             {
@@ -180,11 +183,12 @@ namespace TearDown_Project_mangament_software.User_Controls
                 var boardData = JsonConvert.DeserializeObject<KanbanColumndata>(jsonString);
 
                 LoadCards_to_flp(taskCards_flowlayoutPanel, boardData.column4);
+                Thread.Sleep(500);
             }
 
         }
 
-        private void LoadCards_to_flp(FlowLayoutPanel flp, List<KanbanCardData> taskCards)
+        private static void LoadCards_to_flp(FlowLayoutPanel flp, List<KanbanCardData> taskCards)
         {
             foreach (var obj in taskCards)
             {
@@ -192,12 +196,12 @@ namespace TearDown_Project_mangament_software.User_Controls
             }
         }
 
-        private void AddCardToPanel(FlowLayoutPanel panelHolder, string taskName, string taskDescription, string priorityLevel, DateTime timeAndDate, Color task_Color, bool ignoreDeadline, bool missed_DeadLine)
+        private static void AddCardToPanel(FlowLayoutPanel panelHolder, string taskName, string taskDescription, string priorityLevel, DateTime timeAndDate, Color task_Color, bool ignoreDeadline, bool missed_DeadLine)
         {
 
             if (taskName == "")
             {
-                taskName = "Unamedtask";
+                taskName = "Unamed task";
             }
 
             TaskCards card = new TaskCards
@@ -218,5 +222,10 @@ namespace TearDown_Project_mangament_software.User_Controls
 
 
         #endregion
+
+        private void Time_tick_4_Tick(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

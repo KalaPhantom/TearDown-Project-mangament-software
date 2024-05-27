@@ -37,6 +37,8 @@ namespace TearDown_Project_mangament_software.floating_dialogues
 
         }
         public Color color_center { get; set; }
+
+        public bool missedTask { get; set; }
         #endregion
 
 

@@ -25,8 +25,9 @@ namespace TearDown_Project_mangament_software.User_Controls
         {
             InitializeComponent();
             LoadCards();
-            Thread column2_trd = new Thread(PassDatafromColumn2);
-            column2_trd.Start();
+            
+            //Thread column2_trd = new Thread(PassDatafromColumn2);
+            //column2_trd.Start();
         }
 
         // Default data models
@@ -103,14 +104,14 @@ namespace TearDown_Project_mangament_software.User_Controls
         /// </summary>
         #region Json Methods
 
-        public void PassDatafromColumn2()
+        public static void PassDatafromColumn2()
         {
             // Passes all components extracted from all cards in the flowlayout panel from the form 
 
-            while (Main_form.ThreadRun)
-            {
+            //do
+            //{
 
-                Thread.Sleep(1000);
+          
                 // Converts all data from a list to an object
                 var columnData = new KanbanColumndata
                 {
@@ -120,11 +121,14 @@ namespace TearDown_Project_mangament_software.User_Controls
                 // The object is then passed here to serialized all files
                 string jsonString = JsonConvert.SerializeObject(columnData, Formatting.Indented);
                 File.WriteAllText(@"KanbanColumn2_data.json", jsonString);
-            }
+            //} 
+            //while (Main_form.ThreadRun);
+
+            
 
         }
 
-        public List<KanbanCardData> saveCardData_fromColumn2()
+        private static List<KanbanCardData> saveCardData_fromColumn2()
         {
             List<KanbanCardData> temp = new List<KanbanCardData>();
 
@@ -180,7 +184,7 @@ namespace TearDown_Project_mangament_software.User_Controls
 
 
         #region Json Deserializer
-        private void LoadCards()
+        public static void LoadCards()
         {
             if (File.Exists("KanbanColumn2_data.json"))
             {
@@ -188,11 +192,13 @@ namespace TearDown_Project_mangament_software.User_Controls
                 var boardData = JsonConvert.DeserializeObject<KanbanColumndata>(jsonString);
 
                 LoadCards_to_flp(taskCards_flowlayoutPanel, boardData.column2);
+                Thread.Sleep(500);
             }
+            //Thread.Sleep(500);
 
         }
 
-        private void LoadCards_to_flp(FlowLayoutPanel flp, List<KanbanCardData> taskCards)
+        private static void LoadCards_to_flp(FlowLayoutPanel flp, List<KanbanCardData> taskCards)
         {
             foreach (var obj in taskCards)
             {
@@ -200,7 +206,7 @@ namespace TearDown_Project_mangament_software.User_Controls
             }
         }
 
-        private void AddCardToPanel(FlowLayoutPanel panelHolder, string taskName, string taskDescription, string priorityLevel, DateTime timeAndDate, Color task_Color, bool ignoreDeadline, bool missed_Deadline)
+        private static void AddCardToPanel(FlowLayoutPanel panelHolder, string taskName, string taskDescription, string priorityLevel, DateTime timeAndDate, Color task_Color, bool ignoreDeadline, bool missed_Deadline)
         {
 
             if (taskName == "")

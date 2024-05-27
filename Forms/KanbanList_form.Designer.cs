@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             taskColumn_flowlayoutpanel = new FlowLayoutPanel();
             label1 = new Label();
             pictureBox1 = new PictureBox();
+            Alert_notif = new NotifyIcon(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -68,6 +70,11 @@
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
+            // Alert_notif
+            // 
+            Alert_notif.Text = "notifyIcon1";
+            Alert_notif.Visible = true;
+            // 
             // KanbanList_form
             // 
             AllowDrop = true;
@@ -94,5 +101,6 @@
         private FlowLayoutPanel taskColumn_flowlayoutpanel;
         private Label label1;
         private PictureBox pictureBox1;
+        private NotifyIcon Alert_notif;
     }
 }

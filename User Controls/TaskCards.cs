@@ -19,7 +19,7 @@ namespace TearDown_Project_mangament_software.User_Controls
         //Default fields
 
         public DateTime due;
-        public Color color = Color.FromArgb(252, 187, 109);
+        //public Color color = Color.FromArgb(252, 187, 109);
 
         #region Properties
 
@@ -85,6 +85,7 @@ namespace TearDown_Project_mangament_software.User_Controls
                 modify_form.cardIndex = ColumnNumber;
                 modify_form.taskName = this.TaskName;
                 modify_form.IgnoreDeadline = this.ignoreDeadline;
+                modify_form.missedDeadline = this.missedDeadline;
 
 
                 if (modify_form.ShowDialog() == DialogResult.OK)
@@ -94,6 +95,7 @@ namespace TearDown_Project_mangament_software.User_Controls
                     taskDescription = modify_form.Task_Description;
                     due_lbl.Text = String.Concat("Due: ", modify_form.Date_Time.ToString());
                     ignoreDeadline = modify_form.IgnoreDeadline;
+                    missedDeadline = modify_form.missedDeadline;
                     //Temp.DataValidator_Remove_and_Replace(TaskName, modify_form.Date_Time);
                     //Temp.UpdateDate(TaskName,dateTime, ColumnNumber);
                 }
@@ -130,7 +132,7 @@ namespace TearDown_Project_mangament_software.User_Controls
             if (dateTime == new DateTime())
             {
                 due_lbl.Text = "Due: None";
-                Task_color.BackColor = color;
+                
             }
             else
             {
@@ -223,31 +225,39 @@ namespace TearDown_Project_mangament_software.User_Controls
             if (ignoreDeadline == true)
             {
                 color_atb_pb.BackColor = Color.YellowGreen;
+                missedDeadline = false;
             }
             else
-            {
+            { 
                 if (timeSpan.TotalSeconds <= 0)
                 {
                     color_atb_pb.BackColor = Color.Red;
+                  
                     missedDeadline = true; 
+                }
+                else if (timeSpan.TotalSeconds > 0 && timeSpan.TotalHours <= 24)
+                {
+                    color_atb_pb.BackColor = Color.Orange;
+                    
+                    missedDeadline = false;
                 }
                 else if (timeSpan.TotalDays >= 1)
                 {
-                    color_atb_pb.BackColor = Color.Orange;
+                    color_atb_pb.BackColor = Color.Green;
+                    
+                    missedDeadline = false;
                 }
                 else
                 {
-                    color_atb_pb.BackColor = Color.Green;
+                    color_atb_pb.BackColor = Color.AliceBlue;
+                    missedDeadline = false;
                 }
             }
         }
         #endregion 
 
         #region Notif Icon
-        private void Notify_system()
-        {
-
-        }
+      
         #endregion
     }
 }

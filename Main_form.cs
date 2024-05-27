@@ -11,6 +11,16 @@ namespace TearDown_Project_mangament_software
         {
             InitializeComponent();
 
+            kanbanlist_form = new KanbanList_form();
+            kanbanlist_form.MdiParent = this;
+            kanbanlist_form.Show();
+            kanbanlist_form.Dock = DockStyle.Fill;
+
+            //Canban_Column_1.LoadCards();
+            //Canban_Column_2.LoadCards();    
+            //Canban_Column_3.LoadCards();
+            //Canban_Column_4.LoadCards();
+
             // Shows the first dashboard form
             dashboard = new Dashboard();
             dashboard.FormClosed += Dashboard_FormClosed;
@@ -123,13 +133,29 @@ namespace TearDown_Project_mangament_software
         private void Main_form_FormClosing(object sender, FormClosingEventArgs e)
         {
             current_status_onb.Text = "Saving Changes . . . . . ";
-            Canban_Column_1.Stop_Recording_thread();
+            //Canban_Column_1.Stop_Recording_thread();
+            Canban_Column_1.PassDatafromColumn1();
+            Canban_Column_2.PassDatafromColumn2();
+            Canban_Column_3.PassDatafromColumn3();
+            Canban_Column_4.PassDatafromColumn4();
+
+            Thread.Sleep(2000);
         }
         #endregion
 
         private void deadline_checker_Tick(object sender, EventArgs e)
         {
 
+        }
+
+        /// <summary>
+        /// /
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Run_bg_processes_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+         
         }
     }
 }

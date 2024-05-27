@@ -80,10 +80,19 @@ namespace TearDown_Project_mangament_software.Forms
 
         #region Json Deserializer
 
-        
+
 
 
         #endregion
 
+        #region NotifSystem
+
+        
+
+
+        
+        #endregion
+
     }
 }
+

@@ -38,6 +38,8 @@ namespace TearDown_Project_mangament_software.floating_dialogues
 
         public bool IgnoreDeadline { get; set; }    
 
+        public bool missedDeadline { get; set; }
+
         #endregion
 
 
@@ -74,12 +76,14 @@ namespace TearDown_Project_mangament_software.floating_dialogues
                 timePicker.taskIndex = this.cardIndex;
                 timePicker.taskName = this.taskName;
                 timePicker.ignoreDeadline = this.IgnoreDeadline;
+                timePicker.missedTask = this.missedDeadline;
 
                 if(timePicker.ShowDialog() == DialogResult.OK)
                 {
                     this.Date_Time = timePicker.dateTime;
                     this.Duedate_display_txt.Text = timePicker.dateTime.ToString();
                     this.IgnoreDeadline = timePicker.ignoreDeadline;
+                    this.missedDeadline = timePicker.missedTask;
                 }
             }
 

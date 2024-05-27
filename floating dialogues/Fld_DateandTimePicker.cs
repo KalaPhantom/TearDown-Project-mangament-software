@@ -23,6 +23,8 @@ namespace TearDown_Project_mangament_software.floating_dialogues
 
         public bool ignoreDeadline { get; set; }
 
+        public bool missedTask { get; set; }
+
 
         public Fld_DateandTimePicker()
         {
@@ -49,6 +51,18 @@ namespace TearDown_Project_mangament_software.floating_dialogues
         {
             Temp.UpdateDate(taskName, dateTime, taskIndex);
             ignoreDeadline = false; 
+
+            TimeSpan timeSpan = dateTime - DateTime.Now;
+
+            if (timeSpan.TotalSeconds <= 0)
+            {
+                missedTask = true;
+            }
+            else
+            {
+                missedTask = false;
+            }
+
             DialogResult = DialogResult.OK;
 
         }
