@@ -32,6 +32,7 @@
             main_panel = new Panel();
             statusStrip1 = new StatusStrip();
             current_status_onb = new ToolStripStatusLabel();
+            toolStrip_progress_bar = new ToolStripProgressBar();
             panel2 = new Panel();
             logo_button = new Button();
             notes_btn = new Button();
@@ -40,7 +41,6 @@
             Kanban_list_btn = new Button();
             deadline_checker = new System.Windows.Forms.Timer(components);
             Run_bg_processes = new System.ComponentModel.BackgroundWorker();
-            toolStrip_progress_bar = new ToolStripProgressBar();
             statusStrip1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -61,11 +61,11 @@
             statusStrip1.BackColor = Color.FromArgb(104, 93, 121);
             statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Items.AddRange(new ToolStripItem[] { current_status_onb, toolStrip_progress_bar });
-            statusStrip1.Location = new Point(0, 824);
+            statusStrip1.Location = new Point(0, 823);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Padding = new Padding(1, 0, 16, 0);
             statusStrip1.RenderMode = ToolStripRenderMode.Professional;
-            statusStrip1.Size = new Size(1565, 23);
+            statusStrip1.Size = new Size(1565, 24);
             statusStrip1.TabIndex = 3;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -74,6 +74,13 @@
             current_status_onb.ForeColor = Color.FromArgb(252, 187, 109);
             current_status_onb.Name = "current_status_onb";
             current_status_onb.Size = new Size(0, 18);
+            // 
+            // toolStrip_progress_bar
+            // 
+            toolStrip_progress_bar.Name = "toolStrip_progress_bar";
+            toolStrip_progress_bar.Size = new Size(100, 16);
+            toolStrip_progress_bar.Style = ProgressBarStyle.Marquee;
+            toolStrip_progress_bar.Value = 100;
             // 
             // panel2
             // 
@@ -87,7 +94,7 @@
             panel2.Location = new Point(0, 0);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(117, 824);
+            panel2.Size = new Size(117, 823);
             panel2.TabIndex = 0;
             // 
             // logo_button
@@ -114,13 +121,14 @@
             notes_btn.FlatStyle = FlatStyle.Flat;
             notes_btn.Font = new Font("Cascadia Code", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             notes_btn.ForeColor = SystemColors.ControlLightLight;
-            notes_btn.Location = new Point(3, 680);
+            notes_btn.Location = new Point(3, 679);
             notes_btn.Margin = new Padding(3, 4, 3, 4);
             notes_btn.Name = "notes_btn";
             notes_btn.Size = new Size(110, 121);
             notes_btn.TabIndex = 3;
             notes_btn.TextAlign = ContentAlignment.BottomCenter;
             notes_btn.UseVisualStyleBackColor = true;
+            notes_btn.Click += notes_btn_Click;
             // 
             // whiteboard_btn
             // 
@@ -130,13 +138,14 @@
             whiteboard_btn.FlatStyle = FlatStyle.Flat;
             whiteboard_btn.Font = new Font("Cascadia Code", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             whiteboard_btn.ForeColor = SystemColors.ControlLightLight;
-            whiteboard_btn.Location = new Point(3, 560);
+            whiteboard_btn.Location = new Point(3, 559);
             whiteboard_btn.Margin = new Padding(3, 4, 3, 4);
             whiteboard_btn.Name = "whiteboard_btn";
             whiteboard_btn.Size = new Size(110, 112);
             whiteboard_btn.TabIndex = 2;
             whiteboard_btn.TextAlign = ContentAlignment.BottomCenter;
             whiteboard_btn.UseVisualStyleBackColor = true;
+            whiteboard_btn.Click += whiteboard_btn_Click;
             // 
             // dashboard_btn
             // 
@@ -146,7 +155,7 @@
             dashboard_btn.FlatStyle = FlatStyle.Flat;
             dashboard_btn.Font = new Font("Cascadia Code", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dashboard_btn.ForeColor = SystemColors.ControlLightLight;
-            dashboard_btn.Location = new Point(3, 320);
+            dashboard_btn.Location = new Point(3, 319);
             dashboard_btn.Margin = new Padding(3, 4, 3, 4);
             dashboard_btn.Name = "dashboard_btn";
             dashboard_btn.Size = new Size(110, 112);
@@ -163,7 +172,7 @@
             Kanban_list_btn.FlatStyle = FlatStyle.Flat;
             Kanban_list_btn.Font = new Font("Cascadia Code", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Kanban_list_btn.ForeColor = SystemColors.ControlLightLight;
-            Kanban_list_btn.Location = new Point(3, 440);
+            Kanban_list_btn.Location = new Point(3, 439);
             Kanban_list_btn.Margin = new Padding(3, 4, 3, 4);
             Kanban_list_btn.Name = "Kanban_list_btn";
             Kanban_list_btn.Size = new Size(110, 112);
@@ -181,17 +190,9 @@
             // 
             Run_bg_processes.DoWork += Run_bg_processes_DoWork;
             // 
-            // toolStrip_progress_bar
-            // 
-            toolStrip_progress_bar.Name = "toolStrip_progress_bar";
-            toolStrip_progress_bar.Size = new Size(100, 16);
-            toolStrip_progress_bar.Style = ProgressBarStyle.Marquee;
-            toolStrip_progress_bar.Value = 100;
-            // 
             // Main_form
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1565, 847);
             Controls.Add(panel2);
             Controls.Add(statusStrip1);

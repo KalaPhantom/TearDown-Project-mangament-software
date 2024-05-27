@@ -21,6 +21,7 @@ namespace TearDown_Project_mangament_software.User_Controls
         public Canban_Column_3()
         {
             InitializeComponent();
+            LoadDatafromColumn3();
             LoadCards();
       
             //Thread column3_trd = new Thread(PassDatafromColumn3);
@@ -84,9 +85,11 @@ namespace TearDown_Project_mangament_software.User_Controls
                 {
                     this.kanban_column_name = kanban_modify.Column_name;
                     this.Column_color_top = kanban_modify.color_up;
-                    this.Column_color_top = kanban_modify.color_center;
+                    this.Column_color_bottom = kanban_modify.color_center;
                     this.BackColor = kanban_modify.color_center;
                     taskCards_flowlayoutPanel.BackColor = kanban_modify.color_center;
+
+                    SaveDatafromColumn3();
                 }
 
             }
@@ -210,6 +213,46 @@ namespace TearDown_Project_mangament_software.User_Controls
 
             };
             panelHolder.Controls.Add(card);
+        }
+        #endregion
+
+        #region Column Data Serializer and Deserializer
+
+        private void SaveDatafromColumn3()
+        {
+            string name = this.kanban_column_name;
+            Color bottom = this.Column_color_bottom;
+            Color top = this.Column_color_top;
+
+            var column = new Column_data_ref()
+            {
+                Name = name,
+                color_top = top,
+                color_bottom = bottom
+            };
+
+            var settings = new JsonSerializerSettings
+            {
+
+                Formatting = Formatting.Indented
+            };
+
+            string json = JsonConvert.SerializeObject(column, settings);
+            File.WriteAllText(@"Column3_data.json", json);
+        }
+
+        private void LoadDatafromColumn3()
+        {
+            if (File.Exists(@"Column3_data.json"))
+            {
+                string jsonString = File.ReadAllText(@"Column3_data.json");
+                var boardData = JsonConvert.DeserializeObject<Column_data_ref>(jsonString);
+                this.kanban_column_name = boardData.Name;
+                this.Column_color_top = boardData.color_top;
+                this.Column_color_top = boardData.color_bottom;
+                this.BackColor = boardData.color_bottom;
+                taskCards_flowlayoutPanel.BackColor = boardData.color_bottom;
+            }
         }
         #endregion
     }

@@ -22,6 +22,9 @@ namespace TearDown_Project_mangament_software.Forms
 
         ConcurrentBag<TaskCards> taskCards = new ConcurrentBag<TaskCards>();
 
+        public int missedTAsk = 0;
+        public int upcoming = 0;
+
         public Dashboard()
         {
             InitializeComponent();
@@ -63,6 +66,8 @@ namespace TearDown_Project_mangament_software.Forms
             int missedTask = 0; // Count
             int upcommingTask = 0; // Count
 
+            this.upcoming = upcoming;
+            this.missedTask = missedTask;
 
             foreach (TaskCards cards in Canban_Column_1.taskCards_flowlayoutPanel.Controls)
             {
@@ -132,8 +137,10 @@ namespace TearDown_Project_mangament_software.Forms
         {
 
             Counter();
+            Greeting_lbl.Text = GetTimeOfDay(DateTime.Now);
             upcoming_Counter_lbl.Text = this.upcommingTask.ToString();
             missed_Counter_lbl.Text = this.missedTask.ToString();
+
         }
 
 
@@ -257,7 +264,7 @@ namespace TearDown_Project_mangament_software.Forms
 
         private void ClearCardsToPanel()
         {
-          
+
             if (upcoming_task_db_fLp.InvokeRequired)
             {
                 upcoming_task_db_fLp.Invoke(new Action(ClearCardsToPanel));
@@ -277,11 +284,40 @@ namespace TearDown_Project_mangament_software.Forms
                 Main_form.current_status_onb.Text = "Updating........";
                 Main_form.toolStrip_progress_bar.Visible = true;
             }
-            catch (System.InvalidOperationException) 
+            catch (System.InvalidOperationException)
             {
                 MessageBox.Show("The Board is already updating in the background.... \n Pls Wait");
             }
 
+        }
+
+        private string GetTimeOfDay(DateTime dateTime)
+        {
+            int hour = dateTime.Hour;
+
+            if (hour >= 5 && hour < 12)
+            {
+                return "Good Morning User";
+            }
+            else if (hour >= 12 && hour < 17)
+            {
+                return "Good Afternoon User";
+            }
+            else if (hour >= 17 && hour < 21)
+            {
+                return "Good Evening User";
+            }
+            else
+            {
+                return "Good Night User";
+            }
+        }
+
+        private void timer_populate_flp_Tick(object sender, EventArgs e)
+        {
+            notifyIcon.BalloonTipTitle = $"Reminder you have {missedTAsk} missed task and {upcoming} upcoming task";
+            notifyIcon.BalloonTipText = "This is your 4-hour reminder!";
+            notifyIcon.ShowBalloonTip(3000);
         }
     }
 }

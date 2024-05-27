@@ -1,5 +1,7 @@
+using Notes3;
 using TearDown_Project_mangament_software.Forms;
 using TearDown_Project_mangament_software.User_Controls;
+using WinFormsApp2;
 
 namespace TearDown_Project_mangament_software
 {
@@ -10,6 +12,9 @@ namespace TearDown_Project_mangament_software
         public Main_form()
         {
             InitializeComponent();
+
+      
+           
 
             kanbanlist_form = new KanbanList_form();
             kanbanlist_form.MdiParent = this;
@@ -29,6 +34,10 @@ namespace TearDown_Project_mangament_software
             dashboard.Dock = DockStyle.Fill;
             current_status_onb.Text = "Welcome User";
 
+
+
+
+
             deadline_checker.Start();
         }
 
@@ -40,6 +49,8 @@ namespace TearDown_Project_mangament_software
         /// Initialization of all forms
         KanbanList_form kanbanlist_form;
         Dashboard dashboard;
+        WhiteBoard whiteboard;
+        Notes_ notes;
 
         /// <summary>
         /// 
@@ -93,7 +104,7 @@ namespace TearDown_Project_mangament_software
                 dashboard.FormClosed += Dashboard_FormClosed;
                 dashboard.MdiParent = this;
                 dashboard.Show();
-                dashboard.Dock = DockStyle.Fill;
+                dashboard.Dock = DockStyle.None;
             }
             else
             {
@@ -155,7 +166,51 @@ namespace TearDown_Project_mangament_software
         /// <param name="e"></param>
         private void Run_bg_processes_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-         
+
+        }
+
+        private void whiteboard_btn_Click(object sender, EventArgs e)
+        {
+            if (whiteboard == null)
+            {
+                whiteboard = new WhiteBoard();
+                whiteboard.FormClosed += Whiteboard_FormClosed;
+                whiteboard.MdiParent = this;
+                whiteboard.Show();
+                whiteboard.Dock = DockStyle.Fill;
+
+            }
+            else
+            {
+                whiteboard.Activate();
+            }
+        }
+
+        private void Whiteboard_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            whiteboard = null;
+        }
+
+        private void notes_btn_Click(object sender, EventArgs e)
+        {
+            if (notes == null)
+            {
+                notes = new Notes_();
+                notes.FormClosed += Notes_FormClosed;
+                notes.MdiParent = this;
+                notes.Show();
+                notes.Dock = DockStyle.Fill;
+
+            }
+            else
+            {
+                notes.Activate();
+            }
+        }
+
+        private void Notes_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            notes = null;
         }
     }
 }

@@ -53,6 +53,7 @@
             Timer_update_1 = new System.Windows.Forms.Timer(components);
             timer_populate_flp = new System.Windows.Forms.Timer(components);
             UpdateElelements_in_bg = new System.ComponentModel.BackgroundWorker();
+            notifyIcon = new NotifyIcon(components);
             sp_panel_1 = new Panel();
             sp_panel_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -89,6 +90,7 @@
             // 
             // missed_Counter_lbl
             // 
+            missed_Counter_lbl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             missed_Counter_lbl.AutoSize = true;
             missed_Counter_lbl.Font = new Font("Cascadia Code", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             missed_Counter_lbl.ForeColor = Color.FromArgb(252, 187, 109);
@@ -101,6 +103,7 @@
             // 
             // upcoming_Counter_lbl
             // 
+            upcoming_Counter_lbl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             upcoming_Counter_lbl.AutoSize = true;
             upcoming_Counter_lbl.Font = new Font("Cascadia Code", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             upcoming_Counter_lbl.ForeColor = Color.FromArgb(252, 187, 109);
@@ -113,6 +116,7 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label5.AutoSize = true;
             label5.Font = new Font("Cascadia Code SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(252, 187, 109);
@@ -124,6 +128,7 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label4.AutoSize = true;
             label4.Font = new Font("Cascadia Code SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(252, 187, 109);
@@ -275,7 +280,7 @@
             upcoming_task_db_fLp.Location = new Point(0, 64);
             upcoming_task_db_fLp.Margin = new Padding(3, 4, 3, 4);
             upcoming_task_db_fLp.Name = "upcoming_task_db_fLp";
-            upcoming_task_db_fLp.Size = new Size(518, 757);
+            upcoming_task_db_fLp.Size = new Size(518, 767);
             upcoming_task_db_fLp.TabIndex = 1;
             upcoming_task_db_fLp.WrapContents = false;
             // 
@@ -348,12 +353,18 @@
             // 
             // timer_populate_flp
             // 
-            timer_populate_flp.Interval = 10000;
+            timer_populate_flp.Interval = 14400000;
+            timer_populate_flp.Tick += timer_populate_flp_Tick;
             // 
             // UpdateElelements_in_bg
             // 
             UpdateElelements_in_bg.DoWork += UpdateElelements_in_bg_DoWork;
             UpdateElelements_in_bg.RunWorkerCompleted += UpdateElelements_in_bg_RunWorkerCompleted;
+            // 
+            // notifyIcon
+            // 
+            notifyIcon.Text = "notifyIcon1";
+            notifyIcon.Visible = true;
             // 
             // Dashboard
             // 
@@ -410,8 +421,9 @@
         private Label missed_Counter_lbl;
         private System.Windows.Forms.Timer timer_populate_flp;
         public  System.ComponentModel.BackgroundWorker UpdateElelements_in_bg;
-        private  FlowLayoutPanel upcoming_task_db_fLp;
         private Button button1;
-        public static TextBox Description_box;
+        private FlowLayoutPanel upcoming_task_db_fLp;
+        public TextBox Description_box;
+        private NotifyIcon notifyIcon;
     }
 }

@@ -121,11 +121,11 @@
   <data name="icons8-compass-eye-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resoursce\icons8-compass-eye-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-kanban-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resoursce\icons8-kanban-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icons8-kanban-481" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resoursce\icons8-kanban-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-bullseye-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resoursce\icons8-bullseye-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-dashboard-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resoursce\icons8-dashboard-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,6 +142,9 @@
   <data name="icons8-add-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resoursce\icons8-add-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-notes-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resoursce\icons8-notes-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-modify-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resoursce\icons8-modify-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -154,8 +157,8 @@
   <data name="icons8-bullseye-50 - W" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resoursce\icons8-bullseye-50 - W.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-notes-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resoursce\icons8-notes-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-kanban-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resoursce\icons8-kanban-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-kanban-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resoursce\icons8-kanban-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,8 +166,14 @@
   <data name="icons8-list-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resoursce\icons8-list-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-notes-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resoursce\icons8-notes-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-modify-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resoursce\icons8-modify-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-bullseye-100-2 - W" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resoursce\icons8-bullseye-100-2 - W.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-add-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resoursce\icons8-add-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,7 +181,7 @@
   <data name="icons8-dashboard-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resoursce\icons8-dashboard-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-bullseye-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resoursce\icons8-bullseye-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="note 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resoursce\note 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

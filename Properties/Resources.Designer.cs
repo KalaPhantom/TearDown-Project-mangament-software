@@ -113,6 +113,16 @@ namespace TearDown_Project_mangament_software.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_bullseye_100_2___W {
+            get {
+                object obj = ResourceManager.GetObject("icons8-bullseye-100-2 - W", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_bullseye_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-bullseye-50", resourceCulture);
@@ -233,6 +243,16 @@ namespace TearDown_Project_mangament_software.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_notes_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-notes-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_notes_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-notes-50", resourceCulture);
@@ -246,6 +266,16 @@ namespace TearDown_Project_mangament_software.Properties {
         internal static System.Drawing.Bitmap icons8_whiteboard_50__2_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-whiteboard-50 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap note_1 {
+            get {
+                object obj = ResourceManager.GetObject("note 1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
