@@ -34,7 +34,6 @@
             label3 = new Label();
             Duedate_display_txt = new Label();
             groupBox1 = new GroupBox();
-            add_description_btn = new Button();
             label4 = new Label();
             pick_due_btn = new Button();
             label5 = new Label();
@@ -49,7 +48,6 @@
             color3_btn = new Button();
             color2_btn = new Button();
             color1_btn = new Button();
-            color_picker_btn = new Button();
             groupBox2 = new GroupBox();
             Save_info_btn = new Button();
             panel1 = new Panel();
@@ -119,18 +117,6 @@
             groupBox1.Size = new Size(372, 92);
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
-            // 
-            // add_description_btn
-            // 
-            add_description_btn.FlatAppearance.BorderColor = Color.FromArgb(252, 187, 109);
-            add_description_btn.FlatStyle = FlatStyle.Flat;
-            add_description_btn.Location = new Point(332, 453);
-            add_description_btn.Name = "add_description_btn";
-            add_description_btn.Size = new Size(325, 51);
-            add_description_btn.TabIndex = 8;
-            add_description_btn.Text = "Save task description";
-            add_description_btn.UseVisualStyleBackColor = true;
-            add_description_btn.Click += add_description_btn_Click;
             // 
             // label4
             // 
@@ -286,16 +272,6 @@
             color1_btn.UseVisualStyleBackColor = false;
             color1_btn.Click += color1_btn_Click;
             // 
-            // color_picker_btn
-            // 
-            color_picker_btn.ForeColor = Color.Black;
-            color_picker_btn.Location = new Point(319, 734);
-            color_picker_btn.Name = "color_picker_btn";
-            color_picker_btn.Size = new Size(285, 61);
-            color_picker_btn.TabIndex = 23;
-            color_picker_btn.Text = "Pick a Color";
-            color_picker_btn.UseVisualStyleBackColor = true;
-            // 
             // groupBox2
             // 
             groupBox2.Controls.Add(color4_btn);
@@ -308,10 +284,9 @@
             groupBox2.Controls.Add(color8_btn);
             groupBox2.Location = new Point(319, 574);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(285, 154);
+            groupBox2.Size = new Size(285, 156);
             groupBox2.TabIndex = 24;
             groupBox2.TabStop = false;
-            groupBox2.Text = "groupBox2";
             // 
             // Save_info_btn
             // 
@@ -342,14 +317,12 @@
             Controls.Add(Save_info_btn);
             Controls.Add(panel1);
             Controls.Add(groupBox2);
-            Controls.Add(color_picker_btn);
             Controls.Add(taskcard_color);
             Controls.Add(label6);
             Controls.Add(task_description_tbx);
             Controls.Add(label5);
             Controls.Add(pick_due_btn);
             Controls.Add(label4);
-            Controls.Add(add_description_btn);
             Controls.Add(groupBox1);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -378,7 +351,6 @@
         private Label label3;
         private Label Duedate_display_txt;
         private GroupBox groupBox1;
-        private Button add_description_btn;
         private Label label4;
         private Button pick_due_btn;
         private Label label5;
@@ -393,7 +365,6 @@
         private Button color3_btn;
         private Button color2_btn;
         private Button color1_btn;
-        private Button color_picker_btn;
         private GroupBox groupBox2;
         private Button Save_info_btn;
         private Panel panel1;

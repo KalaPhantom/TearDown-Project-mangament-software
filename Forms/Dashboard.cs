@@ -32,6 +32,7 @@ namespace TearDown_Project_mangament_software.Forms
 
 
             UpdateElelements_in_bg.RunWorkerAsync();
+            timer_populate_flp.Start();
 
         }
 

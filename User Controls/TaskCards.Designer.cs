@@ -95,12 +95,14 @@
             // 
             changeName_btn.FlatAppearance.BorderSize = 0;
             changeName_btn.FlatStyle = FlatStyle.Flat;
-            changeName_btn.Image = Properties.Resources.icons8_compass_eye_24;
-            changeName_btn.Location = new Point(144, 122);
+            changeName_btn.Font = new Font("Cascadia Code", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            changeName_btn.ForeColor = Color.FromArgb(252, 187, 109);
+            changeName_btn.Location = new Point(126, 128);
             changeName_btn.Margin = new Padding(3, 4, 3, 4);
             changeName_btn.Name = "changeName_btn";
-            changeName_btn.Size = new Size(64, 37);
+            changeName_btn.Size = new Size(107, 31);
             changeName_btn.TabIndex = 6;
+            changeName_btn.Text = "Edit Name";
             changeName_btn.UseVisualStyleBackColor = true;
             changeName_btn.Click += changeName_btn_Click;
             // 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             TxtBxTitle = new TextBox();
             TxtBxNotes = new TextBox();
             label1 = new Label();
@@ -43,6 +44,7 @@
             pictureBox1 = new PictureBox();
             label3 = new Label();
             panel2 = new Panel();
+            Timer_tick_save = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)previousnotes).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -153,7 +155,7 @@
             NewNotesBtn.Name = "NewNotesBtn";
             NewNotesBtn.Size = new Size(188, 46);
             NewNotesBtn.TabIndex = 7;
-            NewNotesBtn.Text = "New Notes";
+            NewNotesBtn.Text = "Save All";
             NewNotesBtn.UseVisualStyleBackColor = false;
             NewNotesBtn.Click += NewNotesBtn_Click;
             // 
@@ -292,5 +294,6 @@
         private Panel panel2;
         private PictureBox pictureBox1;
         private Label label3;
+        private System.Windows.Forms.Timer Timer_tick_save;
     }
 }

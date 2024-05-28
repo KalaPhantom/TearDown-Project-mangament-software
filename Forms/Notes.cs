@@ -20,7 +20,7 @@ namespace Notes3
             public string Notes { get; set; }//Get and set the main notes
         }
         List<Data> rows = new List<Data>();//To list the rows in the datagridview
-        DataTable notes = new DataTable();//get the title and the notes
+        public static DataTable notes = new DataTable();//get the title and the notes
         bool editing = false;//for editing the title andf the notes
         public Notes_()
         {
@@ -50,14 +50,18 @@ namespace Notes3
         }
 
 
-
+        /// <summary>
+        /// Bossssss, may bug ohhhhhhhhh ___________________________________________________________________________________________________________
+        /// </summary>
+    
         private void DeleteBtn_Click(object sender, EventArgs e)//delete the value to the gridview
         {
             try
             {
+                // TODO: Exception handling here
                 notes.Rows[previousnotes.CurrentCell.RowIndex].Delete();//delte the selected item in tthe grid view and the nnotes
             }
-            catch (Exception ex) { Console.WriteLine("Not a valid note"); }//if there's no notes
+            catch (System.NullReferenceException ) { MessageBox.Show("Not a valid note"); }//if there's no notes
         }
         private void LoadBtn_Click(object sender, EventArgs e)//load the btn to the textboxes 
         {
@@ -71,8 +75,29 @@ namespace Notes3
         }
         private void NewNotesBtn_Click(object sender, EventArgs e)//set the loaded variable to empty
         {
-            TxtBxTitle.Text = "";
-            TxtBxNotes.Text = "";
+            //txtbxtitle.text = "";
+            //txtbxnotes.text = "";
+
+            //  Save All functions 
+
+            foreach (DataRow row in notes.Rows)//get the values of the rows
+            {
+                if (row.RowState != DataRowState.Deleted)//check if the row is not empty and the rows are not deleted
+                {
+                    rows.Add(new Data
+                    {
+                        Title = row["Title"].ToString(),
+                        Notes = row["Note"].ToString()
+                    });//set the title and the notes to string and save it to the list
+                }
+            }
+
+            var option = new JsonSerializerOptions();
+
+            option.WriteIndented = true;//this id the option that make the variables on the json file readable
+
+            string json = JsonSerializer.Serialize(rows, option);//serialize the variables on the row
+            File.WriteAllText("datanotes.json", json);//write the variable to the json file
         }
 
         private void SaveBtn_Click(object sender, EventArgs e)//save the variable to tthe grid view and set it to the notes or the DataTable
@@ -86,6 +111,10 @@ namespace Notes3
             else //if the editing is false the title on the textbox and the note will be saved to the DataTable
             {
                 notes.Rows.Add(TxtBxTitle.Text, TxtBxNotes.Text);
+
+                
+
+               
 
             }
             TxtBxTitle.Text = "";//Automatically set the text boxes to blank
@@ -142,6 +171,13 @@ namespace Notes3
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void DoSaveFunction()
+        {
+           
+
+           
         }
     }
 }

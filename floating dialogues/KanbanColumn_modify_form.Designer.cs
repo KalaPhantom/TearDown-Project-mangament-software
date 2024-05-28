@@ -42,8 +42,6 @@
             color7_btn = new Button();
             color6_btn = new Button();
             color5_btn = new Button();
-            recentColor_btn = new Button();
-            colorPicker_btn = new Button();
             Save_btn = new Button();
             ((System.ComponentModel.ISupportInitialize)Column_color_pb).BeginInit();
             SuspendLayout();
@@ -75,9 +73,9 @@
             // 
             // Column_color_pb
             // 
-            Column_color_pb.Location = new Point(16, 147);
+            Column_color_pb.Location = new Point(14, 157);
             Column_color_pb.Name = "Column_color_pb";
-            Column_color_pb.Size = new Size(428, 24);
+            Column_color_pb.Size = new Size(153, 105);
             Column_color_pb.TabIndex = 3;
             Column_color_pb.TabStop = false;
             // 
@@ -94,7 +92,7 @@
             // 
             color1_btn.BackColor = Color.FromArgb(252, 187, 109);
             color1_btn.FlatStyle = FlatStyle.Flat;
-            color1_btn.Location = new Point(16, 177);
+            color1_btn.Location = new Point(183, 157);
             color1_btn.Name = "color1_btn";
             color1_btn.Size = new Size(59, 45);
             color1_btn.TabIndex = 5;
@@ -106,7 +104,7 @@
             color2_btn.BackColor = Color.FromArgb(216, 115, 127);
             color2_btn.FlatAppearance.BorderSize = 0;
             color2_btn.FlatStyle = FlatStyle.Flat;
-            color2_btn.Location = new Point(81, 177);
+            color2_btn.Location = new Point(248, 157);
             color2_btn.Name = "color2_btn";
             color2_btn.Size = new Size(59, 45);
             color2_btn.TabIndex = 6;
@@ -118,7 +116,7 @@
             color3_btn.BackColor = Color.FromArgb(171, 108, 130);
             color3_btn.FlatAppearance.BorderSize = 0;
             color3_btn.FlatStyle = FlatStyle.Flat;
-            color3_btn.Location = new Point(146, 177);
+            color3_btn.Location = new Point(313, 157);
             color3_btn.Name = "color3_btn";
             color3_btn.Size = new Size(59, 45);
             color3_btn.TabIndex = 7;
@@ -130,7 +128,7 @@
             color4_btn.BackColor = Color.FromArgb(71, 92, 122);
             color4_btn.FlatAppearance.BorderSize = 0;
             color4_btn.FlatStyle = FlatStyle.Flat;
-            color4_btn.Location = new Point(211, 177);
+            color4_btn.Location = new Point(378, 157);
             color4_btn.Name = "color4_btn";
             color4_btn.Size = new Size(59, 45);
             color4_btn.TabIndex = 8;
@@ -142,7 +140,7 @@
             color8_btn.BackColor = Color.FromArgb(48, 95, 114);
             color8_btn.FlatAppearance.BorderSize = 0;
             color8_btn.FlatStyle = FlatStyle.Flat;
-            color8_btn.Location = new Point(211, 228);
+            color8_btn.Location = new Point(378, 208);
             color8_btn.Name = "color8_btn";
             color8_btn.Size = new Size(59, 45);
             color8_btn.TabIndex = 12;
@@ -154,7 +152,7 @@
             color7_btn.BackColor = Color.FromArgb(86, 142, 166);
             color7_btn.FlatAppearance.BorderSize = 0;
             color7_btn.FlatStyle = FlatStyle.Flat;
-            color7_btn.Location = new Point(146, 228);
+            color7_btn.Location = new Point(313, 208);
             color7_btn.Name = "color7_btn";
             color7_btn.Size = new Size(59, 45);
             color7_btn.TabIndex = 11;
@@ -166,7 +164,7 @@
             color6_btn.BackColor = Color.FromArgb(240, 183, 164);
             color6_btn.FlatAppearance.BorderSize = 0;
             color6_btn.FlatStyle = FlatStyle.Flat;
-            color6_btn.Location = new Point(81, 228);
+            color6_btn.Location = new Point(248, 208);
             color6_btn.Name = "color6_btn";
             color6_btn.Size = new Size(59, 45);
             color6_btn.TabIndex = 10;
@@ -178,32 +176,12 @@
             color5_btn.BackColor = Color.FromArgb(241, 140, 142);
             color5_btn.FlatAppearance.BorderSize = 0;
             color5_btn.FlatStyle = FlatStyle.Flat;
-            color5_btn.Location = new Point(16, 228);
+            color5_btn.Location = new Point(183, 208);
             color5_btn.Name = "color5_btn";
             color5_btn.Size = new Size(59, 45);
             color5_btn.TabIndex = 9;
             color5_btn.UseVisualStyleBackColor = false;
             color5_btn.Click += color5_btn_Click;
-            // 
-            // recentColor_btn
-            // 
-            recentColor_btn.ForeColor = Color.White;
-            recentColor_btn.Location = new Point(276, 177);
-            recentColor_btn.Name = "recentColor_btn";
-            recentColor_btn.Size = new Size(81, 96);
-            recentColor_btn.TabIndex = 13;
-            recentColor_btn.Text = "button1";
-            recentColor_btn.UseVisualStyleBackColor = true;
-            // 
-            // colorPicker_btn
-            // 
-            colorPicker_btn.ForeColor = Color.Black;
-            colorPicker_btn.Location = new Point(363, 177);
-            colorPicker_btn.Name = "colorPicker_btn";
-            colorPicker_btn.Size = new Size(81, 96);
-            colorPicker_btn.TabIndex = 14;
-            colorPicker_btn.Text = "Pick Color";
-            colorPicker_btn.UseVisualStyleBackColor = true;
             // 
             // Save_btn
             // 
@@ -223,8 +201,6 @@
             BackColor = Color.FromArgb(104, 93, 121);
             ClientSize = new Size(456, 351);
             Controls.Add(Save_btn);
-            Controls.Add(colorPicker_btn);
-            Controls.Add(recentColor_btn);
             Controls.Add(color8_btn);
             Controls.Add(color7_btn);
             Controls.Add(color6_btn);
@@ -265,8 +241,6 @@
         private Button color7_btn;
         private Button color6_btn;
         private Button color5_btn;
-        private Button recentColor_btn;
-        private Button colorPicker_btn;
         private Button Save_btn;
     }
 }

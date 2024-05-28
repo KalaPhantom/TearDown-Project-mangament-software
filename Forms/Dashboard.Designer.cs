@@ -39,7 +39,6 @@
             Title_lbl = new Label();
             Greeting_lbl = new Label();
             pictureBox1 = new PictureBox();
-            label2 = new Label();
             upcomingTask_panel = new Panel();
             dashc_board_panel = new Panel();
             Description_box = new TextBox();
@@ -80,7 +79,6 @@
             sp_panel_1.Controls.Add(Title_lbl);
             sp_panel_1.Controls.Add(Greeting_lbl);
             sp_panel_1.Controls.Add(pictureBox1);
-            sp_panel_1.Controls.Add(label2);
             sp_panel_1.Dock = DockStyle.Fill;
             sp_panel_1.Location = new Point(0, 0);
             sp_panel_1.Margin = new Padding(3, 4, 3, 4);
@@ -92,11 +90,11 @@
             // 
             missed_Counter_lbl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             missed_Counter_lbl.AutoSize = true;
-            missed_Counter_lbl.Font = new Font("Cascadia Code", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            missed_Counter_lbl.Font = new Font("Cascadia Code", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             missed_Counter_lbl.ForeColor = Color.FromArgb(252, 187, 109);
-            missed_Counter_lbl.Location = new Point(318, 562);
+            missed_Counter_lbl.Location = new Point(192, 607);
             missed_Counter_lbl.Name = "missed_Counter_lbl";
-            missed_Counter_lbl.Size = new Size(44, 49);
+            missed_Counter_lbl.Size = new Size(69, 79);
             missed_Counter_lbl.TabIndex = 6;
             missed_Counter_lbl.Text = "0";
             missed_Counter_lbl.TextAlign = ContentAlignment.MiddleCenter;
@@ -105,11 +103,11 @@
             // 
             upcoming_Counter_lbl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             upcoming_Counter_lbl.AutoSize = true;
-            upcoming_Counter_lbl.Font = new Font("Cascadia Code", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            upcoming_Counter_lbl.Font = new Font("Cascadia Code", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             upcoming_Counter_lbl.ForeColor = Color.FromArgb(252, 187, 109);
-            upcoming_Counter_lbl.Location = new Point(87, 562);
+            upcoming_Counter_lbl.Location = new Point(192, 385);
             upcoming_Counter_lbl.Name = "upcoming_Counter_lbl";
-            upcoming_Counter_lbl.Size = new Size(44, 49);
+            upcoming_Counter_lbl.Size = new Size(69, 79);
             upcoming_Counter_lbl.TabIndex = 5;
             upcoming_Counter_lbl.Text = "0";
             upcoming_Counter_lbl.TextAlign = ContentAlignment.MiddleCenter;
@@ -120,7 +118,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Cascadia Code SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(252, 187, 109);
-            label5.Location = new Point(297, 624);
+            label5.Location = new Point(177, 686);
             label5.Name = "label5";
             label5.Size = new Size(84, 27);
             label5.TabIndex = 4;
@@ -132,7 +130,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Cascadia Code SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(252, 187, 109);
-            label4.Location = new Point(55, 624);
+            label4.Location = new Point(168, 475);
             label4.Name = "label4";
             label4.Size = new Size(108, 27);
             label4.TabIndex = 3;
@@ -199,22 +197,6 @@
             pictureBox1.Size = new Size(137, 148);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.FlatStyle = FlatStyle.Flat;
-            label2.Font = new Font("Cascadia Code", 72F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.FromArgb(252, 187, 109);
-            label2.Location = new Point(173, 292);
-            label2.Name = "label2";
-            label2.Size = new Size(137, 158);
-            label2.TabIndex = 2;
-            label2.Text = "1";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
-            label2.Click += label2_Click;
             // 
             // upcomingTask_panel
             // 
@@ -353,7 +335,8 @@
             // 
             // timer_populate_flp
             // 
-            timer_populate_flp.Interval = 14400000;
+            timer_populate_flp.Enabled = true;
+            timer_populate_flp.Interval = 5000;
             timer_populate_flp.Tick += timer_populate_flp_Tick;
             // 
             // UpdateElelements_in_bg
@@ -410,7 +393,6 @@
         private Label properties_label;
         private SplitContainer splitContainer1;
         private Panel dashc_board_panel;
-        private Label label2;
         private Label label1;
         private FlowLayoutPanel dashboard_flp;
         private Label label3;
@@ -423,7 +405,7 @@
         public  System.ComponentModel.BackgroundWorker UpdateElelements_in_bg;
         private Button button1;
         private FlowLayoutPanel upcoming_task_db_fLp;
-        public TextBox Description_box;
         private NotifyIcon notifyIcon;
+        public static TextBox Description_box;
     }
 }
