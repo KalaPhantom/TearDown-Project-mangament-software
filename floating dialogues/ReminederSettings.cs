@@ -16,5 +16,13 @@ namespace TearDown_Project_mangament_software.floating_dialogues
         {
             InitializeComponent();
         }
+
+
+        #region
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        #endregion
     }
 }

@@ -56,7 +56,7 @@ namespace TearDown_Project_mangament_software.floating_dialogues
         #region Color modification
         private void color1_btn_Click(object sender, EventArgs e)
         {
-            color_up = Color.FromArgb(252, 107, 109);
+            color_up = Color.FromArgb(252, 187, 109);
             color_center = Color.FromArgb(70, 252, 187, 109);
         }
 

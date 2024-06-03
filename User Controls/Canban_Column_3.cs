@@ -249,7 +249,7 @@ namespace TearDown_Project_mangament_software.User_Controls
                 var boardData = JsonConvert.DeserializeObject<Column_data_ref>(jsonString);
                 this.kanban_column_name = boardData.Name;
                 this.Column_color_top = boardData.color_top;
-                this.Column_color_top = boardData.color_bottom;
+                this.Column_color_bottom = boardData.color_bottom;
                 this.BackColor = boardData.color_bottom;
                 taskCards_flowlayoutPanel.BackColor = boardData.color_bottom;
             }

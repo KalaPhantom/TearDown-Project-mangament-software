@@ -67,8 +67,8 @@ namespace TearDown_Project_mangament_software.Forms
             int missedTask = 0; // Count
             int upcommingTask = 0; // Count
 
-            this.upcoming = upcoming;
-            this.missedTask = missedTask;
+            //this.upcoming = upcoming;
+            //this.missedTask = missedTask;
 
             foreach (TaskCards cards in Canban_Column_1.taskCards_flowlayoutPanel.Controls)
             {
@@ -314,9 +314,11 @@ namespace TearDown_Project_mangament_software.Forms
             }
         }
 
+
+        // An iterative function that invokes whenever a timer control associated on it ticks (Per Milliseconds)
         private void timer_populate_flp_Tick(object sender, EventArgs e)
         {
-            notifyIcon.BalloonTipTitle = $"Reminder you have {missedTAsk} missed task and {upcoming} upcoming task";
+            notifyIcon.BalloonTipTitle = $"Reminder you have {missedTask} missed task and {upcommingTask} upcoming task";
             notifyIcon.BalloonTipText = "This is your 4-hour reminder!";
             notifyIcon.ShowBalloonTip(3000);
         }

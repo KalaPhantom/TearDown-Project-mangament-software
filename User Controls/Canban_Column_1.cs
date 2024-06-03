@@ -142,7 +142,7 @@ namespace TearDown_Project_mangament_software.User_Controls
             // Converts all data from a list to an object
         var columnData = new KanbanColumndata
         {
-            column1 = saveCardData_fromColumn1()
+            column1 = saveCardData_fromColumn1() 
         };
 
             // The object is then passed here to serialized all files
@@ -291,6 +291,7 @@ namespace TearDown_Project_mangament_software.User_Controls
             string name = this.kanban_column_name;
             Color bottom = this.Column_color_bottom;
             Color top = this.Column_color_top;
+
             var column = new Column_data_ref()
             {
                 Name = name,
@@ -316,7 +317,7 @@ namespace TearDown_Project_mangament_software.User_Controls
                 var boardData = JsonConvert.DeserializeObject<Column_data_ref>(jsonString);
                 this.kanban_column_name = boardData.Name;
                 this.Column_color_top = boardData.color_top;
-                this.Column_color_top = boardData.color_bottom;
+                this.Column_color_bottom = boardData.color_bottom;
                 this.BackColor = boardData.color_bottom;
                 taskCards_flowlayoutPanel.BackColor = boardData.color_bottom;
             }

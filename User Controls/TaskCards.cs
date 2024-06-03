@@ -132,7 +132,7 @@ namespace TearDown_Project_mangament_software.User_Controls
             if (dateTime == new DateTime())
             {
                 due_lbl.Text = "Due: None";
-                
+
             }
             else
             {
@@ -228,23 +228,23 @@ namespace TearDown_Project_mangament_software.User_Controls
                 missedDeadline = false;
             }
             else
-            { 
+            {
                 if (timeSpan.TotalSeconds <= 0)
                 {
                     color_atb_pb.BackColor = Color.Red;
-                  
-                    missedDeadline = true; 
+
+                    missedDeadline = true;
                 }
                 else if (timeSpan.TotalSeconds > 0 && timeSpan.TotalHours <= 24)
                 {
                     color_atb_pb.BackColor = Color.Orange;
-                    
+
                     missedDeadline = false;
                 }
                 else if (timeSpan.TotalDays >= 1)
                 {
                     color_atb_pb.BackColor = Color.Green;
-                    
+
                     missedDeadline = false;
                 }
                 else
@@ -254,10 +254,34 @@ namespace TearDown_Project_mangament_software.User_Controls
                 }
             }
         }
-        #endregion 
+        #endregion
 
         #region Notif Icon
-      
+
         #endregion
+
+        private void TaskCards_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                DoDragDrop(this, DragDropEffects.Move);
+            }
+        }
+
+        private void task_condition_panel_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                DoDragDrop(this, DragDropEffects.Move);
+            }
+        }
+
+        private void Task_color_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                DoDragDrop(this, DragDropEffects.Move);
+            }
+        }
     }
 }

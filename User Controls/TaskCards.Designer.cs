@@ -55,6 +55,7 @@
             task_condition_panel.Name = "task_condition_panel";
             task_condition_panel.Size = new Size(386, 123);
             task_condition_panel.TabIndex = 0;
+            task_condition_panel.MouseDown += task_condition_panel_MouseDown;
             // 
             // Task_color
             // 
@@ -66,6 +67,7 @@
             Task_color.Size = new Size(386, 33);
             Task_color.TabIndex = 4;
             Task_color.TabStop = false;
+            Task_color.MouseDown += Task_color_MouseDown;
             // 
             // due_lbl
             // 
@@ -166,6 +168,7 @@
             Load += TaskCards_Load;
             Enter += TaskCards_Enter;
             Leave += TaskCards_Leave;
+            MouseDown += TaskCards_MouseDown;
             Validated += TaskCards_Validated;
             task_condition_panel.ResumeLayout(false);
             task_condition_panel.PerformLayout();

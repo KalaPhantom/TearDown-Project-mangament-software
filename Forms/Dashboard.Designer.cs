@@ -30,6 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             Panel sp_panel_1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             missed_Counter_lbl = new Label();
             upcoming_Counter_lbl = new Label();
             label5 = new Label();
@@ -336,7 +337,7 @@
             // timer_populate_flp
             // 
             timer_populate_flp.Enabled = true;
-            timer_populate_flp.Interval = 5000;
+            timer_populate_flp.Interval = 4000000;
             timer_populate_flp.Tick += timer_populate_flp_Tick;
             // 
             // UpdateElelements_in_bg
@@ -346,7 +347,8 @@
             // 
             // notifyIcon
             // 
-            notifyIcon.Text = "notifyIcon1";
+            notifyIcon.Icon = (Icon)resources.GetObject("notifyIcon.Icon");
+            notifyIcon.Text = "Task Reminder";
             notifyIcon.Visible = true;
             // 
             // Dashboard
@@ -406,6 +408,7 @@
         private Button button1;
         private FlowLayoutPanel upcoming_task_db_fLp;
         private NotifyIcon notifyIcon;
+        //
         public static TextBox Description_box;
     }
 }
