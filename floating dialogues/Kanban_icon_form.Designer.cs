@@ -1,6 +1,6 @@
 ﻿namespace TearDown_Project_mangament_software.floating_dialogues
 {
-    partial class ReminederSettings
+    partial class Kanban_icon_form
     {
         /// <summary>
         /// Required designer variable.
@@ -29,18 +29,19 @@
         private void InitializeComponent()
         {
             button_container_panel = new Panel();
-            About_btn = new Button();
+            pictureBox1 = new PictureBox();
             Preferences_btn = new Button();
-            report_a_bug_btn = new Button();
+            About_btn = new Button();
             Picture_bg = new PictureBox();
             button_container_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Picture_bg).BeginInit();
             SuspendLayout();
             // 
             // button_container_panel
             // 
             button_container_panel.BackColor = Color.FromArgb(104, 93, 121);
-            button_container_panel.Controls.Add(report_a_bug_btn);
+            button_container_panel.Controls.Add(pictureBox1);
             button_container_panel.Controls.Add(Preferences_btn);
             button_container_panel.Controls.Add(About_btn);
             button_container_panel.Controls.Add(Picture_bg);
@@ -50,32 +51,36 @@
             button_container_panel.Size = new Size(246, 549);
             button_container_panel.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.icons8_bullseye_100;
+            pictureBox1.Location = new Point(12, 106);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(107, 106);
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            // 
+            // Preferences_btn
+            // 
+            Preferences_btn.Font = new Font("Cascadia Code", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Preferences_btn.Location = new Point(3, 479);
+            Preferences_btn.Name = "Preferences_btn";
+            Preferences_btn.Size = new Size(235, 58);
+            Preferences_btn.TabIndex = 1;
+            Preferences_btn.Text = "Reminder Settings";
+            Preferences_btn.UseVisualStyleBackColor = true;
+            Preferences_btn.Click += Preferences_btn_Click;
+            // 
             // About_btn
             // 
-            About_btn.Location = new Point(3, 360);
+            About_btn.Font = new Font("Cascadia Code", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            About_btn.Location = new Point(3, 415);
             About_btn.Name = "About_btn";
             About_btn.Size = new Size(235, 58);
             About_btn.TabIndex = 0;
             About_btn.Text = "About";
             About_btn.UseVisualStyleBackColor = true;
-            // 
-            // Preferences_btn
-            // 
-            Preferences_btn.Location = new Point(3, 424);
-            Preferences_btn.Name = "Preferences_btn";
-            Preferences_btn.Size = new Size(235, 58);
-            Preferences_btn.TabIndex = 1;
-            Preferences_btn.Text = "Preferences";
-            Preferences_btn.UseVisualStyleBackColor = true;
-            // 
-            // report_a_bug_btn
-            // 
-            report_a_bug_btn.Location = new Point(3, 488);
-            report_a_bug_btn.Name = "report_a_bug_btn";
-            report_a_bug_btn.Size = new Size(235, 58);
-            report_a_bug_btn.TabIndex = 2;
-            report_a_bug_btn.Text = "Report a Bug";
-            report_a_bug_btn.UseVisualStyleBackColor = true;
+            About_btn.Click += About_btn_Click;
             // 
             // Picture_bg
             // 
@@ -87,7 +92,7 @@
             Picture_bg.TabIndex = 3;
             Picture_bg.TabStop = false;
             // 
-            // ReminederSettings
+            // Kanban_icon_form
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -96,9 +101,10 @@
             Controls.Add(button_container_panel);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             IsMdiContainer = true;
-            Name = "ReminederSettings";
+            Name = "Kanban_icon_form";
             Text = "Settings";
             button_container_panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)Picture_bg).EndInit();
             ResumeLayout(false);
         }
@@ -106,9 +112,9 @@
         #endregion
 
         private Panel button_container_panel;
-        private Button report_a_bug_btn;
         private Button Preferences_btn;
         private Button About_btn;
         private PictureBox Picture_bg;
+        private PictureBox pictureBox1;
     }
 }

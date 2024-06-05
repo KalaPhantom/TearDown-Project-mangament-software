@@ -103,6 +103,16 @@ namespace TearDown_Project_mangament_software.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_bullseye_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-bullseye-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_bullseye_100_2 {
             get {
                 object obj = ResourceManager.GetObject("icons8-bullseye-100-2", resourceCulture);
@@ -136,6 +146,56 @@ namespace TearDown_Project_mangament_software.Properties {
         internal static System.Drawing.Bitmap icons8_bullseye_50___W {
             get {
                 object obj = ResourceManager.GetObject("icons8-bullseye-50 - W", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_check_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-check-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_check_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-check-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_check_241 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-check-241", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_check_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-check-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_check_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-check-96", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -256,6 +316,16 @@ namespace TearDown_Project_mangament_software.Properties {
         internal static System.Drawing.Bitmap icons8_notes_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-notes-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_star_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-star-24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

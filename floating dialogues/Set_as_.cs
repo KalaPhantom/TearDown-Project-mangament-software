@@ -49,7 +49,7 @@ namespace TearDown_Project_mangament_software.floating_dialogues
         }
 
 
-        #region Priority Level of the task Cards
+        #region Priority Level of the task Cards control
         /// <summary>
         /// 
         /// </summary>
@@ -70,7 +70,7 @@ namespace TearDown_Project_mangament_software.floating_dialogues
         #endregion
 
 
-        #region deadline Ignore
+        #region deadline Ignore control
         // When the user wants to ignore the deadline
         private void radioButton6_CheckedChanged(object sender, EventArgs e)
         {
@@ -85,6 +85,8 @@ namespace TearDown_Project_mangament_software.floating_dialogues
         }
         #endregion
 
+
+        #region Task State radio button control
 
         // Mark as done
         private void Done_del_rdb_CheckedChanged(object sender, EventArgs e)
@@ -101,5 +103,11 @@ namespace TearDown_Project_mangament_software.floating_dialogues
         {
             Mark_as = "done_move_arcv";
         }
+
+        private void Doing_rdb_CheckedChanged(object sender, EventArgs e)
+        {
+            Mark_as = "doing";
+        }
+        #endregion
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_form));
             main_panel = new Panel();
             statusStrip1 = new StatusStrip();
             current_status_onb = new ToolStripStatusLabel();
@@ -112,6 +113,7 @@
             logo_button.TabIndex = 4;
             logo_button.TextAlign = ContentAlignment.BottomCenter;
             logo_button.UseVisualStyleBackColor = true;
+            logo_button.Click += logo_button_Click;
             // 
             // notes_btn
             // 
@@ -197,6 +199,7 @@
             Controls.Add(panel2);
             Controls.Add(statusStrip1);
             Controls.Add(main_panel);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             IsMdiContainer = true;
             Name = "Main_form";
             Text = "Tear Down";
@@ -220,6 +223,8 @@
         private Button logo_button;
         private System.Windows.Forms.Timer deadline_checker;
         private System.ComponentModel.BackgroundWorker Run_bg_processes;
+
+        // User defined access modifier
         public static ToolStripProgressBar toolStrip_progress_bar;
         public static ToolStripStatusLabel current_status_onb;
     }

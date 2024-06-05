@@ -408,7 +408,6 @@
         private Button button1;
         private FlowLayoutPanel upcoming_task_db_fLp;
         private NotifyIcon notifyIcon;
-        //
         public static TextBox Description_box;
     }
 }

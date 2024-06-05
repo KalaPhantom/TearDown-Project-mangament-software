@@ -35,8 +35,12 @@
             Priority_lvl_lbl = new Label();
             Status_color_pb = new PictureBox();
             Timer_ticker_l = new System.Windows.Forms.Timer(components);
+            selection_indicator_2 = new PictureBox();
+            selection_indicator1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)ColorDisplay_pb).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Status_color_pb).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)selection_indicator_2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)selection_indicator1).BeginInit();
             SuspendLayout();
             // 
             // ColorDisplay_pb
@@ -96,11 +100,34 @@
             Timer_ticker_l.Interval = 1000;
             Timer_ticker_l.Tick += Timer_ticker_l_Tick;
             // 
+            // selection_indicator_2
+            // 
+            selection_indicator_2.BackColor = Color.White;
+            selection_indicator_2.Dock = DockStyle.Right;
+            selection_indicator_2.Location = new Point(490, 0);
+            selection_indicator_2.Name = "selection_indicator_2";
+            selection_indicator_2.Size = new Size(10, 154);
+            selection_indicator_2.TabIndex = 5;
+            selection_indicator_2.TabStop = false;
+            selection_indicator_2.Visible = false;
+            // 
+            // selection_indicator1
+            // 
+            selection_indicator1.BackColor = Color.White;
+            selection_indicator1.Location = new Point(20, 0);
+            selection_indicator1.Name = "selection_indicator1";
+            selection_indicator1.Size = new Size(10, 155);
+            selection_indicator1.TabIndex = 6;
+            selection_indicator1.TabStop = false;
+            selection_indicator1.Visible = false;
+            // 
             // DashboardContentCard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(71, 92, 122);
+            Controls.Add(selection_indicator1);
+            Controls.Add(selection_indicator_2);
             Controls.Add(Status_color_pb);
             Controls.Add(Priority_lvl_lbl);
             Controls.Add(Due_lbl);
@@ -109,8 +136,11 @@
             Name = "DashboardContentCard";
             Size = new Size(500, 154);
             Click += DashboardContentCard_Click;
+            Leave += DashboardContentCard_Leave;
             ((System.ComponentModel.ISupportInitialize)ColorDisplay_pb).EndInit();
             ((System.ComponentModel.ISupportInitialize)Status_color_pb).EndInit();
+            ((System.ComponentModel.ISupportInitialize)selection_indicator_2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)selection_indicator1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -123,5 +153,7 @@
         private Label Priority_lvl_lbl;
         private System.Windows.Forms.Timer Timer_ticker_l;
         public PictureBox Status_color_pb;
+        private PictureBox selection_indicator_2;
+        private PictureBox selection_indicator1;
     }
 }

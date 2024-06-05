@@ -15,24 +15,46 @@ using System.Collections.Concurrent;
 using System.Security.Cryptography.X509Certificates;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
+
+#pragma warning disable
+
 namespace TearDown_Project_mangament_software.Forms
 {
     public partial class Dashboard : Form
     {
 
+        /// <summary>
+        /// A thread-safe collection
+        /// </summary>
+        /// 
+
+        #region Properties and Public data structures
         ConcurrentBag<TaskCards> taskCards = new ConcurrentBag<TaskCards>();
 
         public int missedTAsk = 0;
         public int upcoming = 0;
+        public static int _thread_interval = 60000;
+        #endregion
+
 
         public Dashboard()
         {
+
             InitializeComponent();
+            timer_populate_flp.Interval = _thread_interval; 
+
+            // TODO : Make a deserializer - - - - 
+
+            // Initiate all threads (including timers for multithreading)
             Timer_update_1.Start();
-
-
             UpdateElelements_in_bg.RunWorkerAsync();
             timer_populate_flp.Start();
+
+            // A separate thread to run the start-up notification 
+            Thread runOnStart = new Thread(Start_up_Alert);
+            runOnStart.Start();
+
+            reminderInterval_JsonSerializer();
 
         }
 
@@ -55,8 +77,11 @@ namespace TearDown_Project_mangament_software.Forms
 
 
         #region Json Deserializer Funtions 
-
-
+        public void reminderInterval_JsonSerializer()
+        {
+            string jsonString = JsonConvert.SerializeObject(_thread_interval);
+            File.WriteAllText(@"Interval_data.json", jsonString);
+        }
         #endregion
 
         #region Counter
@@ -67,8 +92,7 @@ namespace TearDown_Project_mangament_software.Forms
             int missedTask = 0; // Count
             int upcommingTask = 0; // Count
 
-            //this.upcoming = upcoming;
-            //this.missedTask = missedTask;
+         
 
             foreach (TaskCards cards in Canban_Column_1.taskCards_flowlayoutPanel.Controls)
             {
@@ -147,12 +171,19 @@ namespace TearDown_Project_mangament_software.Forms
 
         #region Populate the upcoming tasks
 
+
+        /// <summary>
+        /// This method gets all task cards in a collection of objects to check certain conditions
+        /// When the due of a task card object property is within the 24 hours time span - the card property object will be -
+        ///  set to another similar card object (another task card specifically synthesized for the dashboard) and will populate the 
+        ///  flow layout panel. The same will happen when the card object property - priority level - is set to "top" ()
+        /// </summary>
         public static bool executionOnce = true;
 
         public void PopulateTasksOn_flp()
         {
 
-
+            // Check weather the program is inited only once
             if (executionOnce)
             {
                 executionOnce = false;
@@ -171,8 +202,21 @@ namespace TearDown_Project_mangament_software.Forms
                         //upcoming_task_db_fLp.Controls.Add(newCards);
                         AddCardsToPanel(newCards);
                     }
+
+                    if (cards.prioritylevel == "top")
+                    {
+                        DashboardContentCard newCards = new DashboardContentCard();
+                        newCards.TaskName = String.Concat("Name: ", cards.TaskName);
+                        newCards.dateTime = cards.dateTime;
+                        newCards.TaskColor = cards.taskColor;
+                        newCards.Description = cards.taskDescription;
+                        newCards.PriortyLevel = cards.prioritylevel;
+                        //upcoming_task_db_fLp.Controls.Add(newCards);
+                        AddCardsToPanel(newCards);
+                    }
                 }
             }
+            // this condition will be triggered when the user clicks the refresh button
             else
             {
                 ClearCardsToPanel();
@@ -192,10 +236,19 @@ namespace TearDown_Project_mangament_software.Forms
                         //upcoming_task_db_fLp.Controls.Add(newCards);
                         AddCardsToPanel(newCards);
                     }
+
+                    if (cards.prioritylevel == "top")
+                    {
+                        DashboardContentCard newCards = new DashboardContentCard();
+                        newCards.TaskName = String.Concat("Name: ", cards.TaskName);
+                        newCards.dateTime = cards.dateTime;
+                        newCards.TaskColor = cards.taskColor;
+                        newCards.Description = cards.taskDescription;
+                        newCards.PriortyLevel = cards.prioritylevel;
+                        //upcoming_task_db_fLp.Controls.Add(newCards);
+                        AddCardsToPanel(newCards);
+                    }
                 }
-
-
-                Thread.Sleep(2000);
 
             }
         }
@@ -237,10 +290,8 @@ namespace TearDown_Project_mangament_software.Forms
 
         private void UpdateElelements_in_bg_DoWork(object sender, DoWorkEventArgs e)
         {
-
             StoreCardData();
             PopulateTasksOn_flp();
-
 
         }
 
@@ -263,6 +314,7 @@ namespace TearDown_Project_mangament_software.Forms
             }
         }
 
+        // Clear all controls added to the flow layout panel
         private void ClearCardsToPanel()
         {
 
@@ -276,15 +328,18 @@ namespace TearDown_Project_mangament_software.Forms
             }
         }
 
+        // Invoked when the user press the refresh button
         private void button1_Click(object sender, EventArgs e)
         {
 
+            // Try-cath condition to prevent user button spamming
             try
             {
                 UpdateElelements_in_bg.RunWorkerAsync();
                 Main_form.current_status_onb.Text = "Updating........";
                 Main_form.toolStrip_progress_bar.Visible = true;
             }
+            // cathces the invalid operation exception - occurs when the instance is called multiple times while the background worker is runnning
             catch (System.InvalidOperationException)
             {
                 MessageBox.Show("The Board is already updating in the background.... \n Pls Wait");
@@ -292,6 +347,8 @@ namespace TearDown_Project_mangament_software.Forms
 
         }
 
+
+        #region Set Date of the day 
         private string GetTimeOfDay(DateTime dateTime)
         {
             int hour = dateTime.Hour;
@@ -313,14 +370,29 @@ namespace TearDown_Project_mangament_software.Forms
                 return "Good Night User";
             }
         }
+        #endregion
 
 
+        #region The notification System
         // An iterative function that invokes whenever a timer control associated on it ticks (Per Milliseconds)
+        // TODO: Do a pre reminder notification function
+
+        private void Start_up_Alert()
+        {
+            Thread.Sleep(2000);
+            notifyIcon.BalloonTipTitle = $"Reminder you have {missedTask} missed task and {upcommingTask} upcoming task";
+            notifyIcon.BalloonTipText = "Tear-Down task reminders";
+            notifyIcon.ShowBalloonTip(3000);
+        }
         private void timer_populate_flp_Tick(object sender, EventArgs e)
         {
+
+            Thread.Sleep(2000);
             notifyIcon.BalloonTipTitle = $"Reminder you have {missedTask} missed task and {upcommingTask} upcoming task";
             notifyIcon.BalloonTipText = "This is your 4-hour reminder!";
             notifyIcon.ShowBalloonTip(3000);
         }
+
+        #endregion
     }
 }

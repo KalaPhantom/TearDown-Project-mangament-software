@@ -30,6 +30,9 @@
         {
             components = new System.ComponentModel.Container();
             task_condition_panel = new Panel();
+            selection_indicator = new PictureBox();
+            priority_icon_pb = new PictureBox();
+            check_icon_pb = new PictureBox();
             Task_color = new PictureBox();
             due_lbl = new Label();
             taskcard_name_lbl = new Label();
@@ -40,6 +43,9 @@
             task_atr_timer = new System.Windows.Forms.Timer(components);
             Alert_icon = new NotifyIcon(components);
             task_condition_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)selection_indicator).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)priority_icon_pb).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)check_icon_pb).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Task_color).BeginInit();
             ((System.ComponentModel.ISupportInitialize)color_atb_pb).BeginInit();
             SuspendLayout();
@@ -47,6 +53,9 @@
             // task_condition_panel
             // 
             task_condition_panel.BackColor = Color.FromArgb(104, 93, 121);
+            task_condition_panel.Controls.Add(selection_indicator);
+            task_condition_panel.Controls.Add(priority_icon_pb);
+            task_condition_panel.Controls.Add(check_icon_pb);
             task_condition_panel.Controls.Add(Task_color);
             task_condition_panel.Controls.Add(due_lbl);
             task_condition_panel.Controls.Add(taskcard_name_lbl);
@@ -55,7 +64,42 @@
             task_condition_panel.Name = "task_condition_panel";
             task_condition_panel.Size = new Size(386, 123);
             task_condition_panel.TabIndex = 0;
+            task_condition_panel.Click += task_condition_panel_Click;
+            task_condition_panel.Leave += task_condition_panel_Leave;
             task_condition_panel.MouseDown += task_condition_panel_MouseDown;
+            // 
+            // selection_indicator
+            // 
+            selection_indicator.BackColor = Color.White;
+            selection_indicator.Location = new Point(0, 0);
+            selection_indicator.Name = "selection_indicator";
+            selection_indicator.Size = new Size(244, 10);
+            selection_indicator.TabIndex = 7;
+            selection_indicator.TabStop = false;
+            selection_indicator.Visible = false;
+            // 
+            // priority_icon_pb
+            // 
+            priority_icon_pb.BackColor = Color.FromArgb(252, 187, 109);
+            priority_icon_pb.BackgroundImageLayout = ImageLayout.Center;
+            priority_icon_pb.Image = Properties.Resources.icons8_star_24;
+            priority_icon_pb.Location = new Point(316, 0);
+            priority_icon_pb.Name = "priority_icon_pb";
+            priority_icon_pb.Size = new Size(32, 30);
+            priority_icon_pb.TabIndex = 6;
+            priority_icon_pb.TabStop = false;
+            priority_icon_pb.Visible = false;
+            // 
+            // check_icon_pb
+            // 
+            check_icon_pb.BackColor = Color.FromArgb(252, 187, 109);
+            check_icon_pb.Image = Properties.Resources.icons8_check_241;
+            check_icon_pb.Location = new Point(354, 3);
+            check_icon_pb.Name = "check_icon_pb";
+            check_icon_pb.Size = new Size(29, 30);
+            check_icon_pb.TabIndex = 5;
+            check_icon_pb.TabStop = false;
+            check_icon_pb.Visible = false;
             // 
             // Task_color
             // 
@@ -172,6 +216,9 @@
             Validated += TaskCards_Validated;
             task_condition_panel.ResumeLayout(false);
             task_condition_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)selection_indicator).EndInit();
+            ((System.ComponentModel.ISupportInitialize)priority_icon_pb).EndInit();
+            ((System.ComponentModel.ISupportInitialize)check_icon_pb).EndInit();
             ((System.ComponentModel.ISupportInitialize)Task_color).EndInit();
             ((System.ComponentModel.ISupportInitialize)color_atb_pb).EndInit();
             ResumeLayout(false);
@@ -189,5 +236,8 @@
         private System.Windows.Forms.Timer task_atr_timer;
         private NotifyIcon Alert_icon;
         public PictureBox color_atb_pb;
+        private PictureBox priority_icon_pb;
+        private PictureBox check_icon_pb;
+        private PictureBox selection_indicator;
     }
 }

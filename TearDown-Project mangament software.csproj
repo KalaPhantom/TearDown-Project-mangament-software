@@ -16,6 +16,7 @@
   <ItemGroup>
     <Folder Include="Custom Controls\Controls\" />
     <Folder Include="Default Components Settings\" />
+    <Folder Include="floating dialogues\Static Forms - Kanban Icon\" />
   </ItemGroup>
 
   <ItemGroup>

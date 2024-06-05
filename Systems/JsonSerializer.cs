@@ -26,15 +26,36 @@ namespace TearDown_Project_mangament_software.Systems
 
     public class KanbanCardData
     {
-        // Data model for Kanban Card
+        // Data model for Kanban Card 
+        // This will contain all data properties to be stored in an object when serializing and deserializing all object properties 
+
+        // Name of the task card object
         public string taskName { get; set; }
+
+        // Task Descriptio
         public string taskDescription { get; set; }
+
+        // Object reference for the priority level
         public string taskPriorityLevel { get; set; }
+
+        // Ignore due (referenec)
         public bool ignoreDeadline { get; set; }
+
+        // Due date 
         public DateTime dueDate { get; set; }
+
+        // Task card header color
         public Color taskCardColor { get; set; }
 
+        // A state marker (Bool) wheather the user missed a deadline
         public bool missedDeadLine { get; set; }
+
+        // A property weather the user is done doing a certain task
+
+        public string TaskState { get;set; } 
+
+
+
     }
     
 }
