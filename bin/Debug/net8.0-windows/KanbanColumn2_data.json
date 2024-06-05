@@ -1,0 +1,37 @@
+{
+  "column1": [],
+  "column2": [
+    {
+      "taskName": "Matulog Ulet",
+      "taskDescription": "",
+      "taskPriorityLevel": "top",
+      "ignoreDeadline": true,
+      "dueDate": "2024-05-24T23:00:00",
+      "taskCardColor": "252, 187, 109",
+      "missedDeadLine": false,
+      "TaskState": "done"
+    },
+    {
+      "taskName": "Task 0",
+      "taskDescription": null,
+      "taskPriorityLevel": null,
+      "ignoreDeadline": true,
+      "dueDate": "0001-01-01T00:00:00",
+      "taskCardColor": "252, 187, 109",
+      "missedDeadLine": false,
+      "TaskState": null
+    },
+    {
+      "taskName": "Task 1",
+      "taskDescription": "",
+      "taskPriorityLevel": null,
+      "ignoreDeadline": false,
+      "dueDate": "2024-06-05T07:29:13.511",
+      "taskCardColor": "252, 187, 109",
+      "missedDeadLine": true,
+      "TaskState": null
+    }
+  ],
+  "column3": [],
+  "column4": []
+}

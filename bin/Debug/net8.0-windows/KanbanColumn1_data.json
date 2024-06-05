@@ -1,0 +1,27 @@
+{
+  "column1": [
+    {
+      "taskName": "Task 1",
+      "taskDescription": null,
+      "taskPriorityLevel": null,
+      "ignoreDeadline": true,
+      "dueDate": "0001-01-01T00:00:00",
+      "taskCardColor": "252, 187, 109",
+      "missedDeadLine": false,
+      "TaskState": null
+    },
+    {
+      "taskName": "Task 1",
+      "taskDescription": null,
+      "taskPriorityLevel": "none",
+      "ignoreDeadline": true,
+      "dueDate": "0001-01-01T00:00:00",
+      "taskCardColor": "252, 187, 109",
+      "missedDeadLine": false,
+      "TaskState": "done"
+    }
+  ],
+  "column2": [],
+  "column3": [],
+  "column4": []
+}
