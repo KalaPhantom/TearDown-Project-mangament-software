@@ -58,5 +58,16 @@ namespace TearDown_Project_mangament_software.Setting_Form
             Reminder_Interval = 18000000;
             Dashboard._thread_interval = Reminder_Interval;
         }
+
+
+        #region Save btn
+        private void save_btn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("New reminder setting has been saved");
+            Dashboard._thread_interval = Reminder_Interval;
+
+
+        }
+        #endregion
     }
 }

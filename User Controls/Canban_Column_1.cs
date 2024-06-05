@@ -253,7 +253,6 @@ namespace TearDown_Project_mangament_software.User_Controls
                 LoadCards_to_flp(taskCards_flowlayoutPanel, boardData.column1);
             }
 
-            //Thread.Sleep(500);
             
         }
 

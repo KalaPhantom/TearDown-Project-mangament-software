@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             TxtBxTitle = new TextBox();
             TxtBxNotes = new TextBox();
             label1 = new Label();
@@ -40,15 +39,14 @@
             SaveBtn = new Button();
             Exitbtn = new Button();
             button1 = new Button();
+            groupBox1 = new GroupBox();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             label3 = new Label();
-            panel2 = new Panel();
-            Timer_tick_save = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)previousnotes).BeginInit();
+            groupBox1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // TxtBxTitle
@@ -56,30 +54,29 @@
             TxtBxTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TxtBxTitle.BackColor = Color.White;
             TxtBxTitle.Font = new Font("Lucida Sans", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            TxtBxTitle.Location = new Point(458, 150);
+            TxtBxTitle.Location = new Point(526, 135);
             TxtBxTitle.Margin = new Padding(3, 4, 3, 4);
             TxtBxTitle.Name = "TxtBxTitle";
-            TxtBxTitle.Size = new Size(765, 30);
+            TxtBxTitle.Size = new Size(786, 30);
             TxtBxTitle.TabIndex = 0;
             // 
             // TxtBxNotes
             // 
             TxtBxNotes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             TxtBxNotes.BackColor = Color.White;
-            TxtBxNotes.Location = new Point(458, 222);
+            TxtBxNotes.Location = new Point(526, 231);
             TxtBxNotes.Margin = new Padding(3, 4, 3, 4);
             TxtBxNotes.Multiline = true;
             TxtBxNotes.Name = "TxtBxNotes";
-            TxtBxNotes.Size = new Size(765, 486);
+            TxtBxNotes.Size = new Size(792, 373);
             TxtBxNotes.TabIndex = 1;
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Font = new Font("Cascadia Code", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Cascadia Code", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(252, 187, 109);
-            label1.Location = new Point(458, 119);
+            label1.Location = new Point(537, 103);
             label1.Name = "label1";
             label1.Size = new Size(84, 27);
             label1.TabIndex = 2;
@@ -87,29 +84,26 @@
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Font = new Font("Cascadia Code", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Cascadia Code", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(252, 187, 109);
-            label2.Location = new Point(458, 184);
+            label2.Location = new Point(537, 200);
             label2.Name = "label2";
             label2.Size = new Size(84, 27);
             label2.TabIndex = 3;
             label2.Text = "Notes:";
-            label2.Click += label2_Click;
             // 
             // previousnotes
             // 
-            previousnotes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             previousnotes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             previousnotes.BackgroundColor = Color.White;
             previousnotes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             previousnotes.GridColor = Color.Orange;
-            previousnotes.Location = new Point(14, 103);
+            previousnotes.Location = new Point(14, 101);
             previousnotes.Margin = new Padding(3, 4, 3, 4);
             previousnotes.Name = "previousnotes";
             previousnotes.RowHeadersWidth = 51;
-            previousnotes.Size = new Size(411, 437);
+            previousnotes.Size = new Size(493, 342);
             previousnotes.TabIndex = 4;
             previousnotes.CellContentDoubleClick += previousnotes_CellContentDoubleClick;
             previousnotes.CellDoubleClick += previousnotes_CellDoubleClick;
@@ -120,10 +114,10 @@
             LoadBtn.FlatStyle = FlatStyle.Flat;
             LoadBtn.Font = new Font("Cascadia Code", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LoadBtn.ForeColor = Color.FromArgb(252, 187, 109);
-            LoadBtn.Location = new Point(12, 15);
+            LoadBtn.Location = new Point(15, 27);
             LoadBtn.Margin = new Padding(3, 4, 3, 4);
             LoadBtn.Name = "LoadBtn";
-            LoadBtn.Size = new Size(188, 46);
+            LoadBtn.Size = new Size(223, 55);
             LoadBtn.TabIndex = 5;
             LoadBtn.Text = "Load";
             LoadBtn.UseVisualStyleBackColor = false;
@@ -135,10 +129,10 @@
             DeleteBtn.FlatStyle = FlatStyle.Flat;
             DeleteBtn.Font = new Font("Cascadia Code", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             DeleteBtn.ForeColor = Color.FromArgb(252, 187, 109);
-            DeleteBtn.Location = new Point(206, 15);
+            DeleteBtn.Location = new Point(244, 27);
             DeleteBtn.Margin = new Padding(3, 4, 3, 4);
             DeleteBtn.Name = "DeleteBtn";
-            DeleteBtn.Size = new Size(188, 46);
+            DeleteBtn.Size = new Size(243, 55);
             DeleteBtn.TabIndex = 6;
             DeleteBtn.Text = "Delete";
             DeleteBtn.UseVisualStyleBackColor = false;
@@ -150,12 +144,12 @@
             NewNotesBtn.FlatStyle = FlatStyle.Flat;
             NewNotesBtn.Font = new Font("Cascadia Code", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             NewNotesBtn.ForeColor = Color.FromArgb(252, 187, 109);
-            NewNotesBtn.Location = new Point(12, 69);
+            NewNotesBtn.Location = new Point(15, 90);
             NewNotesBtn.Margin = new Padding(3, 4, 3, 4);
             NewNotesBtn.Name = "NewNotesBtn";
-            NewNotesBtn.Size = new Size(188, 46);
+            NewNotesBtn.Size = new Size(223, 55);
             NewNotesBtn.TabIndex = 7;
-            NewNotesBtn.Text = "Save All";
+            NewNotesBtn.Text = "Save all";
             NewNotesBtn.UseVisualStyleBackColor = false;
             NewNotesBtn.Click += NewNotesBtn_Click;
             // 
@@ -165,10 +159,10 @@
             SaveBtn.FlatStyle = FlatStyle.Flat;
             SaveBtn.Font = new Font("Cascadia Code", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             SaveBtn.ForeColor = Color.FromArgb(252, 187, 109);
-            SaveBtn.Location = new Point(206, 69);
+            SaveBtn.Location = new Point(244, 90);
             SaveBtn.Margin = new Padding(3, 4, 3, 4);
             SaveBtn.Name = "SaveBtn";
-            SaveBtn.Size = new Size(188, 46);
+            SaveBtn.Size = new Size(243, 55);
             SaveBtn.TabIndex = 8;
             SaveBtn.Text = "Save";
             SaveBtn.UseVisualStyleBackColor = false;
@@ -179,14 +173,13 @@
             Exitbtn.BackColor = Color.Purple;
             Exitbtn.FlatStyle = FlatStyle.Popup;
             Exitbtn.Font = new Font("Gill Sans Ultra Bold", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            Exitbtn.Location = new Point(1523, 13);
+            Exitbtn.Location = new Point(1320, 13);
             Exitbtn.Margin = new Padding(3, 4, 3, 4);
             Exitbtn.Name = "Exitbtn";
             Exitbtn.Size = new Size(34, 31);
             Exitbtn.TabIndex = 9;
             Exitbtn.Text = "X";
             Exitbtn.UseVisualStyleBackColor = false;
-            Exitbtn.Visible = false;
             Exitbtn.Click += Exitbtn_Click;
             // 
             // button1
@@ -194,15 +187,26 @@
             button1.BackColor = Color.Purple;
             button1.FlatStyle = FlatStyle.Popup;
             button1.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            button1.Location = new Point(1483, 13);
+            button1.Location = new Point(1278, 12);
             button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
             button1.Size = new Size(34, 31);
             button1.TabIndex = 10;
             button1.Text = "-";
             button1.UseVisualStyleBackColor = false;
-            button1.Visible = false;
             button1.Click += button1_Click;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(DeleteBtn);
+            groupBox1.Controls.Add(LoadBtn);
+            groupBox1.Controls.Add(NewNotesBtn);
+            groupBox1.Controls.Add(SaveBtn);
+            groupBox1.Location = new Point(14, 450);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(493, 155);
+            groupBox1.TabIndex = 11;
+            groupBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -213,7 +217,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(1366, 77);
-            panel1.TabIndex = 11;
+            panel1.TabIndex = 12;
             // 
             // pictureBox1
             // 
@@ -235,26 +239,14 @@
             label3.TabIndex = 0;
             label3.Text = "Notes";
             // 
-            // panel2
-            // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            panel2.Controls.Add(LoadBtn);
-            panel2.Controls.Add(DeleteBtn);
-            panel2.Controls.Add(SaveBtn);
-            panel2.Controls.Add(NewNotesBtn);
-            panel2.Location = new Point(14, 553);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(411, 134);
-            panel2.TabIndex = 13;
-            // 
             // Notes_
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(71, 92, 122);
             ClientSize = new Size(1366, 721);
-            Controls.Add(panel2);
             Controls.Add(panel1);
+            Controls.Add(groupBox1);
             Controls.Add(button1);
             Controls.Add(Exitbtn);
             Controls.Add(previousnotes);
@@ -263,16 +255,15 @@
             Controls.Add(TxtBxNotes);
             Controls.Add(TxtBxTitle);
             FormBorderStyle = FormBorderStyle.None;
-            KeyPreview = true;
             Margin = new Padding(3, 4, 3, 4);
             Name = "Notes_";
             Text = "NoteTaker";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)previousnotes).EndInit();
+            groupBox1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -290,10 +281,9 @@
         private Button SaveBtn;
         private Button Exitbtn;
         private Button button1;
+        private GroupBox groupBox1;
         private Panel panel1;
-        private Panel panel2;
         private PictureBox pictureBox1;
         private Label label3;
-        private System.Windows.Forms.Timer Timer_tick_save;
     }
 }

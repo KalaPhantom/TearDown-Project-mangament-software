@@ -54,6 +54,7 @@
             timer_populate_flp = new System.Windows.Forms.Timer(components);
             UpdateElelements_in_bg = new System.ComponentModel.BackgroundWorker();
             notifyIcon = new NotifyIcon(components);
+            timer_ref = new System.Windows.Forms.Timer(components);
             sp_panel_1 = new Panel();
             sp_panel_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -351,6 +352,11 @@
             notifyIcon.Text = "Task Reminder";
             notifyIcon.Visible = true;
             // 
+            // timer_ref
+            // 
+            timer_ref.Interval = 500;
+            timer_ref.Tick += timer_ref_Tick;
+            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -408,6 +414,7 @@
         private Button button1;
         private FlowLayoutPanel upcoming_task_db_fLp;
         private NotifyIcon notifyIcon;
+        private static System.Windows.Forms.Timer timer_ref;
         public static TextBox Description_box;
     }
 }

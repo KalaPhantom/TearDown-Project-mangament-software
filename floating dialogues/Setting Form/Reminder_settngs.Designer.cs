@@ -37,6 +37,7 @@
             rdb_3hr = new RadioButton();
             rdb_4hr = new RadioButton();
             rdb_30_min = new RadioButton();
+            save_btn = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -160,12 +161,26 @@
             rdb_30_min.UseVisualStyleBackColor = true;
             rdb_30_min.CheckedChanged += rdb_30_min_CheckedChanged;
             // 
+            // save_btn
+            // 
+            save_btn.FlatStyle = FlatStyle.Flat;
+            save_btn.Font = new Font("Cascadia Code", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            save_btn.ForeColor = Color.FromArgb(252, 187, 109);
+            save_btn.Location = new Point(277, 365);
+            save_btn.Name = "save_btn";
+            save_btn.Size = new Size(94, 29);
+            save_btn.TabIndex = 5;
+            save_btn.Text = "Save";
+            save_btn.UseVisualStyleBackColor = true;
+            save_btn.Click += save_btn_Click;
+            // 
             // Reminder_settngs
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(104, 93, 121);
             ClientSize = new Size(685, 486);
+            Controls.Add(save_btn);
             Controls.Add(groupBox1);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -189,5 +204,6 @@
         private RadioButton rdb_3hr;
         private RadioButton rdb_4hr;
         private RadioButton rdb_30_min;
+        private Button save_btn;
     }
 }

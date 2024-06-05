@@ -604,4 +604,7 @@
         AAAHn8AA//4AAB/fwAD//8AA///AAP///////8AA////////wAA=
 </value>
   </data>
+  <metadata name="timer_ref.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>716, 17</value>
+  </metadata>
 </root>

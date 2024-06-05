@@ -14,6 +14,7 @@ using System.Threading;
 using System.Collections.Concurrent;
 using System.Security.Cryptography.X509Certificates;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using TearDown_Project_mangament_software.Systems;
 
 
 #pragma warning disable
@@ -33,7 +34,13 @@ namespace TearDown_Project_mangament_software.Forms
 
         public int missedTAsk = 0;
         public int upcoming = 0;
-        public static int _thread_interval = 60000;
+        public static int _thread_interval;
+
+        public int SetThread_auto
+        {
+            get { return timer_populate_flp.Interval; }
+            set { timer_populate_flp.Interval = value; }
+        }
         #endregion
 
 
@@ -41,9 +48,10 @@ namespace TearDown_Project_mangament_software.Forms
         {
 
             InitializeComponent();
-            timer_populate_flp.Interval = _thread_interval; 
+            timer_ref.Start();
 
-            // TODO : Make a deserializer - - - - 
+            // Initialize reminder setting interval 
+            reminderInterval_JsonDeserializer();
 
             // Initiate all threads (including timers for multithreading)
             Timer_update_1.Start();
@@ -54,7 +62,7 @@ namespace TearDown_Project_mangament_software.Forms
             Thread runOnStart = new Thread(Start_up_Alert);
             runOnStart.Start();
 
-            reminderInterval_JsonSerializer();
+           
 
         }
 
@@ -76,12 +84,27 @@ namespace TearDown_Project_mangament_software.Forms
 
 
 
-        #region Json Deserializer Funtions 
-        public void reminderInterval_JsonSerializer()
+        #region Json Deserializer/Serializer Funtions 
+        private void reminderInterval_JsonSerializer()
         {
             string jsonString = JsonConvert.SerializeObject(_thread_interval);
             File.WriteAllText(@"Interval_data.json", jsonString);
         }
+
+        private void reminderInterval_JsonDeserializer()
+        {
+            if (File.Exists(@"Interval_data.json"))
+            {
+                string jsonString = File.ReadAllText(@"Interval_data.json");
+                var Interval = JsonConvert.DeserializeObject<int>(jsonString);
+                int ConvertedInterval = Convert.ToInt32(Interval);
+                _thread_interval = ConvertedInterval;
+
+            }
+        }
+
+
+
         #endregion
 
         #region Counter
@@ -92,7 +115,7 @@ namespace TearDown_Project_mangament_software.Forms
             int missedTask = 0; // Count
             int upcommingTask = 0; // Count
 
-         
+
 
             foreach (TaskCards cards in Canban_Column_1.taskCards_flowlayoutPanel.Controls)
             {
@@ -387,12 +410,21 @@ namespace TearDown_Project_mangament_software.Forms
         private void timer_populate_flp_Tick(object sender, EventArgs e)
         {
 
-            Thread.Sleep(2000);
+            timer_populate_flp.Interval = _thread_interval;
             notifyIcon.BalloonTipTitle = $"Reminder you have {missedTask} missed task and {upcommingTask} upcoming task";
-            notifyIcon.BalloonTipText = "This is your 4-hour reminder!";
+            notifyIcon.BalloonTipText = "Task Reminder";
             notifyIcon.ShowBalloonTip(3000);
         }
-
         #endregion
+
+        private void timer_ref_Tick(object sender, EventArgs e)
+        {
+           
+            // Resets the value for time interval
+            timer_populate_flp.Interval = _thread_interval;
+            
+            // Serialize all data
+            reminderInterval_JsonSerializer();
+        }
     }
 }
