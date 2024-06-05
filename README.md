@@ -1,9 +1,9 @@
 TEARDOWN:  BASIC KANBAN STYLE PROJECT/TASK MANAGEMENT  SYSTEM - WINDOWS FORMS PROJECT (Productivity Application)
 
 CREATED BY:
-> Lerado, Allen
-> Gahuman, Reniel
-> Dela Rosa Erol Dwayne
+> Lerado, Allen -
+> Gahuman, Reniel -
+> Dela Rosa Erol Dwayne -
 
 = = = = = = = OVERVIEW = = = = = = = = = = = = =
 
@@ -26,7 +26,7 @@ CURRENT VERSION: 0.1 Beta
 
 
 = = = Fixes= = = = = = = = = = = = = = = =  = = = = >
-> The notification system is now working with additional settings for time interval
+> The notification system is now working with additional settings for time interval - - 
 > The notes system has been fixed
  = = = =  = = = = = = = = = = = = = =  = = = = = = = >
 
